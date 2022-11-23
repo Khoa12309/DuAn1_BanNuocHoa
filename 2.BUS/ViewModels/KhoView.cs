@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.ViewModels
 {
-    internal class KhoView
     {
     }
 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.ViewModels
 {
-    internal class HangView
+   public class HangView
     {
+        public Guid ID { get; set; }
+        public string MaHang { get; set; }
+        public string TenHang { get; set; }
     }
 }

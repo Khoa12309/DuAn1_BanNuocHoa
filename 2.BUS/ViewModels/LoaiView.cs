@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.ViewModels
 {
-    internal class LoaiView
+    public class LoaiView
     {
+        public Guid Id { get; set; }
+        public string MaloaiSp { get; set; }
+        public string TenloaiSp { get; set; }
     }
 }
