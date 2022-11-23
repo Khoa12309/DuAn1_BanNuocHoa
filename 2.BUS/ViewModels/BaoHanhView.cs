@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.ViewModels
 {
+//ad
     internal class BaoHanhView
     {
     }
