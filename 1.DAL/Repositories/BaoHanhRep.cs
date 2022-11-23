@@ -1,5 +1,4 @@
-﻿using _1.DAL.ContextDataBase;
-using _1.DAL.IRepositories;
+﻿using _1.DAL.IRepositories;
 using _1.DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -11,8 +10,6 @@ namespace _1.DAL.Repositories
 {
     public class BaoHanhRep : IBaoHanhRep
     {
-        private ContextDB _Dbcontext;
-
         public bool Add(BaoHanh obj)
         {
             throw new NotImplementedException();
