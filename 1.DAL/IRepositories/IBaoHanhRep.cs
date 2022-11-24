@@ -12,6 +12,6 @@ namespace _1.DAL.IRepositories
         public bool Add(BaoHanh obj);
         public bool Update(BaoHanh obj);
         public bool Delete(BaoHanh obj);
-        public List<BaoHanh> GetAllKh();
+        public List<BaoHanh> GetAllBh();
     }
 }
