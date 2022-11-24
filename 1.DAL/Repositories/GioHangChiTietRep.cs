@@ -12,25 +12,49 @@ namespace _1.DAL.Repositories
     public class GioHangChiTietRep : IGioHangChiTietRepcs
     {
         private ContextDB _Dbcontext;
+        private List<GioHangChiTiet> _lisGHCT;
+        public GioHangChiTietRep()
+        {
+            _Dbcontext = new ContextDB();
+            _lisGHCT = new List<GioHangChiTiet>();  
+        }
 
         public bool Add(GioHangChiTiet obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            _Dbcontext.Add(obj);
+            _Dbcontext.SaveChanges();
+            return true;
         }
 
         public bool Delete(GioHangChiTiet obj)
         {
-            throw new NotImplementedException();
+            if (obj == null) return false;
+            var temp = _Dbcontext.GioHangChiTiets.FirstOrDefault(c => c.IdGH == obj.IdGH);
+            _Dbcontext.Remove(temp);
+            _Dbcontext.SaveChanges();
+            return true;
         }
 
         public List<GioHangChiTiet> GetAllKh()
         {
-            throw new NotImplementedException();
+            _lisGHCT = _Dbcontext.GioHangChiTiets.ToList();
+            return _lisGHCT;
         }
 
         public bool Update(GioHangChiTiet obj)
         {
-            throw new NotImplementedException();
+            if (obj == null) return false;
+            var temp = _Dbcontext.GioHangChiTiets.FirstOrDefault(c => c.IdGH == obj.IdGH);
+            temp.SoLuong = obj.SoLuong;
+            temp.DonGia = obj.DonGia;
+
+            _Dbcontext.GioHangChiTiets.Update(temp);
+            _Dbcontext.SaveChanges();
+            return true;
         }
     }
 }
