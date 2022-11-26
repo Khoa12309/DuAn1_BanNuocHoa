@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HOBepQ0yVUNemcK8kxK2KAgYPBLVXi38GP+4YMefS5jPElgHwXS2Om7pzneyURNIR++zRXJMj4UpcOl709FCUQ==",
+  "dgSpecHash": "m0pMvWyb7z2Wbw+cXhLSn1KNV7S0LChptrAjmlKberaupZNJvq+jJQ4YmAhKugZvQNpSxpm1hlsoCa+wV9jSmQ==",
   "success": true,
-  "projectFilePath": "D:\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj",
+  "projectFilePath": "C:\\Users\\ACER\\Desktop\\555\\1.DAL\\1.DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

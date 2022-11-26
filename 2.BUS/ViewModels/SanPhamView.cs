@@ -9,7 +9,7 @@ namespace _2.BUS.ViewModels
    public class SanPhamView
     {
         public Guid ID { get; set; }
-        public Guid IDSp { get; set; }
+        public Guid IDLSp { get; set; }
         public Guid IDKho { get; set; }
         public Guid IDHang { get; set; }
 
