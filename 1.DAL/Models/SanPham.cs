@@ -10,7 +10,7 @@ namespace _1.DAL.Models
     public class SanPham
     {
         public Guid ID { get;set; }
-        public Guid IDSp { get;set; }
+        public Guid IDLSp { get;set; }
         public Guid IDKho { get;set; }
         public Guid IDHang { get;set; }
        

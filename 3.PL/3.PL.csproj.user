@@ -4,5 +4,8 @@
     <Compile Update="Views\FrmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

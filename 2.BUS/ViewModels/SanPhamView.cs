@@ -23,5 +23,6 @@ namespace _2.BUS.ViewModels
         public int TrangThai { get; set; }
         public float GiaNhap { get; set; }
         public float GiaBan { get; set; }
+
     }
 }
