@@ -12,6 +12,6 @@ namespace _1.DAL.IRepositories
         public bool Add(LoaiSp obj);
         public bool Update(LoaiSp obj);
         public bool Delete(LoaiSp obj);
-        public List<LoaiSp> GetAllNv();
+        public List<LoaiSp> GetAllLsp();
     }
 }

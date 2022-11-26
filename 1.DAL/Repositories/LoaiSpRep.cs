@@ -23,7 +23,7 @@ namespace _1.DAL.Repositories
             throw new NotImplementedException();
         }
 
-        public List<LoaiSp> GetAllNv()
+        public List<LoaiSp> GetAllLsp()
         {
             throw new NotImplementedException();
         }
