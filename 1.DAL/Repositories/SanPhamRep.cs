@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repositories
 {
-    internal class SanPhamRep
+    public class SanPhamRep
     {
+        gfsdfdsfds
     }
 }
