@@ -24,8 +24,8 @@ namespace _1.DAL.ContextDataBase
         {
             // Thực hiện các ràng buộc kết nối
             base.OnConfiguring(optionsBuilder.
-                UseSqlServer("Data Source=LAPTOP-N6FK027M;Initial Catalog=DABanNuocHoa;" +
-                "Persist Security Info=True;User ID=khoaph20877;Password=123456"));
+                UseSqlServer("Data Source=DUNG-DEP-TRAI\\SQLEXPRESS Catalog=DABanNuocHoa;" +
+                "Persist Security Info=True;User ID=dungndph20833;Password=123456"));
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

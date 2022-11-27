@@ -31,7 +31,13 @@ namespace _1.DAL.Repositories
 
         public bool Delete(KhachHang obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            _Dbcontext.Add(obj);
+            _Dbcontext.SaveChanges();
+            return true;
         }
 
         public List<KhachHang> GetAllKh()
