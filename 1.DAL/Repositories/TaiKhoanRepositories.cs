@@ -16,6 +16,7 @@ namespace _1.DAL.Repositories
         public TaiKhoanRepositories()
         {
             _Dbcontext = new ContextDB();
+            _lstAcc = new List<Account>();
         }
         public List<Account> GetAllAccounts()
         {
@@ -25,17 +26,39 @@ namespace _1.DAL.Repositories
 
         public bool Add(Account account)
         {
-            throw new NotImplementedException();
+            if (account == null)
+            {
+                return false;
+            }
+            _Dbcontext.Add(account);
+            _Dbcontext.SaveChanges();
+            return true;
         }
 
         public bool Update(Account account)
         {
-            throw new NotImplementedException();
+            if (account == null)
+            {
+                return false;
+            }
+            var temp = _Dbcontext.accounts.FirstOrDefault(c =>c.Id == account.Id);
+            temp.TaiKhoan = account.TaiKhoan;
+            temp.MatKhau = account.MatKhau;
+            _Dbcontext.Update(temp);
+            _Dbcontext.SaveChanges();
+            return true;
         }
 
         public bool Delete(Account account)
         {
-            throw new NotImplementedException();
+            if (account == null)
+            {
+                return false;
+            }
+            var temp = _Dbcontext.accounts.FirstOrDefault(c => c.Id == account.Id);
+            _Dbcontext.Add(temp);
+            _Dbcontext.SaveChanges();
+            return true;
         }
     }
 }
