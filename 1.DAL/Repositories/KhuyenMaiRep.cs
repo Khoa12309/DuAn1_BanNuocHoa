@@ -44,8 +44,8 @@ namespace _1.DAL.Repositories
 
         public List<KhuyenMai> GetAllKm()
         {
-            //_lstKhuyenMai = _Dbcontext.KhuyenMais.ToList();
-            //return _lstKhuyenMai;
+            _lstKhuyenMai = _Dbcontext.KhuyenMais.ToList();
+            return _lstKhuyenMai;
         }
 
         public bool Update(KhuyenMai obj)

@@ -44,8 +44,8 @@ namespace _1.DAL.Repositories
 
         public List<LoaiSp> GetAllLsp()
         {
-            //_lstLoaiSP = _Dbcontext.LoaiSps.ToList();
-            //return _lstLoaiSP;
+            _lstLoaiSP = _Dbcontext.LoaiSps.ToList();
+            return _lstLoaiSP;
         }
 
         public bool Update(LoaiSp obj)
