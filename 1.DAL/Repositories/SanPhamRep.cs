@@ -58,7 +58,7 @@ namespace _1.DAL.Repositories
             temp.MuiHuong=sanPham.MuiHuong;
             temp.TrangThai=sanPham.TrangThai;   
             temp.Solong=sanPham.Solong;
-            temp.IDSp = sanPham.IDSp;
+            temp.IDLSp = sanPham.IDLSp;
             temp.IDHang= sanPham.IDHang;
 
             _Dbcontext.SanPhams.Update(temp);
