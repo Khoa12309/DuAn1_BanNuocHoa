@@ -31,17 +31,37 @@ namespace _1.DAL.Repositories
 
         public bool Delete(KhachHang obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            var temp = _Dbcontext.KhachHangs.FirstOrDefault(c => c.Id == obj.Id);
+            _Dbcontext.Remove(temp);
+            _Dbcontext.SaveChanges();
+            return true;
         }
 
         public List<KhachHang> GetAllKh()
         {
-            throw new NotImplementedException();
+            _lstKh = _Dbcontext.KhachHangs.ToList();
+            return _lstKh;
         }
 
         public bool Update(KhachHang obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            var temp = _Dbcontext.KhachHangs.FirstOrDefault(c => c.Id == obj.Id);
+            temp.STD = obj.STD;
+            temp.DiaChi = obj.DiaChi;
+            temp.TenKH = obj.TenKH;
+            temp.MaKH = obj.MaKH;
+            temp.GioiTinh = obj.GioiTinh;
+            _Dbcontext.Update(temp);
+            _Dbcontext.SaveChanges();
+            return true; 
         }
     }
 }

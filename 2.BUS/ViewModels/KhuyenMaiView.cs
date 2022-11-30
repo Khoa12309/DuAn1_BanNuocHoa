@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.ViewModels
 {
-    internal class KhuyenMaiView
+    public class KhuyenMaiView
     {
+        public Guid Id { get; set; }
+        public string MaKM { get; set; }
+        public float GiaTriKM { get; set; }
+        public DateTime NgayBD { get; set; }
+        public DateTime NgayKT { get; set; }
     }
 }

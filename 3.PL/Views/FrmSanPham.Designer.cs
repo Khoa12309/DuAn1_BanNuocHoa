@@ -91,6 +91,7 @@
             this.dgrid_sp.RowTemplate.Height = 29;
             this.dgrid_sp.Size = new System.Drawing.Size(1185, 197);
             this.dgrid_sp.TabIndex = 2;
+            this.dgrid_sp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_sp_CellContentClick);
             // 
             // txt_tk
             // 

@@ -43,6 +43,7 @@ namespace _2.BUS.Services
                 Solong = obj.Solong,
                 TenSp = obj.TenSp,
                 TrangThai = obj.TrangThai,
+                
                       
             };
             if (_Irep.Add(sp))
@@ -100,13 +101,15 @@ namespace _2.BUS.Services
                          GiaBan = a.GiaBan,
                          GiaNhap = a.GiaNhap,
                          HinhAnh = a.HinhAnh,
-                         IDHang = b.ID,
-                         IDLSp = c.Id,
+                         tenhang = b.TenHang,
+                         tenloai = c.TenloaiSp,
                          MaSp = a.MaSp,
                          MuiHuong = a.MuiHuong,
                          Solong = a.Solong,
                          TenSp = a.TenSp,
                          TrangThai = a.TrangThai,
+                         IDHang = b.ID,
+                         IDLSp = c.Id,
                      };
             return sp.ToList();
         }

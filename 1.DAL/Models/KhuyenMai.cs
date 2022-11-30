@@ -13,5 +13,6 @@ namespace _1.DAL.Models
         public float  GiaTriKM{ get; set; }
         public DateTime NgayBD { get; set; }
         public DateTime NgayKT { get; set; }
+     
     }
 }

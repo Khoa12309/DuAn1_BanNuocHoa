@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.ViewModels
 {
-    internal class GioHangView
+    public class GioHangView
     {
+        public Guid ID { get; set; }
+        public Guid IDKH { get; set; }
+        public string MaGH { get; set; }
+        public float DonGia { get; set; }
+        public string TinhTrang { get; set; }
+        public DateTime NgayTao { get; set; }
     }
 }
