@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4mc9H0Ym4tSpBboYedIKJtWtegz2Z2TgnNbddbdvT2B0Qi9p/YkM9I4KGujY+hHtosZA9QMfcAv+3Mb3IMjQaA==",
+  "dgSpecHash": "x8kyIObZLLkm+1vhL2JZH395LY5a/yka40gQpGwlJmYS4LSuq2lbUeSCFe418O62tv8R1nkwGNie2KWeboU0oQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ACER\\Desktop\\555\\2.BUS\\2.BUS.csproj",
+  "projectFilePath": "D:\\DuAn1_BanNuocHoa\\2.BUS\\2.BUS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
