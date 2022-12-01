@@ -12,11 +12,11 @@ namespace _1.DAL.Repositories
     public class KhuyenMaiRep : IKhuyenMaiRep
     {
         private ContextDB _Dbcontext;
-        private List<KhuyenMaiRep> _lstKhuyenMai;
+        private List<KhuyenMai> _lstKhuyenMai;
         public KhuyenMaiRep()
         {
             _Dbcontext = new ContextDB();
-            _lstKhuyenMai = new List<KhuyenMaiRep>();
+            _lstKhuyenMai = new List<KhuyenMai>();
         }
 
         public bool Add(KhuyenMai obj)

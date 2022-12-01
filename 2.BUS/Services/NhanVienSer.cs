@@ -32,14 +32,14 @@ namespace _2.BUS.Services
             var nv = from a in _Irep.GetAllNv().ToList()
                      select new NhanVienView()
                      {
-                          ChucVu=a.ChucVu,
-                           DiaChi=a.DiaChi,
-                            GioiTinh=a.GioiTinh,
-                             Id=a.Id,
-                              MaNV=a.MaNV,
-                               STD=a.STD,
-                                TenNV=a.TenNV,
-                                 TrangThai=a.TrangThai,
+                         ChucVu = a.ChucVu,
+                         DiaChi = a.DiaChi,
+                         GioiTinh = (int)a.GioiTinh,
+                         Id = a.Id,
+                         MaNV = a.MaNV,
+                         STD = a.STD,
+                         TenNV = a.TenNV,
+                         TrangThai = (int)a.TrangThai,
                      };
             return nv.ToList();
         }
