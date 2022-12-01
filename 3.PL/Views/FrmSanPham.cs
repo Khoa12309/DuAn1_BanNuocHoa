@@ -17,7 +17,7 @@ namespace _3.PL.Views
     public partial class FrmSanPham : Form
     {
         private ISanPhamSer _Iser;
-        private IKhoSer _KhoSer;
+       
         private ILoaiSer _LoaiSer;
         private IHangSer _HangSer;
         private Guid _id;
@@ -26,7 +26,7 @@ namespace _3.PL.Views
         public FrmSanPham()
         {
             InitializeComponent();
-            _KhoSer = new KhoSer();
+           
             _HangSer = new HangSpSer();
             _Iser = new SanPhamSer();
             _LoaiSer = new LoaiSpSer();
@@ -37,7 +37,7 @@ namespace _3.PL.Views
         private void loadfrm()
         {
             var stt = 1;
-            dgrid_sp.ColumnCount = 14;
+            dgrid_sp.ColumnCount = 13;
             dgrid_sp.Columns[0].Name = "Stt";
             dgrid_sp.Columns[1].Name = "ID";
             dgrid_sp.Columns[2].Name = "Mã SP";
@@ -48,16 +48,16 @@ namespace _3.PL.Views
             dgrid_sp.Columns[7].Name = "Số Lượng";
             dgrid_sp.Columns[8].Name = "Trạng Thái";
             dgrid_sp.Columns[9].Name = "Loại";
-            dgrid_sp.Columns[10].Name = "Kho";
-            dgrid_sp.Columns[11].Name = "Hãng";
-            dgrid_sp.Columns[12].Name = "Giá Nhập";
-            dgrid_sp.Columns[13].Name = "Giá Bán";
+            
+            dgrid_sp.Columns[10].Name = "Hãng";
+            dgrid_sp.Columns[11].Name = "Giá Nhập";
+            dgrid_sp.Columns[12].Name = "Giá Bán";
            
             dgrid_sp.Rows.Clear();
             this.dgrid_sp.Columns["ID"].Visible=false;
             foreach (var x in _Iser.SpGetAll())
             {
-                dgrid_sp.Rows.Add(stt, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.HinhAnh, x.Solong, x.TrangThai, x.TrangThai,x.tenloai,x.IDKho,x.tenhang,x.GiaNhap,x.GiaBan);
+                dgrid_sp.Rows.Add(stt, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.HinhAnh, x.Solong, x.TrangThai, x.TrangThai,x.tenloai,x.tenhang,x.GiaNhap,x.GiaBan);
             }
         }
 
@@ -73,11 +73,7 @@ namespace _3.PL.Views
                 cmb_loai.Items.Add(x.TenloaiSp);
             }
             //cmb_loai.SelectedIndex = 0;
-            foreach (var x in _KhoSer.KhoGetAll())
-            {
-                cmb_kho.Items.Add(x.Id);
-            }
-            //cmb_kho.SelectedIndex = 0;
+            
         }
 
         private byte[] epbyte(PictureBox pc)

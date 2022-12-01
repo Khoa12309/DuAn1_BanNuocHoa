@@ -9,8 +9,8 @@ namespace _1.DAL.Models
     public class Account
     {
         public Guid Id { get; set; }
-        public string TaiKhoan { get; set; }
-        public string MatKhau { get; set; }
+        public string? TaiKhoan { get; set; }
+        public string? MatKhau { get; set; }
 
         public virtual NhanVien? NhanVien { get; set; }
     }

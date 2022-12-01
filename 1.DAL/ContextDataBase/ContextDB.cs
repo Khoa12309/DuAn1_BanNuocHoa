@@ -32,14 +32,14 @@ namespace _1.DAL.ContextDataBase
         }
         public virtual DbSet<Account> accounts { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
-        public virtual DbSet<BaoHanh> BaoHanhs { get; set; }
+       
         public virtual DbSet<GioHang> GioHangs { get; set; }
         public virtual DbSet<GioHangChiTiet> GioHangChiTiets { get; set; }
         public virtual DbSet<HangSp> HangSps { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<HoaDonChiTiet> HoaDonChiTiets { get; set; }
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
-        public virtual DbSet<Kho> Khos { get; set; }
+     
         public virtual DbSet<KhuyenMai> KhuyenMais { get; set; }
         public virtual DbSet<LoaiSp> LoaiSps  { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }

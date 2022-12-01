@@ -17,11 +17,11 @@ namespace _2.BUS.Services
         private ISanPhamRep _Irep;
         private IHangSpRep _hangSpRep;
         private ILoaiSpRep _loaiSpRep;
-        private IKhoRep _khoRep;
+        
         public SanPhamSer()
         {
             _Irep = new SanPhamRep();
-            _khoRep = new KhoRep();
+          
             _loaiSpRep=new LoaiSpRep();
             _hangSpRep = new HangSpRep();
 
@@ -36,7 +36,7 @@ namespace _2.BUS.Services
                 HinhAnh = obj.HinhAnh,
                 ID = obj.ID,
                 IDHang = obj.IDHang,
-                IDKho = obj.IDKho,
+                
                 IDLSp = obj.IDLSp,
                 MaSp = obj.MaSp,
                 MuiHuong = obj.MuiHuong,
@@ -64,7 +64,7 @@ namespace _2.BUS.Services
                 HinhAnh = obj.HinhAnh,
                 ID = obj.ID,
                 IDHang = obj.IDHang,
-                IDKho = obj.IDKho,
+              
                 IDLSp = obj.IDLSp,
                 MaSp = obj.MaSp,
                 MuiHuong = obj.MuiHuong,
@@ -92,22 +92,22 @@ namespace _2.BUS.Services
             var sp = from a in _Irep.GetAllSp().ToList()
                      join b in _hangSpRep.GetAllHsp().ToList() on a.IDHang equals b.ID
                      join c in _loaiSpRep.GetAllLsp().ToList() on a.IDLSp equals c.Id
-                     join d in _khoRep.GetAllKho().ToList() on a.IDKho equals d.Id
+               
                      select new SanPhamView()
                      {
                          ID = a.ID,
-                         IDKho = d.Id,
+                             
                          DungTich = a.DungTich,
-                         GiaBan = a.GiaBan,
-                         GiaNhap = a.GiaNhap,
+                         GiaBan= (float)a.GiaBan,
+                         GiaNhap= (float)a.GiaNhap,
                          HinhAnh = a.HinhAnh,
                          tenhang = b.TenHang,
                          tenloai = c.TenloaiSp,
                          MaSp = a.MaSp,
                          MuiHuong = a.MuiHuong,
-                         Solong = a.Solong,
+                         Solong = (int)a.Solong,
                          TenSp = a.TenSp,
-                         TrangThai = a.TrangThai,
+                         TrangThai = (int)a.TrangThai,
                          IDHang = b.ID,
                          IDLSp = c.Id,
                      };
@@ -124,7 +124,7 @@ namespace _2.BUS.Services
                 HinhAnh = obj.HinhAnh,
                 ID = obj.ID,
                 IDHang = obj.IDHang,
-                IDKho = obj.IDKho,
+                
                 IDLSp = obj.IDLSp,
                 MaSp = obj.MaSp,
                 MuiHuong = obj.MuiHuong,

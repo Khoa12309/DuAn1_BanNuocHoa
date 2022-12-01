@@ -19,8 +19,8 @@ namespace _1.DAL.Configurations
             builder.Property(x => x.STD).HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(x => x.TenNV).HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(x => x.DiaChi).HasColumnType("nvarchar(100)").IsRequired();
-            builder.Property(x => x.GioiTinh).HasColumnType("nvarchar(100)").IsRequired();
-            builder.Property(x => x.TrangThai).HasColumnType("nvarchar(100)").IsRequired();
+            builder.Property(x => x.GioiTinh).HasColumnType("int").IsRequired();
+            builder.Property(x => x.TrangThai).HasColumnType("int").IsRequired();
             builder.Property(x => x.ChucVu).HasColumnType("nvarchar(100)").IsRequired();
 
         }
