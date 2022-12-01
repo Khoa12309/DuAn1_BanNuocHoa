@@ -1,5 +1,7 @@
 ﻿using _1.DAL.IRepositories;
 using _1.DAL.Models;
+using _2.BUS.IServices;
+using _2.BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,24 +10,24 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.Services
 {
-    public class HangSpSer : IHangSpRep
+    public class HangSpSer : IHangSer
     {
-        public bool Add(HangSp obj)
+        public string Add(HangView obj)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(HangSp obj)
+        public string Delete(HangView obj)
         {
             throw new NotImplementedException();
         }
 
-        public List<HangSp> GetAllHsp()
+        public List<HangView> HspGetAll()
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(HangSp obj)
+        public string Update(HangView obj)
         {
             throw new NotImplementedException();
         }

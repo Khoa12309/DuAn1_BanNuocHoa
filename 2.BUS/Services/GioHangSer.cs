@@ -1,5 +1,7 @@
 ﻿using _1.DAL.IRepositories;
 using _1.DAL.Models;
+using _2.BUS.IServices;
+using _2.BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,24 +10,24 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.Services
 {
-    public class GioHangSer : IGioHangRep
+    public class GioHangSer : IGioHang
     {
-        public bool Add(GioHang obj)
+        public string Add(GioHangView obj)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(GioHang obj)
+        public string Delete(GioHangView obj)
         {
             throw new NotImplementedException();
         }
 
-        public List<GioHang> GetAllGh()
+        public List<GioHangView> GhGetAll()
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(GioHang obj)
+        public string Update(GioHangView obj)
         {
             throw new NotImplementedException();
         }

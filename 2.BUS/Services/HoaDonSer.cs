@@ -1,5 +1,7 @@
 ﻿using _1.DAL.IRepositories;
 using _1.DAL.Models;
+using _2.BUS.IServices;
+using _2.BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,24 +10,24 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.Services
 {
-    public class HoaDonSer : IHoaDonRep
+    public class HoaDonSer : IHoaDonSer
     {
-        public bool Add(HoaDon obj)
+        public string Add(HoaDonView obj)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(HoaDon obj)
+        public string Delete(HoaDonView obj)
         {
             throw new NotImplementedException();
         }
 
-        public List<HoaDon> GetAllHd()
+        public List<HoaDonView> HdGetAll()
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(HoaDon obj)
+        public string Update(HoaDonView obj)
         {
             throw new NotImplementedException();
         }

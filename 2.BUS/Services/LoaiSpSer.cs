@@ -1,5 +1,7 @@
 ﻿using _1.DAL.IRepositories;
 using _1.DAL.Models;
+using _2.BUS.IServices;
+using _2.BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,24 +10,24 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.Services
 {
-    public class LoaiSpSer : ILoaiSpRep
+    public class LoaiSpSer : ILoaiSer
     {
-        public bool Add(LoaiSp obj)
+        public string Add(LoaiView obj)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(LoaiSp obj)
+        public string Delete(LoaiView obj)
         {
             throw new NotImplementedException();
         }
 
-        public List<LoaiSp> GetAllLsp()
+        public List<LoaiView> LspGetAll()
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(LoaiSp obj)
+        public string Update(LoaiView obj)
         {
             throw new NotImplementedException();
         }

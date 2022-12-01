@@ -1,5 +1,7 @@
 ﻿using _1.DAL.IRepositories;
 using _1.DAL.Models;
+using _2.BUS.IServices;
+using _2.BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,24 +10,24 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.Services
 {
-    public class KhachHangSer : IKhachHangRep
+    public class KhachHangSer : IKhachHangSer
     {
-        public bool Add(KhachHang obj)
+        public string Add(KhachHangView obj)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(KhachHang obj)
+        public string Delete(KhachHangView obj)
         {
             throw new NotImplementedException();
         }
 
-        public List<KhachHang> GetAllKh()
+        public List<KhachHangView> KhGetAll()
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(KhachHang obj)
+        public string Update(KhachHangView obj)
         {
             throw new NotImplementedException();
         }
