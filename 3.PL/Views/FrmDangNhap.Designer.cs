@@ -34,8 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_dn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -82,7 +80,7 @@
             // 
             // btn_dn
             // 
-            this.btn_dn.Location = new System.Drawing.Point(335, 227);
+            this.btn_dn.Location = new System.Drawing.Point(335, 244);
             this.btn_dn.Name = "btn_dn";
             this.btn_dn.Size = new System.Drawing.Size(94, 29);
             this.btn_dn.TabIndex = 5;
@@ -90,23 +88,11 @@
             this.btn_dn.UseVisualStyleBackColor = true;
             this.btn_dn.Click += new System.EventHandler(this.btn_dn_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 262);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 188);
-            this.dataGridView1.TabIndex = 6;
-            // 
             // FrmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_dn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -115,7 +101,6 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmDangNhap";
             this.Text = "FrmDangNhap";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,6 +114,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_dn;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

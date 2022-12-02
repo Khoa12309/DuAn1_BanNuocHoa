@@ -36,7 +36,7 @@
             this.btn_sua = new System.Windows.Forms.Button();
             this.btn_xoa = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_tensp = new System.Windows.Forms.Label();
+            this.la = new System.Windows.Forms.Label();
             this.lable = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,9 +45,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.txt_masp = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_tensp = new System.Windows.Forms.TextBox();
             this.txt_muisp = new System.Windows.Forms.TextBox();
             this.txt_dt = new System.Windows.Forms.TextBox();
             this.txt_sl = new System.Windows.Forms.TextBox();
@@ -57,7 +56,6 @@
             this.cmb_loai = new System.Windows.Forms.ComboBox();
             this.rbtn_ch = new System.Windows.Forms.RadioButton();
             this.rrbtn_hh = new System.Windows.Forms.RadioButton();
-            this.cmb_kho = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_anh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sp)).BeginInit();
             this.SuspendLayout();
@@ -83,12 +81,14 @@
             // 
             // dgrid_sp
             // 
+            this.dgrid_sp.AllowUserToAddRows = false;
             this.dgrid_sp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_sp.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgrid_sp.Location = new System.Drawing.Point(0, 345);
             this.dgrid_sp.Name = "dgrid_sp";
             this.dgrid_sp.RowHeadersWidth = 51;
             this.dgrid_sp.RowTemplate.Height = 29;
+            this.dgrid_sp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgrid_sp.Size = new System.Drawing.Size(1185, 197);
             this.dgrid_sp.TabIndex = 2;
             this.dgrid_sp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_sp_CellContentClick);
@@ -109,6 +109,7 @@
             this.btn_them.TabIndex = 4;
             this.btn_them.Text = "Thêm";
             this.btn_them.UseVisualStyleBackColor = true;
+            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
             // btn_sua
             // 
@@ -118,6 +119,7 @@
             this.btn_sua.TabIndex = 5;
             this.btn_sua.Text = "Sửa";
             this.btn_sua.UseVisualStyleBackColor = true;
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // btn_xoa
             // 
@@ -127,6 +129,7 @@
             this.btn_xoa.TabIndex = 6;
             this.btn_xoa.Text = "Xóa";
             this.btn_xoa.UseVisualStyleBackColor = true;
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // label1
             // 
@@ -137,14 +140,14 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Mã";
             // 
-            // txt_tensp
+            // la
             // 
-            this.txt_tensp.AutoSize = true;
-            this.txt_tensp.Location = new System.Drawing.Point(282, 85);
-            this.txt_tensp.Name = "txt_tensp";
-            this.txt_tensp.Size = new System.Drawing.Size(32, 20);
-            this.txt_tensp.TabIndex = 8;
-            this.txt_tensp.Text = "Tên";
+            this.la.AutoSize = true;
+            this.la.Location = new System.Drawing.Point(282, 85);
+            this.la.Name = "la";
+            this.la.Size = new System.Drawing.Size(32, 20);
+            this.la.TabIndex = 8;
+            this.la.Text = "Tên";
             // 
             // lable
             // 
@@ -218,16 +221,6 @@
             this.label10.TabIndex = 12;
             this.label10.Text = "Giá Nhập";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(851, 37);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(35, 20);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Kho";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
             // txt_masp
             // 
             this.txt_masp.Location = new System.Drawing.Point(361, 37);
@@ -235,12 +228,12 @@
             this.txt_masp.Size = new System.Drawing.Size(125, 27);
             this.txt_masp.TabIndex = 18;
             // 
-            // textBox2
+            // txt_tensp
             // 
-            this.textBox2.Location = new System.Drawing.Point(361, 85);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 27);
-            this.textBox2.TabIndex = 19;
+            this.txt_tensp.Location = new System.Drawing.Point(361, 85);
+            this.txt_tensp.Name = "txt_tensp";
+            this.txt_tensp.Size = new System.Drawing.Size(125, 27);
+            this.txt_tensp.TabIndex = 19;
             // 
             // txt_muisp
             // 
@@ -315,20 +308,11 @@
             this.rrbtn_hh.Text = "Hết hàng";
             this.rrbtn_hh.UseVisualStyleBackColor = true;
             // 
-            // cmb_kho
-            // 
-            this.cmb_kho.FormattingEnabled = true;
-            this.cmb_kho.Location = new System.Drawing.Point(930, 34);
-            this.cmb_kho.Name = "cmb_kho";
-            this.cmb_kho.Size = new System.Drawing.Size(151, 28);
-            this.cmb_kho.TabIndex = 29;
-            // 
             // FrmSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1185, 542);
-            this.Controls.Add(this.cmb_kho);
             this.Controls.Add(this.rrbtn_hh);
             this.Controls.Add(this.rbtn_ch);
             this.Controls.Add(this.cmb_loai);
@@ -338,9 +322,8 @@
             this.Controls.Add(this.txt_sl);
             this.Controls.Add(this.txt_dt);
             this.Controls.Add(this.txt_muisp);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_tensp);
             this.Controls.Add(this.txt_masp);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
@@ -349,7 +332,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lable);
-            this.Controls.Add(this.txt_tensp);
+            this.Controls.Add(this.la);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_xoa);
             this.Controls.Add(this.btn_sua);
@@ -377,7 +360,7 @@
         private System.Windows.Forms.Button btn_sua;
         private System.Windows.Forms.Button btn_xoa;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label txt_tensp;
+        private System.Windows.Forms.Label la;
         private System.Windows.Forms.Label lable;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -386,9 +369,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txt_masp;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_tensp;
         private System.Windows.Forms.TextBox txt_muisp;
         private System.Windows.Forms.TextBox txt_dt;
         private System.Windows.Forms.TextBox txt_sl;
@@ -398,6 +380,5 @@
         private System.Windows.Forms.ComboBox cmb_loai;
         private System.Windows.Forms.RadioButton rbtn_ch;
         private System.Windows.Forms.RadioButton rrbtn_hh;
-        private System.Windows.Forms.ComboBox cmb_kho;
     }
 }

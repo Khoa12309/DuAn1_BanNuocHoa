@@ -25,7 +25,7 @@ namespace _1.DAL.Repositories
             {
                 return false;
             }
-            _Dbcontext.Add(sanPham);
+            _Dbcontext.SanPhams.Add(sanPham);
             _Dbcontext.SaveChanges();
             return true;
         }
