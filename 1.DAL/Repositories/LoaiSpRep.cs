@@ -12,11 +12,11 @@ namespace _1.DAL.Repositories
     public class LoaiSpRep : ILoaiSpRep
     {
         private ContextDB _Dbcontext;
-        private List<LoaiSpRep> _lstLoaiSP;
+        private List<LoaiSp> _lstLoaiSP;
         public LoaiSpRep()
         {
             _Dbcontext = new ContextDB();
-            _lstLoaiSP = new List<LoaiSpRep>();
+            _lstLoaiSP = new List<LoaiSp>();
         }
 
         public bool Add(LoaiSp obj)
