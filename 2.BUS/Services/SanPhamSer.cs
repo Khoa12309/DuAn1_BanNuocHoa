@@ -105,11 +105,11 @@ namespace _2.BUS.Services
                          tenloai = c.TenloaiSp,
                          MaSp = a.MaSp,
                          MuiHuong = a.MuiHuong,
-                         Solong = (int)a.Solong,
-                         TenSp = a.TenSp,
+                         Solong = (int)a.Solong,                        
                          TrangThai = (int)a.TrangThai,
                          IDHang = b.ID,
                          IDLSp = c.Id,
+                         TenSp = a.TenSp,
                      };
             return sp.ToList();
         }
@@ -123,8 +123,7 @@ namespace _2.BUS.Services
                 GiaNhap = obj.GiaNhap,
                 HinhAnh = obj.HinhAnh,
                 ID = obj.ID,
-                IDHang = obj.IDHang,
-                
+                IDHang = obj.IDHang,                
                 IDLSp = obj.IDLSp,
                 MaSp = obj.MaSp,
                 MuiHuong = obj.MuiHuong,
@@ -139,7 +138,7 @@ namespace _2.BUS.Services
 
                 return "Không tìm thấy";
             }
-            if (_Irep.Delete(sp))
+            if (_Irep.Update(sp))
             {
 
                 return "Sửa  thành công";
