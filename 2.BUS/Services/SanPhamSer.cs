@@ -21,7 +21,7 @@ namespace _2.BUS.Services
         public SanPhamSer()
         {
             _Irep = new SanPhamRep();
-            _khoRep = new KhoRep();
+          //  _khoRep = new KhoRep();
             _loaiSpRep=new LoaiSpRep();
             _hangSpRep = new HangSpRep();
 
@@ -37,7 +37,7 @@ namespace _2.BUS.Services
                 ID = obj.ID,
                 IDHang = obj.IDHang,
                 IDKho = obj.IDKho,
-                //IDSp = obj.IDLSp,
+                IDSp = obj.IDLSp,
                 MaSp = obj.MaSp,
                 MuiHuong = obj.MuiHuong,
                 Solong = obj.Solong,
@@ -64,7 +64,7 @@ namespace _2.BUS.Services
                 ID = obj.ID,
                 IDHang = obj.IDHang,
                 IDKho = obj.IDKho,
-                //IDSp = obj.IDLSp,
+                IDSp = obj.IDLSp,
                 MaSp = obj.MaSp,
                 MuiHuong = obj.MuiHuong,
                 Solong = obj.Solong,
@@ -91,11 +91,11 @@ namespace _2.BUS.Services
             var sp = from a in _Irep.GetAllSp().ToList()
                      join b in _hangSpRep.GetAllHsp().ToList() on a.IDHang equals b.ID
                      join c in _loaiSpRep.GetAllLsp().ToList() on a.IDSp equals c.Id
-                     join d in _khoRep.GetAllKho().ToList() on a.IDKho equals d.Id
+                   //  join d in _khoRep.GetAllKho().ToList() on a.IDKho equals d.Id
                      select new SanPhamView()
                      {
                          ID = a.ID,
-                         IDKho = d.Id,
+                       //  IDKho = d.Id,
                          DungTich = a.DungTich,
                          GiaBan = a.GiaBan,
                          GiaNhap = a.GiaNhap,

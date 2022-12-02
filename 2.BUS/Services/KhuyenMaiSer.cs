@@ -1,5 +1,6 @@
 ﻿using _1.DAL.IRepositories;
 using _1.DAL.Models;
+using _1.DAL.Repositories;
 using _2.BUS.IServices;
 using _2.BUS.ViewModels;
 using System;
@@ -12,44 +13,78 @@ namespace _2.BUS.Services
 {
     public class KhuyenMaiSer : IKhuyenMaiSer
     {
-        public bool Add(KhuyenMai obj)
+        private IKhuyenMaiRep _IKhuyenMair;
+        public KhuyenMaiSer()
         {
-            throw new NotImplementedException();
+            _IKhuyenMair = new KhuyenMaiRep();
         }
 
         public string Add(KhuyenMaiView obj)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool Delete(KhuyenMai obj)
-        {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return "Thêm không thành công";
+            }
+            var km = new KhuyenMai()
+            {
+                Id = obj.Id,
+                MaKM = obj.MaKM,
+                GiaTriKM = obj.GiaTriKM,
+                NgayBD = obj.NgayBD,
+                NgayKT = obj.NgayKT
+            };
+            _IKhuyenMair.Add(km);
+            return "Thêm thành công";
         }
 
         public string Delete(KhuyenMaiView obj)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<KhuyenMai> GetAllKm()
-        {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return "Xóa không thành công";
+            }
+            var km = new KhuyenMai()
+            {
+                Id = obj.Id,
+                MaKM = obj.MaKM,
+                GiaTriKM = obj.GiaTriKM,
+                NgayBD = obj.NgayBD,
+                NgayKT = obj.NgayKT
+            };
+            _IKhuyenMair.Delete(km);
+            return "Xóa thành công";
         }
 
         public List<KhuyenMaiView> KmGetAll()
         {
-            throw new NotImplementedException();
-        }
-
-        public bool Update(KhuyenMai obj)
-        {
-            throw new NotImplementedException();
+            var km = from a in _IKhuyenMair.GetAllKm().ToList()
+                     select new KhuyenMaiView()
+                     {
+                         Id = a.Id,
+                         MaKM = a.MaKM,
+                         GiaTriKM = a.GiaTriKM,
+                         NgayBD = a.NgayBD,
+                         NgayKT = a.NgayKT,
+                     };
+            return km.ToList();
         }
 
         public string Update(KhuyenMaiView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return "Sửa không thành công";
+            }
+            var km = new KhuyenMai()
+            {
+                Id = obj.Id,
+                MaKM = obj.MaKM,
+                GiaTriKM = obj.GiaTriKM,
+                NgayBD = obj.NgayBD,
+                NgayKT = obj.NgayKT
+            };
+            _IKhuyenMair.Update(km);
+            return "Sửa thành công";
         }
     }
 }
