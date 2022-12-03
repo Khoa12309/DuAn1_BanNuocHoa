@@ -15,7 +15,9 @@ using System.Net.WebSockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.IO.Compression;
+using QRCoder;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace _3.PL.Views
 {
@@ -172,12 +174,14 @@ namespace _3.PL.Views
             MessageBox.Show(_Iser.Add(getfrm()));
             txt_dt.Clear();
             txt_gb.Clear();
+
             loadfrm();
         }
 
         private void btn_sua_Click(object sender, EventArgs e)
         {
             MessageBox.Show(_Iser.Update(getfrm()));
+            pb.Image=qr(getfrm());
             loadfrm();
 
         }
@@ -187,5 +191,29 @@ namespace _3.PL.Views
             MessageBox.Show(_Iser.Delete(getfrm()));
             loadfrm();
         }
+        private byte[] cb(SanPhamView pc)
+        {
+           
+            MemoryStream ms = new MemoryStream();
+            
+            return ms.ToArray();
+        }
+        private Image qr(SanPhamView spv)
+        {
+            QRCodeGenerator qRCode = new QRCodeGenerator();            
+            var b = qRCode.CreateQrCode(cb(spv), QRCodeGenerator.ECCLevel.Q);
+            var a = new QRCode(b);
+            return a.GetGraphic(50);
+        }
+        //private Object ByteArrayToObject(byte[] arrBytes)
+        //{
+        //    MemoryStream memStream = new MemoryStream();
+        //    BinaryFormatter binForm = new BinaryFormatter();
+        //    memStream.Write(arrBytes, 0, arrBytes.Length);
+        //    memStream.Seek(0, SeekOrigin.Begin);
+        //    Object obj = (Object)binForm.Deserialize(memStream);
+
+        //    return obj;
+        //}
     }
 }
