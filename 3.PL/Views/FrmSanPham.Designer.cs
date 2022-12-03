@@ -56,8 +56,10 @@
             this.cmb_loai = new System.Windows.Forms.ComboBox();
             this.rbtn_ch = new System.Windows.Forms.RadioButton();
             this.rrbtn_hh = new System.Windows.Forms.RadioButton();
+            this.pb = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_anh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_chonAnh
@@ -308,11 +310,21 @@
             this.rrbtn_hh.Text = "Hết hàng";
             this.rrbtn_hh.UseVisualStyleBackColor = true;
             // 
+            // pb
+            // 
+            this.pb.Location = new System.Drawing.Point(1004, 48);
+            this.pb.Name = "pb";
+            this.pb.Size = new System.Drawing.Size(169, 235);
+            this.pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb.TabIndex = 29;
+            this.pb.TabStop = false;
+            // 
             // FrmSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1185, 542);
+            this.Controls.Add(this.pb);
             this.Controls.Add(this.rrbtn_hh);
             this.Controls.Add(this.rbtn_ch);
             this.Controls.Add(this.cmb_loai);
@@ -345,6 +357,7 @@
             this.Text = "FrmSanPham";
             ((System.ComponentModel.ISupportInitialize)(this.pcb_anh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -380,5 +393,6 @@
         private System.Windows.Forms.ComboBox cmb_loai;
         private System.Windows.Forms.RadioButton rbtn_ch;
         private System.Windows.Forms.RadioButton rrbtn_hh;
+        private System.Windows.Forms.PictureBox pb;
     }
 }
