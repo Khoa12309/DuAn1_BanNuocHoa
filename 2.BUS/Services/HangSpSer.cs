@@ -31,7 +31,7 @@ namespace _2.BUS.Services
                 MaHang = obj.MaHang,
             };
             _IhangSpr.Add(hangsp);
-            return "Thêm không thành công";
+            return "Thêm  thành công";
         }
 
         public string Delete(HangView obj)
