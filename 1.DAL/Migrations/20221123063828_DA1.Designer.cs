@@ -10,7 +10,7 @@ using _1.DAL.ContextDataBase;
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(ContextDB))]
-    [Migration("20221130140254_DA1")]
+    [Migration("20221123063828_DA1")]
     partial class DA1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,29 +40,54 @@ namespace _1.DAL.Migrations
                     b.ToTable("Account");
                 });
 
+            modelBuilder.Entity("_1.DAL.Models.BaoHanh", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdHD")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("MaBH")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("NgayBatDau")
+                        .HasColumnType("DateTime");
+
+                    b.Property<DateTime>("NgayKetThuc")
+                        .HasColumnType("DateTime");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdHD");
+
+                    b.ToTable("BaoHanh");
+                });
+
             modelBuilder.Entity("_1.DAL.Models.GioHang", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<float?>("DonGia")
+                    b.Property<float>("DonGia")
                         .HasColumnType("real");
 
-                    b.Property<Guid?>("IDKH")
+                    b.Property<Guid>("IDKH")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MaGH")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<DateTime?>("NgayTao")
-                        .IsRequired()
+                    b.Property<DateTime>("NgayTao")
                         .HasColumnType("DateTime");
 
-                    b.Property<int?>("TinhTrang")
+                    b.Property<string>("TinhTrang")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("ID");
 
@@ -119,29 +144,28 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("IdKH")
+                    b.Property<Guid>("IdKH")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("IdKM")
+                    b.Property<Guid>("IdKM")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("IdNV")
+                    b.Property<Guid>("IdNV")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MaHD")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<DateTime?>("NgayMua")
-                        .IsRequired()
+                    b.Property<DateTime>("NgayMua")
                         .HasColumnType("DateTime");
 
                     b.Property<double>("TongTien")
                         .HasColumnType("float");
 
-                    b.Property<int?>("TrangThai")
+                    b.Property<string>("TrangThai")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
@@ -185,9 +209,9 @@ namespace _1.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int?>("GioiTinh")
+                    b.Property<string>("GioiTinh")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("MaKH")
                         .IsRequired()
@@ -206,6 +230,27 @@ namespace _1.DAL.Migrations
                     b.ToTable("KhachHang");
                 });
 
+            modelBuilder.Entity("_1.DAL.Models.Kho", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Hangdoitra")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("HangDoiTra");
+
+                    b.Property<string>("Hangton")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("HangTon");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Kho");
+                });
+
             modelBuilder.Entity("_1.DAL.Models.KhuyenMai", b =>
                 {
                     b.Property<Guid>("Id")
@@ -219,12 +264,10 @@ namespace _1.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<DateTime?>("NgayBD")
-                        .IsRequired()
+                    b.Property<DateTime>("NgayBD")
                         .HasColumnType("DateTime");
 
-                    b.Property<DateTime?>("NgayKT")
-                        .IsRequired()
+                    b.Property<DateTime>("NgayKT")
                         .HasColumnType("DateTime");
 
                     b.HasKey("Id");
@@ -266,9 +309,9 @@ namespace _1.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int?>("GioiTinh")
+                    b.Property<string>("GioiTinh")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("MaNV")
                         .IsRequired()
@@ -282,9 +325,9 @@ namespace _1.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int?>("TrangThai")
+                    b.Property<string>("TrangThai")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
@@ -311,13 +354,13 @@ namespace _1.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("image");
 
-                    b.Property<Guid?>("IDHang")
+                    b.Property<Guid>("IDHang")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("IDKho")
+                    b.Property<Guid>("IDKho")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("IDLSp")
+                    b.Property<Guid>("IDSp")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MaSp")
@@ -329,32 +372,43 @@ namespace _1.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int?>("Solong")
-                        .IsRequired()
+                    b.Property<int>("Solong")
                         .HasColumnType("int");
 
                     b.Property<string>("TenSp")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int?>("TrangThai")
-                        .IsRequired()
+                    b.Property<int>("TrangThai")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
 
                     b.HasIndex("IDHang");
 
-                    b.HasIndex("IDLSp");
+                    b.HasIndex("IDKho");
 
                     b.ToTable("SanPham");
+                });
+
+            modelBuilder.Entity("_1.DAL.Models.BaoHanh", b =>
+                {
+                    b.HasOne("_1.DAL.Models.HoaDon", "HoaDon")
+                        .WithMany()
+                        .HasForeignKey("IdHD")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("HoaDon");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.GioHang", b =>
                 {
                     b.HasOne("_1.DAL.Models.KhachHang", "KhachHang")
                         .WithMany()
-                        .HasForeignKey("IDKH");
+                        .HasForeignKey("IDKH")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("KhachHang");
                 });
@@ -382,15 +436,21 @@ namespace _1.DAL.Migrations
                 {
                     b.HasOne("_1.DAL.Models.KhachHang", "KhachHang")
                         .WithMany()
-                        .HasForeignKey("IdKH");
+                        .HasForeignKey("IdKH")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("_1.DAL.Models.KhuyenMai", "KhuyenMai")
                         .WithMany()
-                        .HasForeignKey("IdKM");
+                        .HasForeignKey("IdKM")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("_1.DAL.Models.NhanVien", "NhanVien")
                         .WithMany()
-                        .HasForeignKey("IdNV");
+                        .HasForeignKey("IdNV")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("KhachHang");
 
@@ -431,13 +491,25 @@ namespace _1.DAL.Migrations
                 {
                     b.HasOne("_1.DAL.Models.HangSp", "HangSp")
                         .WithMany()
-                        .HasForeignKey("IDHang");
+                        .HasForeignKey("IDHang")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("_1.DAL.Models.Kho", "Kho")
+                        .WithMany()
+                        .HasForeignKey("IDKho")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("_1.DAL.Models.LoaiSp", "LoaiSp")
                         .WithMany()
-                        .HasForeignKey("IDLSp");
+                        .HasForeignKey("IDKho")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("HangSp");
+
+                    b.Navigation("Kho");
 
                     b.Navigation("LoaiSp");
                 });

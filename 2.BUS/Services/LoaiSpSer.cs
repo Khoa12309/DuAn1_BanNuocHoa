@@ -13,36 +13,71 @@ namespace _2.BUS.Services
 {
     public class LoaiSpSer : ILoaiSer
     {
-        private LoaiSpRep _Irep;
+        private ILoaiSpRep _ILoaiSpr;
         public LoaiSpSer()
         {
-            _Irep = new LoaiSpRep();
+            _ILoaiSpr = new LoaiSpRep();
         }
         public string Add(LoaiView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return "Thêm không thành công";
+            }
+            LoaiSp loaisp = new LoaiSp()
+            {
+                Id = obj.Id,
+                MaloaiSp = obj.MaloaiSp,
+                TenloaiSp = obj.TenloaiSp,
+            };
+            _ILoaiSpr.Add(loaisp);
+            return "Thêm thành công";
         }
 
         public string Delete(LoaiView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return "Xóa không thành công";
+            }
+            LoaiSp loaisp = new LoaiSp()
+            {
+                Id = obj.Id,
+                MaloaiSp = obj.MaloaiSp,
+                TenloaiSp = obj.TenloaiSp,
+            };
+          
+            _ILoaiSpr.Delete(loaisp);
+            return "Xóa thành công";
         }
 
         public List<LoaiView> LspGetAll()
         {
-            var lSp = from a in _Irep.GetAllLsp().ToList()
-                      select new LoaiView()
-                      {
-                           Id = a.Id,
-                            MaloaiSp= a.MaloaiSp,
+            var loaisp = from a in _ILoaiSpr.GetAllLsp().ToList()
+                         select new LoaiView()
+                         {
+                             Id = a.Id,
+                             MaloaiSp = a.MaloaiSp,
                              TenloaiSp = a.TenloaiSp,
-                      };
-            return lSp.ToList();
+                         };
+            return loaisp.ToList();
         }
 
         public string Update(LoaiView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return "Sửa không thành công";
+            }
+            LoaiSp loaisp = new LoaiSp()
+            {
+                Id = obj.Id,
+                MaloaiSp = obj.MaloaiSp,
+                TenloaiSp = obj.TenloaiSp,
+            };
+           
+            _ILoaiSpr.Update(loaisp);
+            return "Sửa thành công";
         }
     }
 }

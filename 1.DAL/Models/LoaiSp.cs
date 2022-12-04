@@ -9,7 +9,7 @@ namespace _1.DAL.Models
     public class LoaiSp
     {
         public Guid Id { get; set; }
-        public string? MaloaiSp { get; set; }
-        public string? TenloaiSp { get; set; }
+        public string MaloaiSp { get; set; }
+        public string TenloaiSp { get; set; }
     }
 }

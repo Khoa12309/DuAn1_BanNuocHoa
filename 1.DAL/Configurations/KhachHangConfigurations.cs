@@ -19,7 +19,7 @@ namespace _1.DAL.Configurations
             builder.Property(x => x.STD).HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(x => x.TenKH).HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(x => x.DiaChi).HasColumnType("nvarchar(100)").IsRequired();
-            builder.Property(x => x.GioiTinh).HasColumnType("int").IsRequired();
+            builder.Property(x => x.GioiTinh).HasColumnType("nvarchar(100)").IsRequired();
 
         }
     }

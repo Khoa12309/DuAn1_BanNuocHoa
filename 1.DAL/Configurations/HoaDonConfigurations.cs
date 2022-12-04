@@ -16,7 +16,7 @@ namespace _1.DAL.Configurations
             builder.ToTable("HoaDon");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.MaHD).HasColumnType("nvarchar(100)").IsRequired();
-            builder.Property(x => x.TrangThai).HasColumnType("int").IsRequired();
+            builder.Property(x => x.TrangThai).HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(x => x.NgayMua).HasColumnType("DateTime").IsRequired();
             builder.Property(x => x.TongTien).HasColumnType("float").IsRequired();
 

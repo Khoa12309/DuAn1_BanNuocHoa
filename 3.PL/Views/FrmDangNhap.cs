@@ -21,10 +21,20 @@ namespace _3.PL.Views
         {
             InitializeComponent();
             _Iser=new AccountSer();
- 
+            loadfrm();
         }
 
-      
+        private void loadfrm()
+        {
+            int stt = 1;
+            Type type = typeof(HoaDon);
+           dataGridView1.ColumnCount = 4;//Hiển thị bao nhiểu cột tự cấu hình
+            dataGridView1.Rows.Clear();
+            foreach (var x in _Iser.GetAll())
+            {
+                dataGridView1.Rows.Add(stt++,x.TaiKhoan,x.MatKhau,x.ChucVu);
+            }
+        }
 
         private AccountView getfrm()
         {

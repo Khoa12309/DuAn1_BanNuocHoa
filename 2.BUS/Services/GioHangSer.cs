@@ -1,5 +1,8 @@
 ﻿using _1.DAL.IRepositories;
 using _1.DAL.Models;
+using _1.DAL.Repositories;
+using _2.BUS.IServices;
+using _2.BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,26 +11,87 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.Services
 {
-    public class GioHangSer : IGioHangRep
+
+    public class GioHangSer : IGioHang
     {
-        public bool Add(GioHang obj)
+        private IGioHangRep _IgioHangr;
+        private IKhachHangRep _IkhachHangr;
+        public GioHangSer()
         {
-            throw new NotImplementedException();
+            _IgioHangr = new GioHangRep();
+            _IkhachHangr = new KhachHangRep();
+        }
+        public string Add(GioHangView obj)
+        {
+            if (obj == null)
+            {
+                return "Thêm không thành công";
+            }
+            var gioHang = new GioHang()
+            {
+                ID = obj.ID,
+                IDKH = obj.IDKH,
+                MaGH = obj.MaGH,
+                DonGia = obj.DonGia,
+                TinhTrang = obj.TinhTrang,
+                NgayTao = obj.NgayTao
+            };
+            _IgioHangr.Add(gioHang);
+            return "Thêm thành công";
         }
 
-        public bool Delete(GioHang obj)
+        public string Delete(GioHangView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return "Xóa không thành công";
+            }
+            var gioHang = new GioHang()
+            {
+                ID = obj.ID,
+                IDKH = obj.IDKH,
+                MaGH = obj.MaGH,
+                DonGia = obj.DonGia,
+                TinhTrang = obj.TinhTrang,
+                NgayTao = obj.NgayTao
+            };
+            _IgioHangr.Delete(gioHang);
+            return "Xóa thành công";
         }
 
-        public List<GioHang> GetAllGh()
+        public List<GioHangView> GhGetAll()
         {
-            throw new NotImplementedException();
+            var gioHang = from a in _IgioHangr.GetAllGh().ToList()
+                          join b in _IkhachHangr.GetAllKh() on a.IDKH equals b.Id
+                          select new GioHangView()
+                          {
+                              ID = a.ID,
+                              IDKH = b.Id,
+                              MaGH = a.MaGH,
+                              DonGia = a.DonGia,
+                              TinhTrang = a.TinhTrang,
+                              NgayTao = a.NgayTao
+                          };
+            return gioHang.ToList();
         }
 
-        public bool Update(GioHang obj)
+        public string Update(GioHangView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return "Sửa không thành công";
+            }
+            var gioHang = new GioHang()
+            {
+                ID = obj.ID,
+                IDKH = obj.IDKH,
+                MaGH = obj.MaGH,
+                DonGia = obj.DonGia,
+                TinhTrang = obj.TinhTrang,
+                NgayTao = obj.NgayTao
+            };
+            _IgioHangr.Update(gioHang);
+            return "Sửa thành công";
         }
     }
 }

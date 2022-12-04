@@ -1,4 +1,5 @@
 ﻿using _1.DAL.IRepositories;
+using _1.DAL.Models;
 using _1.DAL.Repositories;
 using _2.BUS.IServices;
 using _2.BUS.ViewModels;
@@ -21,12 +22,35 @@ namespace _2.BUS.Services
         }
         public string Add(AccountView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return "Thêm không thành công";
+            }
+            var tk = new Account()
+            {
+                Id = obj.Id,
+                TaiKhoan = obj.TaiKhoan,
+                MatKhau = obj.MatKhau
+            };
+            _Itkr.Add(tk);
+            return "Thêm thành công";
         }
+
 
         public string Delete(AccountView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return "Xóa không thành công";
+            }
+            var tk = new Account()
+            {
+                Id = obj.Id,
+                TaiKhoan = obj.TaiKhoan,
+                MatKhau = obj.MatKhau
+            };
+            _Itkr.Delete(tk);
+            return "Xóa thành công";
         }
 
         public List<AccountView> GetAll()
@@ -39,7 +63,7 @@ namespace _2.BUS.Services
                          Id = a.Id, 
                          MatKhau=a.MatKhau,                      
                          TaiKhoan=a.TaiKhoan,
-                         ChucVu=b.ChucVu,
+                         ChucVu=b.ChucVu, // chỗ này là sao
                      };
 
 
@@ -48,7 +72,18 @@ namespace _2.BUS.Services
 
         public string Update(AccountView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return "Sửa không thành công";
+            }
+            var tk = new Account()
+            {
+                Id = obj.Id,
+                TaiKhoan = obj.TaiKhoan,
+                MatKhau = obj.MatKhau
+            };
+            _Itkr.Update(tk);
+            return " Sửa thành công";
         }
 
         public int check(AccountView obj)
