@@ -117,3 +117,4 @@ E:\Github\laiiii\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\3.PL.pdb
 E:\Github\laiiii\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\3.PL.genruntimeconfig.cache
 E:\Github\laiiii\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\ref\3.PL.dll
 E:\Github\laiiii\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmHangSp.resources
+E:\Github\laiiii\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmLoaiSp.resources

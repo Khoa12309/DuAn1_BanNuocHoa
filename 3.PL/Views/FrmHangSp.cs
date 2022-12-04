@@ -18,6 +18,7 @@ namespace _3.PL.Views
     {
         private IHangSer _IHangSpr;
         private HangView _HangSp_view;
+        Guid _id;
 
         public FrmHangSp()
         {
@@ -30,6 +31,7 @@ namespace _3.PL.Views
         {
             dataGridView1.ColumnCount = 3;
             dataGridView1.Columns[0].Name = "ID";
+            dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Name = "Ten";
             dataGridView1.Columns[2].Name = "Ma";
             dataGridView1.Rows.Clear();
@@ -51,7 +53,9 @@ namespace _3.PL.Views
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            tbx_MaSp.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            tbx_Tensp.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            _id = Guid.Parse( dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
         }
 
         private void btn_Them_Click(object sender, EventArgs e)
@@ -62,12 +66,19 @@ namespace _3.PL.Views
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-
+            var temp = GetDataFromGUI();
+            temp.ID = _id;
+            
+            MessageBox.Show(_IHangSpr.Update(temp));
+            LoadData();
         }
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-
+            var temp = GetDataFromGUI();
+            temp.ID = _id;
+            MessageBox.Show(_IHangSpr.Delete(temp));
+            LoadData();
         }
     }
 }
