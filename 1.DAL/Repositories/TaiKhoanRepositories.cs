@@ -56,7 +56,7 @@ namespace _1.DAL.Repositories
                 return false;
             }
             var temp = _Dbcontext.accounts.FirstOrDefault(c => c.Id == account.Id);
-            _Dbcontext.Add(temp);
+            _Dbcontext.Remove(temp);
             _Dbcontext.SaveChanges();
             return true;
         }

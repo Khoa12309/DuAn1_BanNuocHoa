@@ -16,5 +16,11 @@
     <Compile Update="Views\FrmLoaiSp.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmNhanViens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

@@ -21,7 +21,7 @@ namespace _3.PL
             //   Application.Run(new FrmDangNhap());
             // Application.Run(new FrmHangSp());
             // Application.Run(new FrmLoaiSp());
-             Application.Run(new FrmKhuyenMai());
+             Application.Run(new FrmTaiKhoan());
             
 
         }

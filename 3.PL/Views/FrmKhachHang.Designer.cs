@@ -30,20 +30,20 @@
         {
             this.tbx_MaKhachHang = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.dgird_KhachHang = new System.Windows.Forms.DataGridView();
+            this.btn_Add = new System.Windows.Forms.Button();
+            this.btn_Datete = new System.Windows.Forms.Button();
+            this.btn_Update = new System.Windows.Forms.Button();
             this.rbtn_Nam = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbx_SoDienThoai = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbx_DiaChi = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tbx_ = new System.Windows.Forms.TextBox();
+            this.tbx_TenKhachHang = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.rbtn_Nu = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgird_KhachHang)).BeginInit();
             this.SuspendLayout();
             // 
             // tbx_MaKhachHang
@@ -62,43 +62,49 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Ma khach hang";
             // 
-            // dataGridView1
+            // dgird_KhachHang
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 320);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1113, 220);
-            this.dataGridView1.TabIndex = 2;
+            this.dgird_KhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgird_KhachHang.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgird_KhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgird_KhachHang.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgird_KhachHang.Location = new System.Drawing.Point(0, 320);
+            this.dgird_KhachHang.Name = "dgird_KhachHang";
+            this.dgird_KhachHang.RowHeadersWidth = 51;
+            this.dgird_KhachHang.RowTemplate.Height = 29;
+            this.dgird_KhachHang.Size = new System.Drawing.Size(1113, 220);
+            this.dgird_KhachHang.TabIndex = 2;
+            this.dgird_KhachHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgird_KhachHang_CellContentClick);
             // 
-            // button1
+            // btn_Add
             // 
-            this.button1.Location = new System.Drawing.Point(946, 79);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_Add.Location = new System.Drawing.Point(946, 79);
+            this.btn_Add.Name = "btn_Add";
+            this.btn_Add.Size = new System.Drawing.Size(94, 29);
+            this.btn_Add.TabIndex = 3;
+            this.btn_Add.Text = "Add";
+            this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
-            // button2
+            // btn_Datete
             // 
-            this.button2.Location = new System.Drawing.Point(946, 212);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 29);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_Datete.Location = new System.Drawing.Point(946, 212);
+            this.btn_Datete.Name = "btn_Datete";
+            this.btn_Datete.Size = new System.Drawing.Size(94, 29);
+            this.btn_Datete.TabIndex = 4;
+            this.btn_Datete.Text = "Delete";
+            this.btn_Datete.UseVisualStyleBackColor = true;
+            this.btn_Datete.Click += new System.EventHandler(this.btn_Datete_Click);
             // 
-            // button3
+            // btn_Update
             // 
-            this.button3.Location = new System.Drawing.Point(946, 143);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 29);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_Update.Location = new System.Drawing.Point(946, 143);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(94, 29);
+            this.btn_Update.TabIndex = 5;
+            this.btn_Update.Text = "Update";
+            this.btn_Update.UseVisualStyleBackColor = true;
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             // 
             // rbtn_Nam
             // 
@@ -120,12 +126,12 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "So dien thoai";
             // 
-            // textBox2
+            // tbx_SoDienThoai
             // 
-            this.textBox2.Location = new System.Drawing.Point(195, 240);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 27);
-            this.textBox2.TabIndex = 7;
+            this.tbx_SoDienThoai.Location = new System.Drawing.Point(195, 240);
+            this.tbx_SoDienThoai.Name = "tbx_SoDienThoai";
+            this.tbx_SoDienThoai.Size = new System.Drawing.Size(125, 27);
+            this.tbx_SoDienThoai.TabIndex = 7;
             // 
             // label3
             // 
@@ -136,12 +142,12 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Dia chi";
             // 
-            // textBox3
+            // tbx_DiaChi
             // 
-            this.textBox3.Location = new System.Drawing.Point(195, 163);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(125, 27);
-            this.textBox3.TabIndex = 9;
+            this.tbx_DiaChi.Location = new System.Drawing.Point(195, 163);
+            this.tbx_DiaChi.Name = "tbx_DiaChi";
+            this.tbx_DiaChi.Size = new System.Drawing.Size(125, 27);
+            this.tbx_DiaChi.TabIndex = 9;
             // 
             // label4
             // 
@@ -152,12 +158,12 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Ten khach hang";
             // 
-            // tbx_
+            // tbx_TenKhachHang
             // 
-            this.tbx_.Location = new System.Drawing.Point(195, 96);
-            this.tbx_.Name = "tbx_";
-            this.tbx_.Size = new System.Drawing.Size(125, 27);
-            this.tbx_.TabIndex = 11;
+            this.tbx_TenKhachHang.Location = new System.Drawing.Point(195, 96);
+            this.tbx_TenKhachHang.Name = "tbx_TenKhachHang";
+            this.tbx_TenKhachHang.Size = new System.Drawing.Size(125, 27);
+            this.tbx_TenKhachHang.TabIndex = 11;
             // 
             // label5
             // 
@@ -171,7 +177,7 @@
             // rbtn_Nu
             // 
             this.rbtn_Nu.AutoSize = true;
-            this.rbtn_Nu.Location = new System.Drawing.Point(549, 72);
+            this.rbtn_Nu.Location = new System.Drawing.Point(549, 79);
             this.rbtn_Nu.Name = "rbtn_Nu";
             this.rbtn_Nu.Size = new System.Drawing.Size(49, 24);
             this.rbtn_Nu.TabIndex = 14;
@@ -187,22 +193,22 @@
             this.Controls.Add(this.rbtn_Nu);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.tbx_);
+            this.Controls.Add(this.tbx_TenKhachHang);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.tbx_DiaChi);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbx_SoDienThoai);
             this.Controls.Add(this.rbtn_Nam);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btn_Update);
+            this.Controls.Add(this.btn_Datete);
+            this.Controls.Add(this.btn_Add);
+            this.Controls.Add(this.dgird_KhachHang);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbx_MaKhachHang);
             this.Name = "FrmKhachHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmKhachHang";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgird_KhachHang)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,17 +218,17 @@
 
         private System.Windows.Forms.TextBox tbx_MaKhachHang;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridView dgird_KhachHang;
+        private System.Windows.Forms.Button btn_Add;
+        private System.Windows.Forms.Button btn_Datete;
+        private System.Windows.Forms.Button btn_Update;
         private System.Windows.Forms.RadioButton rbtn_Nam;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbx_SoDienThoai;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbx_DiaChi;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbx_;
+        private System.Windows.Forms.TextBox tbx_TenKhachHang;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RadioButton rbtn_Nu;
     }
