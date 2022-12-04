@@ -1764,16 +1764,16 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "ZXing.Net/0.16.8": {
+      "ZXing.Net/0.16.6": {
         "type": "package",
         "compile": {
-          "lib/net5.0/zxing.dll": {
-            "related": ".XML"
+          "lib/netcoreapp3.1/zxing.dll": {
+            "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net5.0/zxing.dll": {
-            "related": ".XML"
+          "lib/netcoreapp3.1/zxing.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -6079,10 +6079,10 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "ZXing.Net/0.16.8": {
-      "sha512": "Cbbe+x7I7E+VJ0VxU1fPc7AktIw/9xea/ZY/fh38sXqTQ75LJp9ooGUjpzFqfpPfIKozAoXgJ4yvY4GzKpPBzQ==",
+    "ZXing.Net/0.16.6": {
+      "sha512": "0+6EcJ7Ve1BocwqvqpAmgMa7xF3wxqROcM3KvAE6WGNIqXLA5YEziLjRX+kKYVrcttlFRz1IaoRSzt/o6Ttviw==",
       "type": "package",
-      "path": "zxing.net/0.16.8",
+      "path": "zxing.net/0.16.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6117,10 +6117,6 @@
         "lib/net48/zxing.dll",
         "lib/net48/zxing.presentation.XML",
         "lib/net48/zxing.presentation.dll",
-        "lib/net5.0/zxing.XML",
-        "lib/net5.0/zxing.dll",
-        "lib/net6.0/zxing.XML",
-        "lib/net6.0/zxing.dll",
         "lib/netcoreapp3.0/zxing.dll",
         "lib/netcoreapp3.0/zxing.xml",
         "lib/netcoreapp3.1/zxing.dll",
@@ -6155,8 +6151,7 @@
         "lib/windows8/zxing.winmd",
         "lib/wp8/zxing.wp8.0.XML",
         "lib/wp8/zxing.wp8.0.dll",
-        "logo.jpg",
-        "zxing.net.0.16.8.nupkg.sha512",
+        "zxing.net.0.16.6.nupkg.sha512",
         "zxing.net.nuspec"
       ]
     },
@@ -6176,7 +6171,7 @@
       "2.BUS >= 1.0.0",
       "AForge.Video.DirectShow >= 2.2.5",
       "QRCoder >= 1.4.3",
-      "ZXing.Net >= 0.16.8"
+      "ZXing.Net >= 0.16.6"
     ]
   },
   "packageFolders": {
@@ -6237,7 +6232,7 @@
           },
           "ZXing.Net": {
             "target": "Package",
-            "version": "[0.16.8, )"
+            "version": "[0.16.6, )"
           }
         },
         "imports": [

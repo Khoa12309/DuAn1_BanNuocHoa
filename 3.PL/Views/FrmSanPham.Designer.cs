@@ -312,9 +312,9 @@
             // 
             // pb
             // 
-            this.pb.Location = new System.Drawing.Point(1004, 48);
+            this.pb.Location = new System.Drawing.Point(963, 48);
             this.pb.Name = "pb";
-            this.pb.Size = new System.Drawing.Size(169, 235);
+            this.pb.Size = new System.Drawing.Size(210, 208);
             this.pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb.TabIndex = 29;
             this.pb.TabStop = false;

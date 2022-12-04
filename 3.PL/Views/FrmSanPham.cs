@@ -45,7 +45,7 @@ namespace _3.PL.Views
         {
 
             var stt = 1;
-            dgrid_sp.ColumnCount = 13;
+            dgrid_sp.ColumnCount = 12;
             dgrid_sp.Columns[0].Name = "Stt";
             dgrid_sp.Columns[1].Name = "ID";
             dgrid_sp.Columns[2].Name = "Mã SP";
@@ -58,13 +58,13 @@ namespace _3.PL.Views
             dgrid_sp.Columns[9].Name = "Hãng";
             dgrid_sp.Columns[10].Name = "Giá Nhập";
             dgrid_sp.Columns[11].Name = "Giá Bán";
-            dgrid_sp.Columns[12].Name = "Hình Ảnh";
+           //dgrid_sp.Columns[12].Name = "Hình Ảnh";
 
             dgrid_sp.Rows.Clear();
             this.dgrid_sp.Columns["ID"].Visible = false;
             foreach (var x in _Iser.SpGetAll())
             {
-                dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong, x.TrangThai, x.tenloai, x.tenhang, x.GiaNhap, x.GiaBan, img(x.HinhAnh));
+                dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong, x.TrangThai, x.tenloai, x.tenhang, x.GiaNhap, x.GiaBan);
             }
 
 
@@ -86,11 +86,7 @@ namespace _3.PL.Views
         }
         private Image img(byte[] bt)
         {
-            //DataGridViewImageColumn va = new DataGridViewImageColumn();
-            //va.ImageLayout = DataGridViewImageCellLayout.Stretch;
-            ////dgrid_sp.Columns.Add(va);
-            //dgrid_sp.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
+         
             MemoryStream ms = new MemoryStream(bt);
             var a = Image.FromStream(ms);
             return a;
@@ -200,11 +196,13 @@ namespace _3.PL.Views
         }
         private Image qr(SanPhamView spv)
         {
+
             QRCodeGenerator qRCode = new QRCodeGenerator();            
             var b = qRCode.CreateQrCode(cb(spv), QRCodeGenerator.ECCLevel.Q);
             var a = new QRCode(b);
             return a.GetGraphic(50);
         }
+        //lấy id sp làm qr code để dùng 
         //private Object ByteArrayToObject(byte[] arrBytes)
         //{
         //    MemoryStream memStream = new MemoryStream();
@@ -212,7 +210,6 @@ namespace _3.PL.Views
         //    memStream.Write(arrBytes, 0, arrBytes.Length);
         //    memStream.Seek(0, SeekOrigin.Begin);
         //    Object obj = (Object)binForm.Deserialize(memStream);
-
         //    return obj;
         //}
     }

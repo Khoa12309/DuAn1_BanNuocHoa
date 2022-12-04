@@ -196,7 +196,7 @@
             },
             "ZXing.Net": {
               "target": "Package",
-              "version": "[0.16.8, )"
+              "version": "[0.16.6, )"
             }
           },
           "imports": [

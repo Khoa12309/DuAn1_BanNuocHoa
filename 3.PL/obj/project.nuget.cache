@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "eBT/eR/JBer96elfoT8fAKgRhaziJ3MrbvUZuvZCQJMbc0GyxlQEo9h1UQ+FX4v/mjgV587AojJjFAEs6gbR/g==",
+  "dgSpecHash": "siVEHJtquug2XpBoZMyByrGjuXsB3lxLhhAdWOamP1Jcwijc75x0YzHoEMis+nlMZqZ693mwHQGTEIkvkAvYvw==",
   "success": true,
   "projectFilePath": "D:\\DuAn1_BanNuocHoa\\3.PL\\3.PL.csproj",
   "expectedPackageFiles": [
@@ -102,7 +102,7 @@
     "C:\\Users\\ACER\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\ACER\\.nuget\\packages\\zxing.net\\0.16.8\\zxing.net.0.16.8.nupkg.sha512"
+    "C:\\Users\\ACER\\.nuget\\packages\\zxing.net\\0.16.6\\zxing.net.0.16.6.nupkg.sha512"
   ],
   "logs": [
     {
