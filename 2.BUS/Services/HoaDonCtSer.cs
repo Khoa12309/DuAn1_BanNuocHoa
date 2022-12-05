@@ -10,6 +10,7 @@ namespace _2.BUS.Services
 {
     public class HoaDonCtSer : IHoaDonChiTietRepcs
     {
+
         public bool Add(HoaDonChiTiet obj)
         {
             throw new NotImplementedException();

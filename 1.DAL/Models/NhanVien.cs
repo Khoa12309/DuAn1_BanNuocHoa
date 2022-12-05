@@ -16,6 +16,7 @@ namespace _1.DAL.Models
         public int? TrangThai { get; set; }
         public string? STD { get; set; }
         public string? ChucVu { get; set; }
+        public string? Email { get; set; }
      
 
     }
