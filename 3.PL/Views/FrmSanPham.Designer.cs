@@ -57,6 +57,7 @@
             this.rbtn_ch = new System.Windows.Forms.RadioButton();
             this.rrbtn_hh = new System.Windows.Forms.RadioButton();
             this.pb = new System.Windows.Forms.PictureBox();
+            this.btn_taoqr = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_anh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb)).BeginInit();
@@ -319,11 +320,22 @@
             this.pb.TabIndex = 29;
             this.pb.TabStop = false;
             // 
+            // btn_taoqr
+            // 
+            this.btn_taoqr.Location = new System.Drawing.Point(849, 283);
+            this.btn_taoqr.Name = "btn_taoqr";
+            this.btn_taoqr.Size = new System.Drawing.Size(94, 29);
+            this.btn_taoqr.TabIndex = 30;
+            this.btn_taoqr.Text = "Tạo QR";
+            this.btn_taoqr.UseVisualStyleBackColor = true;
+            this.btn_taoqr.Click += new System.EventHandler(this.btn_taoqr_Click);
+            // 
             // FrmSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1185, 542);
+            this.Controls.Add(this.btn_taoqr);
             this.Controls.Add(this.pb);
             this.Controls.Add(this.rrbtn_hh);
             this.Controls.Add(this.rbtn_ch);
@@ -394,5 +406,6 @@
         private System.Windows.Forms.RadioButton rbtn_ch;
         private System.Windows.Forms.RadioButton rrbtn_hh;
         private System.Windows.Forms.PictureBox pb;
+        private System.Windows.Forms.Button btn_taoqr;
     }
 }

@@ -1,5 +1,8 @@
 ﻿using _1.DAL.IRepositories;
 using _1.DAL.Models;
+using _1.DAL.Repositories;
+using _2.BUS.IServices;
+using _2.BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,24 +11,45 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.Services
 {
-    public class GioHangChiTietSer : IGioHangChiTietRepcs
+    public class GioHangChiTietSer :IGioHangChiTietSer
     {
-        public bool Add(GioHangChiTiet obj)
+      
+       
+        private IGioHangChiTietRepcs _Irep;
+        public GioHangChiTietSer()
+        {
+            _Irep = new GioHangChiTietRep();
+        }
+       
+
+        public string Add(GioHangChiTietView obj)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(GioHangChiTiet obj)
+        
+
+        public string Delete(GioHangChiTietView obj)
         {
             throw new NotImplementedException();
         }
 
-        public List<GioHangChiTiet> GetAllKh()
+      
+
+        public List<GioHangChiTietView> GHCTGetAll()
         {
-            throw new NotImplementedException();
+            var lst = from a in _Irep.GhCtGetAll()
+                      select new GioHangChiTietView()
+                      {
+                          DonGia = (float)a.DonGia,
+                          SoLuong = (float)a.SoLuong
+
+                      };
+            return lst.ToList();
         }
 
-        public bool Update(GioHangChiTiet obj)
+      
+        public string Update(GioHangChiTietView obj)
         {
             throw new NotImplementedException();
         }

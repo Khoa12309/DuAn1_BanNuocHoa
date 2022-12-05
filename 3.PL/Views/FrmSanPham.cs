@@ -154,14 +154,20 @@ namespace _3.PL.Views
                 cmb_loai.SelectedIndex = cmb_loai.FindStringExact(loai.TenloaiSp);
                 rbtn_ch.Checked = dt.TrangThai == 1 ? true : false;
                 rrbtn_hh.Checked = dt.TrangThai == 0 ? true : false;
-
+                var idsp = _id.ToString();
+                if (idsp == null)
+                {
+                    MessageBox.Show("Hãy Chọn sp");
+                }
+                else
+                {
+                    pb.Image = (qr(idsp));                    
+                }
             }
             catch (Exception cv)
             {
-
                MessageBox.Show("Lỗi :" +cv.Message);
-            }
-            
+            }            
         }
 
         private void btn_them_Click(object sender, EventArgs e)
@@ -170,39 +176,46 @@ namespace _3.PL.Views
             MessageBox.Show(_Iser.Add(getfrm()));
             txt_dt.Clear();
             txt_gb.Clear();
-
             loadfrm();
         }
 
         private void btn_sua_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_Iser.Update(getfrm()));
-            pb.Image=qr(getfrm());
+            MessageBox.Show(_Iser.Update(getfrm()));        
             loadfrm();
 
         }
+
 
         private void btn_xoa_Click(object sender, EventArgs e)
         {
             MessageBox.Show(_Iser.Delete(getfrm()));
             loadfrm();
         }
-        private byte[] cb(SanPhamView pc)
-        {
-           
-            MemoryStream ms = new MemoryStream();
-            
-            return ms.ToArray();
-        }
-        private Image qr(SanPhamView spv)
+       
+        private Image qr(string spv)
         {
 
             QRCodeGenerator qRCode = new QRCodeGenerator();            
-            var b = qRCode.CreateQrCode(cb(spv), QRCodeGenerator.ECCLevel.Q);
+            var b = qRCode.CreateQrCode((spv), QRCodeGenerator.ECCLevel.Q);
             var a = new QRCode(b);
             return a.GetGraphic(50);
         }
-        //lấy id sp làm qr code để dùng 
+        private void btn_taoqr_Click(object sender, EventArgs e)
+        {
+
+            var idsp = _id.ToString();
+            if (idsp == null)
+            {
+                MessageBox.Show("Hãy Chọn sp");
+            }
+            else
+            {
+                pb.Image = (qr(idsp));
+                
+            }
+        }
+        
         //private Object ByteArrayToObject(byte[] arrBytes)
         //{
         //    MemoryStream memStream = new MemoryStream();
