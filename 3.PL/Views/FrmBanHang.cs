@@ -39,21 +39,51 @@ namespace _3.PL.Views
             _lstghct=new List<GioHangChiTietView>();
             loadcam();
             // loadcmb();
-            loadfrm();
+            loadfrmgh();
+            loadfrmsp();
+
         }
 
-        private void loadfrm()
+        private void loadfrmsp()
         {
-            dgrid_hd.ColumnCount = 3;
+            var stt = 1;
+            dgrid_sp.ColumnCount = 12;
+            dgrid_sp.Columns[0].Name = "Stt";
+            dgrid_sp.Columns[1].Name = "ID";
+            dgrid_sp.Columns[2].Name = "Mã SP";
+            dgrid_sp.Columns[3].Name = "Tên SP";
+            dgrid_sp.Columns[4].Name = "Mùi Hương";
+            dgrid_sp.Columns[5].Name = "Dung Tích";
+            dgrid_sp.Columns[6].Name = "Số Lượng";           
+            dgrid_sp.Columns[7].Name = "Loại";
+            dgrid_sp.Columns[8].Name = "Hãng";          
+            dgrid_sp.Columns[9].Name = "Giá Bán";
+            //dgrid_sp.Columns[12].Name = "Hình Ảnh";
+
+            dgrid_sp.Rows.Clear();
+            this.dgrid_sp.Columns["ID"].Visible = false;
+            foreach (var x in _Isersp.SpGetAll())
+            {
+                dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong,x.tenloai, x.tenhang,x.GiaBan);
+            }
+        }
+
+        private void loadfrmgh()
+        {
+            dgrid_hd.ColumnCount = 6;
             var stt = 1;
             dgrid_hd.Columns[0].Name = "Stt";
             dgrid_hd.Columns[1].Name = "Mã";
             dgrid_hd.Columns[2].Name = "Tên";
+            dgrid_hd.Columns[3].Name = "Số Lượng";
+            dgrid_hd.Columns[4].Name = "Số Lượng";
+            dgrid_hd.Columns[5].Name = "Thành Tiền";
+
             dgrid_hd.Rows.Clear();
             foreach (var x in _lstghct)
             {
                 var gh = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == x.IdSP);
-                dgrid_hd.Rows.Add(stt++,gh.MaSp,gh.TenSp);
+                dgrid_hd.Rows.Add(stt++,gh.MaSp,gh.TenSp,x.SoLuong,gh.GiaBan,x.SoLuong*gh.GiaBan);
 
             }
         }
@@ -78,7 +108,7 @@ namespace _3.PL.Views
             {
                 dt.SoLuong++;
             }
-            loadfrm();
+            loadfrmgh();
         }
 
         private void loadcmb()
@@ -148,10 +178,19 @@ namespace _3.PL.Views
         {
             timer1.Start();
         }
-
+        private Image img(byte[] bt)
+        {
+            MemoryStream ms = new MemoryStream(bt);
+            var a = Image.FromStream(ms);
+            return a;
+        }
         private void dgrid_sp_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            var row = e.RowIndex;
+            var id = Guid.Parse(dgrid_sp.Rows[row].Cells[1].Value.ToString());
+            var z = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == id);
+            addGH((Guid)z.ID);
+            pb_anh.Image = img(z.HinhAnh);
         }
     }
 }
