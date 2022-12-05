@@ -39,7 +39,7 @@ namespace _1.DAL.Repositories
             return true;
         }
 
-        public List<GioHangChiTiet> GetAllKh()
+        public List<GioHangChiTiet> GhCtGetAll()
         {
             _lisGHCT = _Dbcontext.GioHangChiTiets.ToList();
             return _lisGHCT;

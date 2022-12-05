@@ -15,13 +15,12 @@ namespace _3.PL
         [STAThread]
         static void Main()
         {
+
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-         //   Application.Run(new FrmDangNhap());
-           // Application.Run(new FrmHangSp());
-            Application.Run(new FrmLoaiSp());
-
+            Application.Run(new FrmBanHang());
+            
         }
     }
 }
