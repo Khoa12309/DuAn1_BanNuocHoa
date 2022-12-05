@@ -116,12 +116,12 @@ namespace _3.PL.Views
         private void btn_Update_Click(object sender, EventArgs e)
         {
             var temp = GetDataFromUI();
-          //  var temp1 = GetNhanVienFromUI();
-           // temp1.Id = _id;
+            var temp1 = GetNhanVienFromUI();
+            temp1.Id = _id;
             temp.Id = _id;
-          //  temp1.TenNV = tbx_TenNhanVien.Text;
+            temp1.TenNV = tbx_TenNhanVien.Text;
             MessageBox.Show(_ItaiKhoanr.Update(temp));
-           // _InhanVienSer.Update(temp1);
+            _InhanVienSer.Update(temp1);
             LoadData();
         }
 
