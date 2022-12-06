@@ -26,9 +26,9 @@ namespace _1.DAL.Configurations
             builder.Property(x => x.GiaBan).HasColumnType("float").IsRequired();
             builder.Property(x => x.GiaNhap).HasColumnType("float").IsRequired();
 
-            builder.HasOne(x=>x.Kho).WithMany().HasForeignKey(x=>x.IDKho);
+            
             builder.HasOne(x=>x.HangSp).WithMany().HasForeignKey(x=>x.IDHang);
-            builder.HasOne(x=>x.LoaiSp).WithMany().HasForeignKey(x=>x.IDKho);
+            
         }
     }
 }
