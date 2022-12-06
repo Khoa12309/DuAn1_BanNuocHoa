@@ -20,7 +20,7 @@ namespace _3.PL
             Application.SetCompatibleTextRenderingDefault(false);
             //   Application.Run(new FrmDangNhap());
            //  A/pplication.Run(new FrmHangSp());
-             Application.Run(new FrmSanPham());
+             Application.Run(new FrmBanHang());
            //  Application.Run(new FrmLoaiSp());
             
 
