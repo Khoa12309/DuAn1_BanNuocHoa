@@ -64,7 +64,7 @@ namespace _3.PL.Views
             this.dgrid_sp.Columns["ID"].Visible = false;
             foreach (var x in _Isersp.SpGetAll())
             {
-                dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong,x.tenloai, x.tenhang,x.GiaBan);
+                dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong,x.TenLoai, x.TenHang,x.GiaBan);
             }
         }
 

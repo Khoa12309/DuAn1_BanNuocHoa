@@ -307,6 +307,10 @@ namespace _1.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<string>("GioiTinh")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
@@ -355,10 +359,10 @@ namespace _1.DAL.Migrations
                     b.Property<Guid>("IDHang")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("IDKho")
+                    b.Property<Guid>("IDLSp")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("IDLSp")
+                    b.Property<Guid?>("LoaiSpId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MaSp")
@@ -384,7 +388,7 @@ namespace _1.DAL.Migrations
 
                     b.HasIndex("IDHang");
 
-                    b.HasIndex("IDKho");
+                    b.HasIndex("LoaiSpId");
 
                     b.ToTable("SanPham");
                 });
@@ -493,21 +497,11 @@ namespace _1.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("_1.DAL.Models.Kho", "Kho")
-                        .WithMany()
-                        .HasForeignKey("IDKho")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("_1.DAL.Models.LoaiSp", "LoaiSp")
                         .WithMany()
-                        .HasForeignKey("IDKho")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("LoaiSpId");
 
                     b.Navigation("HangSp");
-
-                    b.Navigation("Kho");
 
                     b.Navigation("LoaiSp");
                 });

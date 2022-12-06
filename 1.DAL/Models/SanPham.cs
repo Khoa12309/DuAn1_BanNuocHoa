@@ -11,7 +11,7 @@ namespace _1.DAL.Models
     {
         public Guid ID { get;set; }
         public Guid IDLSp { get;set; }
-        public Guid IDKho { get;set; }
+      //  public Guid IDKho { get;set; }
         public Guid IDHang { get;set; }
        
         public string MaSp { get;set; }
@@ -28,7 +28,7 @@ namespace _1.DAL.Models
         
 
         public virtual HangSp? HangSp { get; set; }
-        public virtual Kho? Kho{ get; set; }
+     
         public virtual LoaiSp? LoaiSp { get; set; }
 
 

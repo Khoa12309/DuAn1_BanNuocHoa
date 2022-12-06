@@ -36,7 +36,7 @@ namespace _2.BUS.Services
                 HinhAnh = obj.HinhAnh,
                 ID = obj.ID,
                 IDHang = obj.IDHang,
-                IDKho = obj.IDKho,
+               
                 IDLSp = obj.IDLSp,
                 MaSp = obj.MaSp,
                 MuiHuong = obj.MuiHuong,
@@ -63,7 +63,7 @@ namespace _2.BUS.Services
                 HinhAnh = obj.HinhAnh,
                 ID = obj.ID,
                 IDHang = obj.IDHang,
-                IDKho = obj.IDKho,
+               
                 IDLSp = obj.IDLSp,
                 MaSp = obj.MaSp,
                 MuiHuong = obj.MuiHuong,
@@ -107,6 +107,8 @@ namespace _2.BUS.Services
                          Solong = a.Solong,
                          TenSp = a.TenSp,
                          TrangThai = a.TrangThai,
+                         TenHang = b.TenHang,   
+                         TenLoai = c.TenloaiSp
                      };
             return sp.ToList();
         }
@@ -121,7 +123,7 @@ namespace _2.BUS.Services
                 HinhAnh = obj.HinhAnh,
                 ID = obj.ID,
                 IDHang = obj.IDHang,
-                IDKho = obj.IDKho,
+              
                 IDLSp = obj.IDLSp,
                 MaSp = obj.MaSp,
                 MuiHuong = obj.MuiHuong,

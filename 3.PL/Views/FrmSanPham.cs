@@ -58,13 +58,13 @@ namespace _3.PL.Views
             dgrid_sp.Columns[9].Name = "Hãng";
             dgrid_sp.Columns[10].Name = "Giá Nhập";
             dgrid_sp.Columns[11].Name = "Giá Bán";
-           //dgrid_sp.Columns[12].Name = "Hình Ảnh";
+           
 
             dgrid_sp.Rows.Clear();
             this.dgrid_sp.Columns["ID"].Visible = false;
             foreach (var x in _Iser.SpGetAll())
             {
-                dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong, x.TrangThai, x.tenloai, x.tenhang, x.GiaNhap, x.GiaBan);
+                dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong, x.TrangThai, x.TenLoai, x.TenHang, x.GiaNhap, x.GiaBan);
             }
 
 
@@ -76,7 +76,7 @@ namespace _3.PL.Views
             {
                 cmb_Hang.Items.Add(x.TenHang);
             }
-            cmb_Hang.SelectedIndex = 0;
+       //     cmb_Hang.SelectedIndex = 0;
             foreach (var x in _LoaiSer.LspGetAll())
             {
                 cmb_loai.Items.Add(x.TenloaiSp);

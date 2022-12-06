@@ -16,6 +16,7 @@ namespace _2.BUS.ViewModels
         public string TrangThai { get; set; }
         public string STD { get; set; }
         public string ChucVu { get; set; }
+        public string Email{ get; set; }
 
     }
 }

@@ -62,6 +62,7 @@ namespace _1.DAL.Repositories
             temp.DiaChi = obj.DiaChi;
             temp.TrangThai = obj.TrangThai;
             temp.GioiTinh = obj.GioiTinh;
+            temp.Email = obj.Email;
             _Dbcontext.Update(temp);
             _Dbcontext.SaveChanges();
             return true;
