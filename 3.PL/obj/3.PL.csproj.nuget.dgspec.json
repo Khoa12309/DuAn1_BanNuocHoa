@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\3.PL\\3.PL.csproj": {}
+    "D:\\DuAn1_BanNuocHoa\\3.PL\\3.PL.csproj": {}
   },
   "projects": {
-    "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj": {
+    "D:\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj",
+        "projectUniqueName": "D:\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj",
         "projectName": "1.DAL",
-        "projectPath": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj",
-        "packagesPath": "C:\\Users\\DELL E5570\\.nuget\\packages\\",
-        "outputPath": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\1.DAL\\obj\\",
+        "projectPath": "D:\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "D:\\DuAn1_BanNuocHoa\\1.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\DELL E5570\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -79,20 +79,20 @@
         }
       }
     },
-    "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\2.BUS\\2.BUS.csproj": {
+    "D:\\DuAn1_BanNuocHoa\\2.BUS\\2.BUS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\2.BUS\\2.BUS.csproj",
+        "projectUniqueName": "D:\\DuAn1_BanNuocHoa\\2.BUS\\2.BUS.csproj",
         "projectName": "2.BUS",
-        "projectPath": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\2.BUS\\2.BUS.csproj",
-        "packagesPath": "C:\\Users\\DELL E5570\\.nuget\\packages\\",
-        "outputPath": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\2.BUS\\obj\\",
+        "projectPath": "D:\\DuAn1_BanNuocHoa\\2.BUS\\2.BUS.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "D:\\DuAn1_BanNuocHoa\\2.BUS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\DELL E5570\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -107,8 +107,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj": {
-                "projectPath": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj"
+              "D:\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj": {
+                "projectPath": "D:\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj"
               }
             }
           }
@@ -142,20 +142,20 @@
         }
       }
     },
-    "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\3.PL\\3.PL.csproj": {
+    "D:\\DuAn1_BanNuocHoa\\3.PL\\3.PL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\3.PL\\3.PL.csproj",
+        "projectUniqueName": "D:\\DuAn1_BanNuocHoa\\3.PL\\3.PL.csproj",
         "projectName": "3.PL",
-        "projectPath": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\3.PL\\3.PL.csproj",
-        "packagesPath": "C:\\Users\\DELL E5570\\.nuget\\packages\\",
-        "outputPath": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\3.PL\\obj\\",
+        "projectPath": "D:\\DuAn1_BanNuocHoa\\3.PL\\3.PL.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "D:\\DuAn1_BanNuocHoa\\3.PL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\DELL E5570\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -170,8 +170,8 @@
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\2.BUS\\2.BUS.csproj": {
-                "projectPath": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\2.BUS\\2.BUS.csproj"
+              "D:\\DuAn1_BanNuocHoa\\2.BUS\\2.BUS.csproj": {
+                "projectPath": "D:\\DuAn1_BanNuocHoa\\2.BUS\\2.BUS.csproj"
               }
             }
           }
@@ -185,6 +185,20 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "AForge.Video.DirectShow": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
+            "QRCoder": {
+              "target": "Package",
+              "version": "[1.4.3, )"
+            },
+            "ZXing.Net": {
+              "target": "Package",
+              "version": "[0.16.6, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
