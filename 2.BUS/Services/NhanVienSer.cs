@@ -33,6 +33,7 @@ namespace _2.BUS.Services
                 DiaChi = obj.DiaChi,
                 TrangThai = obj.TrangThai,
                 STD = obj.STD,
+                Email = obj.
                 ChucVu = obj.ChucVu
             };
             _Irep.Add(nv);

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace _1.DAL.Migrations
 {
-    public partial class DA1 : Migration
+    public partial class dungnd : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -101,7 +101,8 @@ namespace _1.DAL.Migrations
                     DiaChi = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     TrangThai = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     STD = table.Column<string>(type: "nvarchar(100)", nullable: false),
-                    ChucVu = table.Column<string>(type: "nvarchar(100)", nullable: false)
+                    ChucVu = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(100)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -141,8 +142,7 @@ namespace _1.DAL.Migrations
                 columns: table => new
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    IDSp = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    IDKho = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IDLSp = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IDHang = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MaSp = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     TenSp = table.Column<string>(type: "nvarchar(100)", nullable: false),
@@ -152,7 +152,8 @@ namespace _1.DAL.Migrations
                     Solong = table.Column<int>(type: "int", nullable: false),
                     TrangThai = table.Column<int>(type: "int", nullable: false),
                     GiaNhap = table.Column<double>(type: "float", nullable: false),
-                    GiaBan = table.Column<double>(type: "float", nullable: false)
+                    GiaBan = table.Column<double>(type: "float", nullable: false),
+                    LoaiSpId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -164,17 +165,11 @@ namespace _1.DAL.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_SanPham_Kho_IDKho",
-                        column: x => x.IDKho,
-                        principalTable: "Kho",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_SanPham_LoaiSp_IDKho",
-                        column: x => x.IDKho,
+                        name: "FK_SanPham_LoaiSp_LoaiSpId",
+                        column: x => x.LoaiSpId,
                         principalTable: "LoaiSp",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -327,9 +322,9 @@ namespace _1.DAL.Migrations
                 column: "IDHang");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SanPham_IDKho",
+                name: "IX_SanPham_LoaiSpId",
                 table: "SanPham",
-                column: "IDKho");
+                column: "LoaiSpId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -342,6 +337,9 @@ namespace _1.DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "HoaDonChiTiet");
+
+            migrationBuilder.DropTable(
+                name: "Kho");
 
             migrationBuilder.DropTable(
                 name: "GioHang");
@@ -363,9 +361,6 @@ namespace _1.DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "HangSp");
-
-            migrationBuilder.DropTable(
-                name: "Kho");
 
             migrationBuilder.DropTable(
                 name: "LoaiSp");

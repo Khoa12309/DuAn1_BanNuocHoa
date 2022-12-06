@@ -12,7 +12,8 @@ namespace _2.BUS.ViewModels
         public Guid IDLSp { get; set; }
         
         public Guid IDHang { get; set; }
-
+        public string TenHang { get; set; }
+        public string TenLoai { get; set; }
         public string MaSp { get; set; }
         public string TenSp { get; set; }
         public string Tenhang { get; set; }

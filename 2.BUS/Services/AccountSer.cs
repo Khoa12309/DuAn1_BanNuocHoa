@@ -56,14 +56,22 @@ namespace _2.BUS.Services
         public List<AccountView> GetAll()
         {
             var Acc = from a in _Itkr.GetAllAccounts().ToList()
-            //      join b in _Invr.GetAllNv() on a.Id equals b.Id
+                 join b in _Invr.GetAllNv() on a.Id equals b.Id
                       select new AccountView()
                       {
 
                           Id = a.Id,
                           MatKhau = a.MatKhau,
                           TaiKhoan = a.TaiKhoan,
-                          // ChucVu=b.ChucVu, // chỗ này là sao
+                          
+                         ChucVu=b.ChucVu,
+                          TenNV = b.TenNV,
+                          DiaChi = b.DiaChi,
+                          MaNV = b.MaNV,
+                          TrangThai = b.TrangThai,
+                          GioiTinh = b.GioiTinh,
+                          STD = b.STD,
+
                       };
 
 
