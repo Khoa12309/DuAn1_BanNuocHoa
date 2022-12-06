@@ -17,6 +17,8 @@ namespace _2.BUS.ViewModels
         public string? STD { get; set; }
         public string? ChucVu { get; set; }
         public string? Email { get; set; }
+        public byte[]? HinhAnh { get; set; }
+
 
     }
 }

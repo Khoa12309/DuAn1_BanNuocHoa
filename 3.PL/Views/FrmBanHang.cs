@@ -64,26 +64,26 @@ namespace _3.PL.Views
             this.dgrid_sp.Columns["ID"].Visible = false;
             foreach (var x in _Isersp.SpGetAll())
             {
-                dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong,x.tenloai, x.tenhang,x.GiaBan);
+                dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong,x.Tenloai, x.Tenhang,x.GiaBan);
             }
         }
 
         private void loadfrmgh()
         {
-            dgrid_hd.ColumnCount = 6;
+            dgrid_gh.ColumnCount = 6;
             var stt = 1;
-            dgrid_hd.Columns[0].Name = "Stt";
-            dgrid_hd.Columns[1].Name = "Mã";
-            dgrid_hd.Columns[2].Name = "Tên";
-            dgrid_hd.Columns[3].Name = "Số Lượng";
-            dgrid_hd.Columns[4].Name = "Số Lượng";
-            dgrid_hd.Columns[5].Name = "Thành Tiền";
+            dgrid_gh.Columns[0].Name = "Stt";
+            dgrid_gh.Columns[1].Name = "Mã";
+            dgrid_gh.Columns[2].Name = "Tên";
+            dgrid_gh.Columns[3].Name = "Số Lượng";
+            dgrid_gh.Columns[4].Name = "Giá";
+            dgrid_gh.Columns[5].Name = "Thành Tiền";
 
-            dgrid_hd.Rows.Clear();
+            dgrid_gh.Rows.Clear();
             foreach (var x in _lstghct)
             {
                 var gh = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == x.IdSP);
-                dgrid_hd.Rows.Add(stt++,gh.MaSp,gh.TenSp,x.SoLuong,gh.GiaBan,x.SoLuong*gh.GiaBan);
+                dgrid_gh.Rows.Add(stt++,gh.MaSp,gh.TenSp,x.SoLuong,gh.GiaBan,x.SoLuong*gh.GiaBan);
 
             }
         }
@@ -140,18 +140,7 @@ namespace _3.PL.Views
         private void button1_Click(object sender, EventArgs e)
         {
         }
-        private static byte[] ToByteArray(Image img)
-        {
-            byte[] byteArray = new byte[0];
-            using (MemoryStream stream = new MemoryStream())
-            {
-                img.Save(stream, System.Drawing.Imaging.ImageFormat.Bmp);
-                stream.Close();
-
-                byteArray = stream.ToArray();
-            }
-            return byteArray;
-        }
+      
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (pictureBox1.Image != null)
@@ -164,9 +153,7 @@ namespace _3.PL.Views
                 {
                     //  button2.Text = result.ToString();
                     var idg = Guid.Parse(result.ToString());
-                    addGH(idg);
-                    
-
+                    addGH(idg);                  
                 }
                 
 
@@ -191,6 +178,12 @@ namespace _3.PL.Views
             var z = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == id);
             addGH((Guid)z.ID);
             pb_anh.Image = img(z.HinhAnh);
+
+        }
+
+        private void dgrid_hd_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

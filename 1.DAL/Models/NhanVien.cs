@@ -17,7 +17,8 @@ namespace _1.DAL.Models
         public string? STD { get; set; }
         public string? ChucVu { get; set; }
         public string? Email { get; set; }
-     
+        public byte[]? HinhAnh { get; set; }
+
 
     }
 }
