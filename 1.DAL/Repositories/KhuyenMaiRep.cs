@@ -37,7 +37,7 @@ namespace _1.DAL.Repositories
                 return false;
             }
             var temp = _Dbcontext.KhuyenMais.FirstOrDefault(c => c.Id == obj.Id);
-            _Dbcontext.Remove(obj);
+            _Dbcontext.Remove(temp);
             _Dbcontext.SaveChanges();
             return true;
         }
@@ -59,7 +59,7 @@ namespace _1.DAL.Repositories
             temp.NgayBD = obj.NgayBD;
             temp.GiaTriKM = obj.GiaTriKM;
             temp.NgayKT = obj.NgayKT;
-            _Dbcontext.Update(obj);
+            _Dbcontext.Update(temp);
             _Dbcontext.SaveChanges();
             return true;
         }

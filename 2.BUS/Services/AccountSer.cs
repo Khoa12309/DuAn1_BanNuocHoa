@@ -18,7 +18,7 @@ namespace _2.BUS.Services
         public AccountSer()
         {
             _Itkr = new TaiKhoanRepositories();
-            _Invr= new NhanVienRep();
+            _Invr = new NhanVienRep();
         }
         public string Add(AccountView obj)
         {
@@ -56,15 +56,15 @@ namespace _2.BUS.Services
         public List<AccountView> GetAll()
         {
             var Acc = from a in _Itkr.GetAllAccounts().ToList()
-                      join b in _Invr.GetAllNv() on a.Id equals b.Id
-                     select new AccountView()
-                     {
-                          
-                         Id = a.Id, 
-                         MatKhau=a.MatKhau,                      
-                         TaiKhoan=a.TaiKhoan,
-                         ChucVu=b.ChucVu, // chỗ này là sao
-                     };
+            //      join b in _Invr.GetAllNv() on a.Id equals b.Id
+                      select new AccountView()
+                      {
+
+                          Id = a.Id,
+                          MatKhau = a.MatKhau,
+                          TaiKhoan = a.TaiKhoan,
+                          // ChucVu=b.ChucVu, // chỗ này là sao
+                      };
 
 
             return Acc.ToList();
@@ -88,19 +88,20 @@ namespace _2.BUS.Services
 
         public int check(AccountView obj)
         {
-          var a =  GetAll().FirstOrDefault(x => x.TaiKhoan == obj.TaiKhoan && x.MatKhau==obj.MatKhau);
-            if (a == null) { return 0 ; }
-            if (a.ChucVu=="Nhân Viên")
+            var a = GetAll().FirstOrDefault(x => x.TaiKhoan == obj.TaiKhoan && x.MatKhau == obj.MatKhau);
+            if (a == null) { return 0; }
+            if (a.ChucVu == "Nhân Viên")
             {
-                
+
                 return 2;
             }
-            else if  (a.ChucVu=="Quản Lý")
+            else if (a.ChucVu == "Quản Lý")
             {
                 return 1;
-            }else return 0;
+            }
+            else return 0;
 
-            
+
         }
     }
 }
