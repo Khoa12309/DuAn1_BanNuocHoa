@@ -14,12 +14,12 @@ namespace _2.BUS.ViewModels
         public string MatKhau { get; set; }
        
         public string ChucVu { get; set; }
-        public string MaNV { get; set; }
-        public string TenNV { get; set; }
-        public string GioiTinh { get; set; }
-        public string DiaChi { get; set; }
-        public string TrangThai { get; set; }
-        public string STD { get; set; }
+        //public string MaNV { get; set; }
+        //public string TenNV { get; set; }
+        //public string GioiTinh { get; set; }
+        //public string DiaChi { get; set; }
+        //public int TrangThai { get; set; }
+        //public string STD { get; set; }
         //public NhanVien nhanVien { get; set; }
         //  public string ChucVu { get; set; }
 

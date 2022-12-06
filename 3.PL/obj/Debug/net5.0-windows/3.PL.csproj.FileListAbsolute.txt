@@ -125,7 +125,6 @@ D:\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmHangSp.resource
 D:\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmKhachHang.resources
 D:\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmKhuyenMai.resources
 D:\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmLoaiSp.resources
-D:\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmNhanViens.resources
 D:\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmTaiKhoan.resources
 D:\DuAn1_BanNuocHoa\3.PL\bin\Debug\net5.0-windows\AForge.dll
 D:\DuAn1_BanNuocHoa\3.PL\bin\Debug\net5.0-windows\AForge.Video.dll

@@ -14,9 +14,11 @@ namespace _2.BUS.Services
     public class NhanVienSer : INhanVienSer
     {
         private INhanVienRep _Irep;
+        private ITaiKhoanRep _Iarep;
         public NhanVienSer()
         {
             _Irep = new NhanVienRep();
+            _Iarep = new TaiKhoanRepositories();
         }
         public string Add(NhanVienView obj)
         {
@@ -33,8 +35,10 @@ namespace _2.BUS.Services
                 DiaChi = obj.DiaChi,
                 TrangThai = obj.TrangThai,
                 STD = obj.STD,
-                Email = obj.
-                ChucVu = obj.ChucVu
+                Email = obj.Email,
+                ChucVu = obj.ChucVu,
+                HinhAnh=obj.HinhAnh,
+                 
             };
             _Irep.Add(nv);
             return "Thêm thành công";
@@ -55,7 +59,9 @@ namespace _2.BUS.Services
                 DiaChi = obj.DiaChi,
                 TrangThai = obj.TrangThai,
                 STD = obj.STD,
-                ChucVu = obj.ChucVu
+                ChucVu = obj.ChucVu,
+                HinhAnh = obj.HinhAnh,
+
             };
             _Irep.Delete(nv);
             return "Xóa thành công";
@@ -64,6 +70,8 @@ namespace _2.BUS.Services
         public List<NhanVienView> NvGetAll()
         {
             var nv = from a in _Irep.GetAllNv().ToList()
+                     join b in _Iarep.GetAllAccounts().ToList() on a.Id equals b.Id  
+
                      select new NhanVienView()
                      {
                          ChucVu = a.ChucVu,
@@ -74,6 +82,11 @@ namespace _2.BUS.Services
                          STD = a.STD,
                          TenNV = a.TenNV,
                          TrangThai = a.TrangThai,
+                         HinhAnh = a.HinhAnh,
+                          Email=a.Email,
+                          tk=b.TaiKhoan,
+                          mk=b.MatKhau
+
                      };
             return nv.ToList();
         }
@@ -93,7 +106,9 @@ namespace _2.BUS.Services
                 DiaChi = obj.DiaChi,
                 TrangThai = obj.TrangThai,
                 STD = obj.STD,
-                ChucVu = obj.ChucVu
+                ChucVu = obj.ChucVu,
+                HinhAnh = obj.HinhAnh,
+                Email = obj.Email,
             };
             _Irep.Update(nv);
             return "Sửa thành công";
