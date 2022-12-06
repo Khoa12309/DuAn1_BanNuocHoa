@@ -4,11 +4,5 @@
     <Compile Update="Views\FrmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\FrmHangSp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\FrmLoaiSp.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
 </Project>

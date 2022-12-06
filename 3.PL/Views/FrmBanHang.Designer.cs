@@ -159,6 +159,7 @@
             this.pb_anh.Location = new System.Drawing.Point(3, 23);
             this.pb_anh.Name = "pb_anh";
             this.pb_anh.Size = new System.Drawing.Size(294, 239);
+            this.pb_anh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_anh.TabIndex = 0;
             this.pb_anh.TabStop = false;
             // 
