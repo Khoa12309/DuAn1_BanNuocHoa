@@ -128,6 +128,7 @@
             this.dgrid_hd.RowTemplate.Height = 29;
             this.dgrid_hd.Size = new System.Drawing.Size(741, 269);
             this.dgrid_hd.TabIndex = 6;
+            this.dgrid_hd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_hd_CellContentClick);
             // 
             // groupBox1
             // 
@@ -360,7 +361,7 @@
             this.groupBox5.Size = new System.Drawing.Size(747, 306);
             this.groupBox5.TabIndex = 11;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Giỏ Hàng";
+            this.groupBox5.Text = "Danh Sách GH";
             // 
             // dgrid_gh
             // 

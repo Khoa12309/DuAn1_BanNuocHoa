@@ -13,7 +13,7 @@ namespace _1.DAL.Models
         public Guid IdKM { get; set; }
         public Guid IdNV { get; set; }
         public string MaHD { get; set; }
-        public string TrangThai { get; set; }
+        public int TrangThai { get; set; }
         public DateTime NgayMua { get; set; }
         public float TongTien { get; set; }
 
