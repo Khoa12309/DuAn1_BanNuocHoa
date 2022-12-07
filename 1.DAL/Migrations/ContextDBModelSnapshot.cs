@@ -123,7 +123,7 @@ namespace _1.DAL.Migrations
                     b.Property<Guid>("IdKH")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("IdKM")
+                    b.Property<Guid?>("IdKM")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("IdNV")
@@ -410,9 +410,7 @@ namespace _1.DAL.Migrations
 
                     b.HasOne("_1.DAL.Models.KhuyenMai", "KhuyenMai")
                         .WithMany()
-                        .HasForeignKey("IdKM")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdKM");
 
                     b.HasOne("_1.DAL.Models.NhanVien", "NhanVien")
                         .WithMany()

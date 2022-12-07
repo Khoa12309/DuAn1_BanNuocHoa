@@ -10,8 +10,8 @@ using _1.DAL.ContextDataBase;
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(ContextDB))]
-    [Migration("20221206104645_DA1")]
-    partial class DA1
+    [Migration("20221207145752_migration")]
+    partial class migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -125,7 +125,7 @@ namespace _1.DAL.Migrations
                     b.Property<Guid>("IdKH")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("IdKM")
+                    b.Property<Guid?>("IdKM")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("IdNV")
@@ -412,9 +412,7 @@ namespace _1.DAL.Migrations
 
                     b.HasOne("_1.DAL.Models.KhuyenMai", "KhuyenMai")
                         .WithMany()
-                        .HasForeignKey("IdKM")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdKM");
 
                     b.HasOne("_1.DAL.Models.NhanVien", "NhanVien")
                         .WithMany()

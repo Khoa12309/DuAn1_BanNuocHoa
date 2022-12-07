@@ -339,7 +339,7 @@ namespace _3.PL.Views
                 iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A7.Rotate());
                 PdfWriter.GetInstance(doc, new FileStream(of.FileName, FileMode.Create));
                 doc.Open();
-                doc.Add();
+                //doc.Add();
             }
 
             

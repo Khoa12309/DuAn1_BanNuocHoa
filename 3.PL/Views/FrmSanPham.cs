@@ -76,12 +76,12 @@ namespace _3.PL.Views
             {
                 cmb_Hang.Items.Add(x.TenHang);
             }
-            cmb_Hang.SelectedIndex = 0;
+            //cmb_Hang.SelectedIndex = 0;
             foreach (var x in _LoaiSer.LspGetAll())
             {
                 cmb_loai.Items.Add(x.TenloaiSp);
             }
-            cmb_loai.SelectedIndex = 0;
+           // cmb_loai.SelectedIndex = 0;
 
         }
         private Image img(byte[] bt)
