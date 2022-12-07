@@ -90,11 +90,11 @@ namespace _2.BUS.Services
         {
             var a = GetAll().FirstOrDefault(x => x.TaiKhoan == obj.TaiKhoan && x.MatKhau == obj.MatKhau);
             if (a == null) { return 0; }
-            if (a.ChucVu == "Nhân Viên")
+            if (a.ChucVu == "Nhân viên")
             {
                 return 2;
             }
-            else if (a.ChucVu == "Quản Lý")
+            else if (a.ChucVu == "Quản lý")
             {
                 return 1;
             }

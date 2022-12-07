@@ -35,13 +35,12 @@ namespace _2.BUS.Services
             {
                 Id = obj.Id,
                 MaHD = obj.MaHD,
-                TongTien = obj.TongTien,
+                TongTien = (float)obj.TongTien,
                 IdKH = obj.IdKH,
-                IdKM = obj.IdKM,
+                IdKM = (Guid)obj.IdKM,
                 IdNV = obj.IdNV,
                 TrangThai = obj.TrangThai,
                 NgayMua = obj.NgayMua,
-
             };
             _IhoaDonr.Add(hoaDon);
             return "Thêm thành công";
@@ -57,9 +56,9 @@ namespace _2.BUS.Services
             {
                 Id = obj.Id,
                 MaHD = obj.MaHD,
-                TongTien = obj.TongTien,
+                TongTien = (float)obj.TongTien,
                 IdKH = obj.IdKH,
-                IdKM = obj.IdKM,
+                IdKM = (Guid)obj.IdKM,
                 IdNV = obj.IdNV,
                 TrangThai = obj.TrangThai,
                 NgayMua = obj.NgayMua,
@@ -88,6 +87,7 @@ namespace _2.BUS.Services
                          TrangThai = a.TrangThai,
                          TongTien = a.TongTien,
                          NgayMua = a.NgayMua,
+                         MaHD = a.MaHD,
                      };
             return hd.ToList();
         }
@@ -102,12 +102,13 @@ namespace _2.BUS.Services
             {
                 Id = obj.Id,
                 MaHD = obj.MaHD,
-                TongTien = obj.TongTien,
+                TongTien = (float)obj.TongTien,
                 IdKH = obj.IdKH,
-                IdKM = obj.IdKM,
+                IdKM = (Guid)obj.IdKM,
                 IdNV = obj.IdNV,
                 TrangThai = obj.TrangThai,
                 NgayMua = obj.NgayMua,
+                 
 
             };
             _IhoaDonr.Update(hoaDon);

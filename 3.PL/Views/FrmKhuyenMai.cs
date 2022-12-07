@@ -50,8 +50,8 @@ namespace _3.PL.Views
                 Id  =  Guid.NewGuid(),
                 GiaTriKM = int.Parse( tbx_GiaTriKM.Text),
                 MaKM = tbx_Ma.Text,
-                NgayBD = DateTime.Parse(dtp_BatDau.Text),
-                NgayKT = DateTime.Parse(dtpKetThuc.Text)
+                NgayBD = dtp_BatDau.Value,
+                NgayKT = dtpKetThuc.Value,
             };
             return _KhuyenMaiView;
         }

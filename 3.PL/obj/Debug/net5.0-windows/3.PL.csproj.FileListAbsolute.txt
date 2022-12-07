@@ -136,3 +136,4 @@ D:\DuAn1_BanNuocHoa\3.PL\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp3.
 D:\DuAn1_BanNuocHoa\3.PL\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 D:\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmBanHang.resources
 D:\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmSanPham.resources
+D:\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmHoaDon.resources
