@@ -10,12 +10,14 @@ namespace _2.BUS.ViewModels
     {
         public Guid ID { get; set; }
         public Guid IDLSp { get; set; }
-        public Guid IDKho { get; set; }
+        
         public Guid IDHang { get; set; }
         public string TenHang { get; set; }
         public string TenLoai { get; set; }
         public string MaSp { get; set; }
         public string TenSp { get; set; }
+        public string Tenhang { get; set; }
+        public string Tenloai { get; set; }
         public string MuiHuong { get; set; }
         public string DungTich { get; set; }
 

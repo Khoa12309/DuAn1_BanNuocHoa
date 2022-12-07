@@ -42,7 +42,7 @@ namespace _2.BUS.Services
                       select new GioHangChiTietView()
                       {
                           DonGia = (float)a.DonGia,
-                          SoLuong = (float)a.SoLuong
+                          SoLuong = (int)a.SoLuong
 
                       };
             return lst.ToList();

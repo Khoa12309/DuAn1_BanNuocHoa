@@ -9,9 +9,10 @@ namespace _1.DAL.IRepositories
 {
     public interface ITaiKhoanRep
     {
-        List<Account> GetAllAccounts();
-        bool Add(Account account);
-        bool Update(Account account);
-        bool Delete(Account account);
+      
+      public  bool Add(Account account);
+       public bool Update(Account account);
+       public bool Delete(Account account);
+       public List<Account> GetAllAccounts();
     }
 }

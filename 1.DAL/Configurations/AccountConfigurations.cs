@@ -18,7 +18,7 @@ namespace _1.DAL.Configurations
             builder.Property(x => x.TaiKhoan).HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(x => x.MatKhau).HasColumnType("nvarchar(100)").IsRequired();
 
-            builder.HasOne(x => x.NhanVien).WithOne().HasForeignKey<NhanVien>(x=>x.Id);
+           // builder.HasOne(x => x.NhanVien).WithOne().HasForeignKey<NhanVien>(x=>x.Id);
 
         }
     }
