@@ -51,6 +51,7 @@ namespace _1.DAL.Repositories
             temp.TrangThai=obj.TrangThai;
             temp.KhuyenMai=obj.KhuyenMai;
             temp.NgayMua=obj.NgayMua;
+            temp.TongTien = obj.TongTien;
             _Dbcontext.HoaDons.Update(temp);
             _Dbcontext.SaveChanges();
             return true;
