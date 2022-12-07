@@ -20,7 +20,7 @@ namespace _3.PL
             Application.SetCompatibleTextRenderingDefault(false);
             //   Application.Run(new FrmDangNhap());
            //  A/pplication.Run(new FrmHangSp());
-             Application.Run(new Form1());
+             Application.Run(new Gmail());
            //  Application.Run(new FrmLoaiSp());
             
 

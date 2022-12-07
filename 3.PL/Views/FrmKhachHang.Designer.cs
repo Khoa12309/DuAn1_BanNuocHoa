@@ -68,17 +68,17 @@
             this.dgird_KhachHang.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgird_KhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgird_KhachHang.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgird_KhachHang.Location = new System.Drawing.Point(0, 320);
+            this.dgird_KhachHang.Location = new System.Drawing.Point(0, 366);
             this.dgird_KhachHang.Name = "dgird_KhachHang";
             this.dgird_KhachHang.RowHeadersWidth = 51;
             this.dgird_KhachHang.RowTemplate.Height = 29;
-            this.dgird_KhachHang.Size = new System.Drawing.Size(1113, 220);
+            this.dgird_KhachHang.Size = new System.Drawing.Size(1380, 220);
             this.dgird_KhachHang.TabIndex = 2;
             this.dgird_KhachHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgird_KhachHang_CellContentClick);
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(946, 79);
+            this.btn_Add.Location = new System.Drawing.Point(1254, 79);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(94, 29);
             this.btn_Add.TabIndex = 3;
@@ -88,7 +88,7 @@
             // 
             // btn_Datete
             // 
-            this.btn_Datete.Location = new System.Drawing.Point(946, 212);
+            this.btn_Datete.Location = new System.Drawing.Point(1254, 212);
             this.btn_Datete.Name = "btn_Datete";
             this.btn_Datete.Size = new System.Drawing.Size(94, 29);
             this.btn_Datete.TabIndex = 4;
@@ -98,7 +98,7 @@
             // 
             // btn_Update
             // 
-            this.btn_Update.Location = new System.Drawing.Point(946, 143);
+            this.btn_Update.Location = new System.Drawing.Point(1254, 143);
             this.btn_Update.Name = "btn_Update";
             this.btn_Update.Size = new System.Drawing.Size(94, 29);
             this.btn_Update.TabIndex = 5;
@@ -189,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1113, 540);
+            this.ClientSize = new System.Drawing.Size(1380, 586);
             this.Controls.Add(this.rbtn_Nu);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);

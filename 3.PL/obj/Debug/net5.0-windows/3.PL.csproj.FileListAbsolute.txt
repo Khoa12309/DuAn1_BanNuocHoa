@@ -130,4 +130,4 @@ E:\Github\laiiii\DuAn1_BanNuocHoa\3.PL\bin\Debug\net5.0-windows\System.Drawing.C
 E:\Github\laiiii\DuAn1_BanNuocHoa\3.PL\bin\Debug\net5.0-windows\zxing.dll
 E:\Github\laiiii\DuAn1_BanNuocHoa\3.PL\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
 E:\Github\laiiii\DuAn1_BanNuocHoa\3.PL\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
-E:\Github\laiiii\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.Form1.resources
+E:\Github\laiiii\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.Gmail.resources
