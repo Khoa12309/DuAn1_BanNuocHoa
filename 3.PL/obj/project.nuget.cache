@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RbbQiRU2b/VzKHlQvdyZsjPO2PVVaTM4vQb/P0yHFXcNBCOBf+unYYrK2DHpaduraLn88yK35fkTPIKUmr7egQ==",
+  "dgSpecHash": "U/QkvE139yNUcE/IAI16PeIy64MQ7eX4wHW8FlH9kWn2FhymJhUdnGNaLLsJ7jb+LJIVsheGs1bYZFtpV5BSCg==",
   "success": true,
-  "projectFilePath": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\3.PL\\3.PL.csproj",
+  "projectFilePath": "E:\\Github\\Dự _án _1\\DuAn1_BanNuocHoa\\3.PL\\3.PL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL E5570\\.nuget\\packages\\aforge\\2.2.5\\aforge.2.2.5.nupkg.sha512",
     "C:\\Users\\DELL E5570\\.nuget\\packages\\aforge.video\\2.2.5\\aforge.video.2.2.5.nupkg.sha512",

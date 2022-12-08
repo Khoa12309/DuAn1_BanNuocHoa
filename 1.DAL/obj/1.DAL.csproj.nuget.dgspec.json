@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj": {}
+    "E:\\Github\\Dự _án _1\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj": {}
   },
   "projects": {
-    "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj": {
+    "E:\\Github\\Dự _án _1\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj",
+        "projectUniqueName": "E:\\Github\\Dự _án _1\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj",
         "projectName": "1.DAL",
-        "projectPath": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj",
+        "projectPath": "E:\\Github\\Dự _án _1\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj",
         "packagesPath": "C:\\Users\\DELL E5570\\.nuget\\packages\\",
-        "outputPath": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\1.DAL\\obj\\",
+        "outputPath": "E:\\Github\\Dự _án _1\\DuAn1_BanNuocHoa\\1.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

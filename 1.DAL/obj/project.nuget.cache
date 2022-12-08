@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QJgOBm1DaewceVA3aL5deBYZlqZlFRP3PKBqGqOUecJsdnHJhL3yULWJEX9Abou/Rh53iaWEEbSz2Fp7RAKUcA==",
+  "dgSpecHash": "H7Evxd6wiDIRsZAslslzHTL7/X2jBS1HssVBKOezLGwU/bROEP6TNvYawTGRcpCw8ftAv0hB/JD2iffmgM5M0A==",
   "success": true,
-  "projectFilePath": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj",
+  "projectFilePath": "E:\\Github\\Dự _án _1\\DuAn1_BanNuocHoa\\1.DAL\\1.DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL E5570\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\DELL E5570\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
