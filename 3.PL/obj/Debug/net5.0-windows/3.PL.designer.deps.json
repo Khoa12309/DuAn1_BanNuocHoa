@@ -44,6 +44,14 @@
           }
         }
       },
+      "FontAwesome.Sharp/6.1.1": {
+        "runtime": {
+          "lib/net5.0-windows7.0/FontAwesome.Sharp.dll": {
+            "assemblyVersion": "6.1.1.0",
+            "fileVersion": "6.1.1.0"
+          }
+        }
+      },
       "iTextSharp/5.5.13.3": {
         "dependencies": {
           "BouncyCastle": "1.8.9"
@@ -1436,6 +1444,13 @@
       "sha512": "sha512-axnBgvdD5n+FnEG6efk/tfKuMFru7R/EoISH9zjh319yb3HD24TEHSAbNN/lTRT2ulOGRxDgOsCjkuk08iwWPg==",
       "path": "bouncycastle/1.8.9",
       "hashPath": "bouncycastle.1.8.9.nupkg.sha512"
+    },
+    "FontAwesome.Sharp/6.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p6dnSMcKQg790vGSJgvFk6S8gXQnEcCugfaJ21WFxZz9h+9KyxL+sX6kbGv8p4iVoX/e5BAMnTV4QJFJvx8QxQ==",
+      "path": "fontawesome.sharp/6.1.1",
+      "hashPath": "fontawesome.sharp.6.1.1.nupkg.sha512"
     },
     "iTextSharp/5.5.13.3": {
       "type": "package",

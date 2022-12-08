@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace _1.DAL.Migrations
 {
-    public partial class DA1 : Migration
+    public partial class migration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -172,7 +172,7 @@ namespace _1.DAL.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdKH = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    IdKM = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdKM = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     IdNV = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MaHD = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     TrangThai = table.Column<int>(type: "int", nullable: false),
@@ -193,7 +193,7 @@ namespace _1.DAL.Migrations
                         column: x => x.IdKM,
                         principalTable: "KhuyenMai",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_HoaDon_NhanVien_IdNV",
                         column: x => x.IdNV,
