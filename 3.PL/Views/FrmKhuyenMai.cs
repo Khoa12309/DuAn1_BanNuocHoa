@@ -18,6 +18,9 @@ namespace _3.PL.Views
         private IKhuyenMaiSer _IkhuyenMair;
         private KhuyenMaiView _KhuyenMaiView;
         Guid _id;
+        string chuoidung = "1234567890QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopas dfghjklzxcvbnm";
+        string chuoisdt = "1234567890";
+        string ma;
         public FrmKhuyenMai()
         {
             InitializeComponent();
@@ -43,6 +46,53 @@ namespace _3.PL.Views
             }
             
         }
+        private bool kiemtrakitu(string chuoiCanKiemTra)
+        {
+            foreach (char kiTu in chuoiCanKiemTra)
+            {
+                bool dung = false;
+
+                foreach (char kitu2 in chuoidung)
+                {
+                    if (kiTu == kitu2) dung = true;
+                }
+                if (dung == false) return false;
+            }
+
+
+            return true;
+        }
+
+        private bool kiemtraten(string chuoiCanKiemTra)
+        {
+            foreach (char kiTu in chuoiCanKiemTra)
+            {
+                bool dung = false;
+
+                foreach (char kitu2 in chuoisdt)
+                {
+                    if (kiTu == kitu2) dung = true;
+                }
+                if (dung == false) return false;
+            }
+
+
+            return true;
+        }
+        public bool checktrung(string masp)
+        {
+            var r = _IkhuyenMair.KmGetAll().Any(c => c.MaKM == masp);
+            if (r == true) { return true; }
+            return false;
+        }
+        public bool checkma(string ma2)
+        {
+            if (ma2 == ma) { return true; }
+            else if (checktrung(ma2) == true) { return false; }
+            else { return true; }
+            return true;
+
+        }
         public KhuyenMaiView GetDataFromUI()
         {
             _KhuyenMaiView = new KhuyenMaiView()
@@ -62,12 +112,56 @@ namespace _3.PL.Views
            dtp_BatDau. Text = dgird_KhuyenMai.Rows[e.RowIndex].Cells[4].Value.ToString();
             dtpKetThuc .Text = dgird_KhuyenMai.Rows[e.RowIndex].Cells[5].Value.ToString();
             _id = Guid.Parse( dgird_KhuyenMai.Rows[e.RowIndex].Cells[1].Value.ToString());
+            ma=dgird_KhuyenMai.Rows[e.RowIndex].Cells[3].Value.ToString();
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_IkhuyenMair.Add(GetDataFromUI()));
-            LoadData();
+            TimeSpan songaykm = dtpKetThuc.Value - dtp_BatDau.Value;
+            DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thực hiện chức năng này không ? ", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                _KhuyenMaiView = new KhuyenMaiView();
+                _KhuyenMaiView.Id = Guid.NewGuid();
+                if (tbx_Ma.Text.Trim() == "" || kiemtrakitu(tbx_Ma.Text.Trim()) == false)
+                {
+
+                    MessageBox.Show("Bạn đang để trống mã khuyến mại hoặc mã khuyến mại có kí tự đặc biệt");
+                    return;
+                }
+                else if (checktrung(tbx_Ma.Text.Trim()) == true)
+                {
+                    MessageBox.Show("Trùng mã khuyến mại");
+                    return;
+                }
+                else if (tbx_GiaTriKM.Text.Trim() == "" || kiemtraten(tbx_GiaTriKM.Text.Trim()) == false)
+                {
+                    MessageBox.Show("Bạn đang để trống giá trị khuyến mại hoặc giá trị khuyến mại không đúng định dạng");
+                    return;
+                }
+                else if (songaykm.Days <= 0)
+                {
+
+                    MessageBox.Show("Số ngày khuyến mại không hợp lí");
+                    return;
+                }
+                else
+                {
+
+                    _KhuyenMaiView.GiaTriKM = int.Parse(tbx_GiaTriKM.Text);
+                    _KhuyenMaiView.MaKM = tbx_Ma.Text;
+                    _KhuyenMaiView.NgayBD = dtp_BatDau.Value;
+                    _KhuyenMaiView.NgayKT = dtpKetThuc.Value;
+                    MessageBox.Show(_IkhuyenMair.Add(_KhuyenMaiView));
+                    LoadData();
+                }
+
+            }
+            else
+            {
+                return;
+
+            }
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
@@ -80,10 +174,51 @@ namespace _3.PL.Views
 
         private void btn_Update_Click(object sender, EventArgs e)
         {
-            var temp = GetDataFromUI();
-            temp.Id = _id;
-            MessageBox.Show(_IkhuyenMair.Update(temp));
-            LoadData();
+            TimeSpan songaykm = dtpKetThuc.Value - dtp_BatDau.Value;
+
+            DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thực hiện chức năng này không ? ", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                _KhuyenMaiView = new KhuyenMaiView();
+        
+                if (tbx_Ma.Text.Trim() == "" || kiemtrakitu(tbx_Ma.Text.Trim()) == false)
+                {
+
+                    MessageBox.Show("Bạn đang để trống mã khuyến mại hoặc mã khuyến mại có kí tự đặc biệt");
+                    return;
+                }
+                else if (checkma(tbx_Ma.Text.Trim()) == false)
+                {
+                    MessageBox.Show("Trùng mã khuyến mại");
+                    return;
+                }
+                else if (tbx_GiaTriKM.Text.Trim() == "" || kiemtraten(tbx_GiaTriKM.Text.Trim()) == false)
+                {
+                    MessageBox.Show("Bạn đang để trống giá trị khuyến mại hoặc giá trị khuyến mại không đúng định dạng");
+                    return;
+                }
+                else if(songaykm.Days<=0){
+
+                    MessageBox.Show("Số ngày khuyến mại không hợp lí");
+                    return;
+                }
+                else
+                {
+                    _KhuyenMaiView.Id = _id;
+                    _KhuyenMaiView.GiaTriKM = int.Parse(tbx_GiaTriKM.Text);
+                    _KhuyenMaiView.MaKM = tbx_Ma.Text;
+                    _KhuyenMaiView.NgayBD = dtp_BatDau.Value;
+                    _KhuyenMaiView.NgayKT = dtpKetThuc.Value;
+                    MessageBox.Show(_IkhuyenMair.Update(_KhuyenMaiView));
+                    LoadData();
+                }
+
+            }
+            else
+            {
+                return;
+
+            }
         }
     }
 }

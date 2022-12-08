@@ -39,6 +39,7 @@ namespace _3.PL.Views
         private INhanVienSer _invser;
         private IKhuyenMaiSer _Ikmser;
         Guid _id ;
+        string chuoidung = "1234567890QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopas dfghjklzxcvbnm";
         float tt = 0;
         public FrmBanHang()
         {
@@ -275,39 +276,76 @@ namespace _3.PL.Views
             }
             return tt;
         }
-    private void btn_thd_Click(object sender, EventArgs e)
+        private bool kiemtrakitu(string chuoiCanKiemTra)
         {
-            
-            
-            HoaDonView hd = new HoaDonView()
+            foreach (char kiTu in chuoiCanKiemTra)
             {
-                Id = Guid.NewGuid(),
-                IdKH = _ikhser.KhGetAll()[cmb_kh.SelectedIndex].Id,
-                IdNV = _invser.NvGetAll()[cmb_nv.SelectedIndex].Id,
-                MaHD = txt_mhd.Text,
-                NgayMua = dtp_nm.Value,
-                TrangThai = 0,
-                TongTien = tt,
-                IdKM = Guid.Parse("02e3a23d-24f3-4c25-8819-6f98918b058c"),
+                bool dung = false;
 
-            };
-            _ihdser.Add(hd);          
-            foreach (var x in _lstghct)
-            {
-                var hdct = new HoaDonChiTietView()               
+                foreach (char kitu2 in chuoidung)
                 {
-                     DonGia=x.DonGia,
-                      SoLuong=x.SoLuong,
-                       IdSP=x.IdSP,
-                       IdHD =hd.Id,                  
-                };
-                _ihdctser.Add(hdct);
-                var sp = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == x.IdSP);
-                sp.Solong -= x.SoLuong;
-               _Isersp.Update(sp);
+                    if (kiTu == kitu2) dung = true;
+                }
+                if (dung == false) return false;
             }
-            MessageBox.Show("Tao hoa don thanh cong");
-            _lstghct.Clear();
+
+
+            return true;
+        }
+        public bool checktrung(string masp)
+        {
+            var r = _ihdser.HdGetAll().Any(c => c.MaHD == masp);
+            if (r == true) { return true; }
+            return false;
+        }
+
+        private void btn_thd_Click(object sender, EventArgs e)
+        {
+            DialogResult diaolog = MessageBox.Show("Bạn muốn tạo hóa đơn này chứ ? ","Thông báo",MessageBoxButtons.YesNo);
+            if (diaolog == DialogResult.Yes)
+            {
+                HoaDonView hd = new HoaDonView();
+                hd.Id = Guid.NewGuid();
+                if (checktrung(txt_mhd.Text) == true)
+                {
+
+                    MessageBox.Show("Trùng mã hóa đơn");
+                    return;
+
+                }
+                else
+                {
+
+                    
+                    hd.IdKH = _ikhser.KhGetAll()[cmb_kh.SelectedIndex].Id;
+                    hd.IdNV = _invser.NvGetAll()[cmb_nv.SelectedIndex].Id;
+                    hd.MaHD = txt_mhd.Text;
+                    hd.NgayMua = dtp_nm.Value;
+                    hd.TrangThai = 0;
+                    hd.TongTien = tt;
+
+
+                    _ihdser.Add(hd);
+                }
+                foreach (var x in _lstghct)
+                {
+                    var hdct = new HoaDonChiTietView()
+                    {
+                        DonGia = x.DonGia,
+                        SoLuong = x.SoLuong,
+                        IdSP = x.IdSP,
+                        IdHD = hd.Id,
+                    };
+                    _ihdctser.Add(hdct);
+                    var sp = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == x.IdSP);
+                    sp.Solong -= x.SoLuong;
+                    _Isersp.Update(sp);
+                }
+                MessageBox.Show("Tao hoa don thanh cong");
+                _lstghct.Clear();
+            }
+            else { return; }
+            
         }
 
         private void btn_thanhtoan_Click(object sender, EventArgs e)
@@ -315,7 +353,7 @@ namespace _3.PL.Views
             var kh = _ikhser.KhGetAll().FirstOrDefault(c => c.TenKH == txt_tk.Text);
             var nv = _invser.NvGetAll().FirstOrDefault(c => c.TenNV == txt_tnv.Text);
             HoaDonView hd = new HoaDonView()
-            {
+            {   
                 Id =_id,
                 IdKH = kh.Id,
                 IdNV = nv.Id,
@@ -345,6 +383,11 @@ namespace _3.PL.Views
             
         }
         private void ihd()
+        {
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
         {
 
         }

@@ -28,7 +28,11 @@ namespace _3.PL.Views
         private ILoaiSer _LoaiSer;
         private IHangSer _HangSer;
         private Guid _id;
-
+        string chuoidung = "1234567890QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopas dfghjklzxcvbnm";
+        string chuoisdt = "1234567890";
+        string ma;
+        string taikh;
+        string chuoiten = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopas dfghjklzxcvbnm";
 
         public FrmSanPham()
         {
@@ -154,6 +158,7 @@ namespace _3.PL.Views
                 cmb_loai.SelectedIndex = cmb_loai.FindStringExact(loai.TenloaiSp);
                 rbtn_ch.Checked = dt.TrangThai == 1 ? true : false;
                 rrbtn_hh.Checked = dt.TrangThai == 0 ? true : false;
+                ma = dt.MaSp;
                 var idsp = _id.ToString();
                 if (idsp == null)
                 {
@@ -169,28 +174,214 @@ namespace _3.PL.Views
                MessageBox.Show("Lỗi :" +cv.Message);
             }            
         }
+        private bool kiemtrakitu(string chuoiCanKiemTra)
+        {
+            foreach (char kiTu in chuoiCanKiemTra)
+            {
+                bool dung = false;
 
+                foreach (char kitu2 in chuoidung)
+                {
+                    if (kiTu == kitu2) dung = true;
+                }
+                if (dung == false) return false;
+            }
+
+
+            return true;
+        }
+        private bool kiemtraten(string chuoiCanKiemTra)
+        {
+            foreach (char kiTu in chuoiCanKiemTra)
+            {
+                bool dung = false;
+
+                foreach (char kitu2 in chuoisdt)
+                {
+                    if (kiTu == kitu2) dung = true;
+                }
+                if (dung == false) return false;
+            }
+
+
+            return true;
+        }
+        public bool checkma(string ma2)
+        {
+            if (ma2 == ma) { return true; }
+            else if (checktrung(ma2) == true) { return false; }
+            else { return true; }
+            return true;
+
+        }
+        public bool checktrung(string masp)
+        {
+            var r = _Iser.SpGetAll().Any(c => c.MaSp == masp);
+            if (r == true) { return true; }
+            return false;
+        }
+        
         private void btn_them_Click(object sender, EventArgs e)
         {
-            _id = Guid.NewGuid();
-            MessageBox.Show(_Iser.Add(getfrm()));
-            txt_dt.Clear();
-            txt_gb.Clear();
-            loadfrm();
+            DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thực hiện chức năng này không ? ", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+
+                if (txt_masp.Text.Trim() == "" || kiemtrakitu(txt_masp.Text.Trim()) == false)
+                {
+
+                    MessageBox.Show("Bạn đang để trống mã sản phẩm hoặc mã sản phẩm có có kí tự đặc biệt");
+                    return;
+                }
+                else if (checktrung(txt_masp.Text.Trim()) == true)
+                {
+                    MessageBox.Show("Trùng mã sản phẩm");
+                    return;
+                }
+                else if (txt_tensp.Text.Trim() == "" || kiemtrakitu(txt_tensp.Text.Trim()) == false)
+                {
+                    MessageBox.Show("Bạn đang để trống tên sản phẩm hoặc tên sản phẩm có kí tự đặc biệt");
+                    return;
+                }
+                else if (txt_muisp.Text.Trim() == "" || kiemtrakitu(txt_muisp.Text.Trim()) == false)
+                {
+                    MessageBox.Show("Bạn đang để trống mùi sản phẩm hoặc có kí tự đặc biệt");
+                    return;
+                }
+                else if (txt_dt.Text.Trim() == "" || kiemtraten(txt_dt.Text.Trim()) == false)
+                {
+                    MessageBox.Show("dung tích trống hoặc sai định dạng");
+                    return;
+                }
+                else if (pcb_anh.Image == null)
+                {
+
+                    MessageBox.Show("Chọn ảnh cho sản phẩm");
+                    return;
+
+                }
+                else if (txt_sl.Text.Trim() == "" || kiemtraten(txt_sl.Text.Trim()) == false) 
+                {
+                    MessageBox.Show("Bạn đang để trống số lượng bán hoặc số lượng sai định dạng");
+                    return;
+                }
+                else if (txt_gb.Text.Trim() == "" || kiemtraten(txt_gb.Text.Trim()) == false)
+                {
+                    MessageBox.Show("Bạn đang để trống giá bán hoặc giá bán sai định dạng");
+                    return;
+                }
+                else if (txt_gn.Text.Trim() == "" || kiemtraten(txt_gn.Text.Trim()) == false)
+                {
+                    MessageBox.Show("Bạn đang để trống giá nhập hoặc giá nhập sai định dạng");
+                    return;
+                }
+                else if (Convert.ToDecimal(txt_gb.Text) - Convert.ToDecimal(txt_gn.Text) <= 0)
+                {
+                    MessageBox.Show("Giá chưa hợp lí");
+                    return;
+                }
+                else
+                {
+                    _id = Guid.NewGuid();
+                    MessageBox.Show(_Iser.Add(getfrm()));
+                    txt_dt.Clear();
+                    txt_gb.Clear();
+                    loadfrm();
+                }
+
+            }
+            else
+            {
+                return;
+
+            }
         }
 
         private void btn_sua_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_Iser.Update(getfrm()));        
-            loadfrm();
+            DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thực hiện chức năng này không ? ", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+
+                if (txt_masp.Text.Trim() == "" || kiemtrakitu(txt_masp.Text.Trim()) == false)
+                {
+
+                    MessageBox.Show("Bạn đang để trống mã sản phẩm hoặc mã sản phẩm có có kí tự đặc biệt");
+                    return;
+                }
+                else if (checkma(txt_masp.Text.Trim()) == false)
+                {
+                    MessageBox.Show("Trùng mã sản phẩm");
+                    return;
+                }
+                else if (txt_tensp.Text.Trim() == "" || kiemtrakitu(txt_tensp.Text.Trim()) == false)
+                {
+                    MessageBox.Show("Bạn đang để trống tên sản phẩm hoặc tên sản phẩm có kí tự đặc biệt");
+                    return;
+                }
+                else if (txt_muisp.Text.Trim() == "" || kiemtrakitu(txt_muisp.Text.Trim()) == false)
+                {
+                    MessageBox.Show("Bạn đang để trống mùi sản phẩm hoặc có kí tự đặc biệt");
+                    return;
+                }
+                else if (txt_dt.Text.Trim() == "" || kiemtraten(txt_dt.Text.Trim()) == false)
+                {
+                    MessageBox.Show("dung tích trống hoặc sai định dạng");
+                    return;
+                }
+                else if (pcb_anh.Image == null)
+                {
+
+                    MessageBox.Show("Chọn ảnh cho sản phẩm");
+                    return;
+
+                }
+                else if (txt_sl.Text.Trim() == "" || kiemtraten(txt_sl.Text.Trim()) == false)
+                {
+                    MessageBox.Show("Bạn đang để trống số lượng bán hoặc số lượng sai định dạng");
+                    return;
+                }
+                else if (txt_gb.Text.Trim() == "" || kiemtraten(txt_gb.Text.Trim()) == false)
+                {
+                    MessageBox.Show("Bạn đang để trống giá bán hoặc giá bán sai định dạng");
+                    return;
+                }
+                else if (txt_gn.Text.Trim() == "" || kiemtraten(txt_gn.Text.Trim()) == false)
+                {
+                    MessageBox.Show("Bạn đang để trống giá nhập hoặc giá nhập sai định dạng");
+                    return;
+                }
+                else if (Convert.ToDecimal(txt_gb.Text) - Convert.ToDecimal(txt_gn.Text) <= 0)
+                {
+                    MessageBox.Show("Giá chưa hợp lí");
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show(_Iser.Update(getfrm()));
+                    loadfrm();
+                }
+
+            }
+            else
+            {
+                return;
+
+            }
+        
 
         }
 
 
         private void btn_xoa_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_Iser.Delete(getfrm()));
-            loadfrm();
+            DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thực hiện chức năng này không ? ", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                MessageBox.Show(_Iser.Delete(getfrm()));
+                loadfrm();
+            }
+            else { return; }
         }
        
         private Image qr(string spv)
