@@ -184,7 +184,7 @@
             // 
             this.btn_taoqr.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_taoqr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btn_taoqr.Location = new System.Drawing.Point(126, 253);
+            this.btn_taoqr.Location = new System.Drawing.Point(115, 256);
             this.btn_taoqr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_taoqr.Name = "btn_taoqr";
             this.btn_taoqr.Size = new System.Drawing.Size(135, 57);
