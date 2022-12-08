@@ -66,7 +66,7 @@ namespace _3.PL.Views
             dgird_TaiKhoan.Columns[8].Name = "Trạng thái";
             dgird_TaiKhoan.Columns[9].Name = "Giới tính";
             dgird_TaiKhoan.Columns[10].Name = "Chức vụ";
-            dgird_TaiKhoan.Columns[10].Name = "Email";
+            dgird_TaiKhoan.Columns[11].Name = "Email";
             dgird_TaiKhoan.Rows.Clear();
             foreach (var x in _InhanVienSer.NvGetAll())
             {
