@@ -9,6 +9,7 @@
       "3.PL/1.0.0": {
         "dependencies": {
           "2.BUS": "1.0.0",
+          "AForge": "2.2.5",
           "AForge.Video.DirectShow": "2.2.5",
           "FontAwesome.Sharp": "6.1.1",
           "QRCoder": "1.4.3",

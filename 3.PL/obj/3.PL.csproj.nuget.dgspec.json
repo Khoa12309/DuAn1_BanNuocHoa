@@ -186,6 +186,10 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "dependencies": {
+            "AForge": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
             "AForge.Video.DirectShow": {
               "target": "Package",
               "version": "[2.2.5, )"
