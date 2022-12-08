@@ -60,6 +60,7 @@
             this.cmb_km = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btn_xoahd = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.dtp_nm = new System.Windows.Forms.DateTimePicker();
             this.txt_mhd = new System.Windows.Forms.TextBox();
@@ -74,7 +75,6 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.pdhd = new System.Drawing.Printing.PrintDocument();
             this.ppdhd = new System.Windows.Forms.PrintPreviewDialog();
-            this.btn_xoahd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_hd)).BeginInit();
@@ -392,6 +392,16 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Hóa Đơn";
             // 
+            // btn_xoahd
+            // 
+            this.btn_xoahd.Location = new System.Drawing.Point(224, 540);
+            this.btn_xoahd.Name = "btn_xoahd";
+            this.btn_xoahd.Size = new System.Drawing.Size(111, 45);
+            this.btn_xoahd.TabIndex = 13;
+            this.btn_xoahd.Text = "Xóa hóa đơn";
+            this.btn_xoahd.UseVisualStyleBackColor = true;
+            this.btn_xoahd.Click += new System.EventHandler(this.btn_xoahd_Click);
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -518,16 +528,6 @@
             this.ppdhd.Name = "ppdhd";
             this.ppdhd.Visible = false;
             // 
-            // btn_xoahd
-            // 
-            this.btn_xoahd.Location = new System.Drawing.Point(224, 540);
-            this.btn_xoahd.Name = "btn_xoahd";
-            this.btn_xoahd.Size = new System.Drawing.Size(111, 45);
-            this.btn_xoahd.TabIndex = 13;
-            this.btn_xoahd.Text = "Xóa hóa đơn";
-            this.btn_xoahd.UseVisualStyleBackColor = true;
-            this.btn_xoahd.Click += new System.EventHandler(this.btn_xoahd_Click);
-            // 
             // FrmBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -540,6 +540,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmBanHang";
             this.Text = "FrmBanHang";
+            this.Leave += new System.EventHandler(this.FrmBanHang_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_hd)).EndInit();

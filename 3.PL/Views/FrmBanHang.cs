@@ -41,6 +41,7 @@ namespace _3.PL.Views
         private IKhuyenMaiSer _Ikmser;
         Guid _id ;
         float tt = 0;
+        bool check = false;
         public FrmBanHang()
         {
             InitializeComponent();
@@ -58,7 +59,6 @@ namespace _3.PL.Views
             loadfrmsp();
             loadhd();
             Loadcmb();
-
         }
 
         private void loadhd()
@@ -96,10 +96,7 @@ namespace _3.PL.Views
                 cmb_km.Items.Add(x.MaKM);
 
             }
-            //foreach (var x in _ihdctser.HDCTGetAll())
-            //{
-            //    cmb_km.Items.Add(x.IdSP);
-            //}
+          
         }
 
         private void loadfrmsp()
@@ -169,11 +166,6 @@ namespace _3.PL.Views
             }
             loadfrmgh();
         }
-
-     
-
-       
-
         private void loadcam()
         {
             tcam = new FilterInfoCollection(FilterCategory.VideoInputDevice);
@@ -185,16 +177,13 @@ namespace _3.PL.Views
             cam = new VideoCaptureDevice(tcam[comboBox1.SelectedIndex].MonikerString);
             cam.NewFrame += Vn_NewFrame;
             cam.Start();
-           
         }
 
         private void Vn_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {           
             pictureBox1.Image = (Bitmap)eventArgs.Frame.Clone();
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-        }
+      
       
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -317,6 +306,9 @@ namespace _3.PL.Views
 
         private void btn_thanhtoan_Click(object sender, EventArgs e)
         {
+            try
+            {
+
             var kh = _ikhser.KhGetAll().FirstOrDefault(c => c.TenKH == txt_tk.Text);
             var nv = _invser.NvGetAll().FirstOrDefault(c => c.TenNV == txt_tnv.Text);
             HoaDonView hd = new HoaDonView()
@@ -330,7 +322,15 @@ namespace _3.PL.Views
                 TongTien = tinhtien((int)_Ikmser.KmGetAll()[cmb_km.SelectedIndex].GiaTriKM),
                 IdKM = _Ikmser.KmGetAll()[cmb_km.SelectedIndex].Id,
             };
-            _ihdser.Update(hd);                        
+            _ihdser.Update(hd);
+            check = true;
+            MessageBox.Show("Thanh Toán Thành Công");
+            }
+            catch (Exception a)
+            {
+
+                MessageBox.Show("Lỗi : " + a);
+            }
         }
         private void ihd()
         {
@@ -362,7 +362,7 @@ namespace _3.PL.Views
             Point p2 = new Point(w-10,y);
             e.Graphics.DrawLine(pn,p1,p2);
             y+=10;
-            e.Graphics.DrawString(String.Format("HÓA ĐƠN BÁN HÀNG"), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2, y));
+            e.Graphics.DrawString(String.Format("HÓA ĐƠN BÁN HÀNG"), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2-100, y));
             y += 20;
             e.Graphics.DrawString(String.Format("Ngày Mua : {0}", hd.NgayMua), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 200, y));
             e.Graphics.DrawString(String.Format("Tên Khách Hàng : {0}",kh.TenKH ), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(10, y));
@@ -386,17 +386,25 @@ namespace _3.PL.Views
                 var thanhtien = x.SoLuong * x.DonGia;
                 e.Graphics.DrawString(String.Format("{0}",stt++), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(10, y));
                 e.Graphics.DrawString(String.Format("{0}", x.tensp), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(100, y));
-
                 e.Graphics.DrawString(String.Format("{0}",x.SoLuong), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2, y));
                 e.Graphics.DrawString(String.Format("{0}",x.DonGia), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 100, y));
                 e.Graphics.DrawString(String.Format("{0}",thanhtien), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 200, y));
                 y += 20;
             }
+            y += 20;
+            e.Graphics.DrawLine(pn, p1, p2);
+            y += 20;
+            e.Graphics.DrawString(String.Format("Tổng Tiền : {0}",hd.TongTien), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 200, y));
         }
-
         private void btn_ihd_Click(object sender, EventArgs e)
         {
-            ihd();
+            if (check == true)
+            {
+                ihd();
+                check = false;
+            }
+            else MessageBox.Show("Chọn hóa đơn để thanh toán trước khi in");
+            
         }
 
         private void btn_xoahd_Click(object sender, EventArgs e)
@@ -416,6 +424,12 @@ namespace _3.PL.Views
                 IdKM = hd.IdKM,
             };
             MessageBox.Show(_ihdser.Delete(hdw));
+        }
+
+        private void FrmBanHang_Leave(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            cam.Stop();
         }
     }
 }
