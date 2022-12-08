@@ -29,6 +29,7 @@ namespace _3.PL.Views
             contents = c.Text;
             MailMessage mail = new MailMessage();
             mail.To.Add(to);
+            
             mail.From = new MailAddress(from);
             mail.Subject = "Thư mời bạn nhận lương";
             mail.Body = tbx_NoiDung.Text;
@@ -37,6 +38,7 @@ namespace _3.PL.Views
             smtp.Port = 587;
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtp.Credentials = new NetworkCredential(from, pass);
+            smtp.TargetName = "KK";
             try
             {
                 smtp.Send(mail);

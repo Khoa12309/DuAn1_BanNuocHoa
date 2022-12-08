@@ -174,10 +174,7 @@ namespace _3.PL.Views
             else MessageBox.Show("null");
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            timer1.Start();
-        }
+        
         private Image img(byte[] bt)
         {
             MemoryStream ms = new MemoryStream(bt);
@@ -191,6 +188,26 @@ namespace _3.PL.Views
             var z = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == id);
             addGH((Guid)z.ID);
             pb_anh.Image = img(z.HinhAnh);
+        }
+
+        private void btn_Quet_MaQr_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+            if (btn_Quet_MaQr.Text== "Quét mã Qr")
+            {
+                btn_Quet_MaQr.Text = "Huỷ";
+                timer1.Stop();
+            }
+            if (btn_Quet_MaQr.Text =="Hủy")
+            {
+                btn_Quet_MaQr.Text = "Quét mã Qr";
+                timer1.Start();
+            }
+        }
+
+        private void btn_Hủy_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
         }
     }
 }

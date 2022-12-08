@@ -87,6 +87,7 @@
             // 
             this.tbx_matKhau.Location = new System.Drawing.Point(159, 133);
             this.tbx_matKhau.Name = "tbx_matKhau";
+            this.tbx_matKhau.PasswordChar = '*';
             this.tbx_matKhau.Size = new System.Drawing.Size(125, 27);
             this.tbx_matKhau.TabIndex = 6;
             // 

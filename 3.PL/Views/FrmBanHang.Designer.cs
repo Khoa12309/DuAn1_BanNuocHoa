@@ -32,7 +32,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_Quet_MaQr = new System.Windows.Forms.Button();
             this.dgrid_sp = new System.Windows.Forms.DataGridView();
             this.dgrid_hd = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -61,6 +61,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgrid_gh = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btn_Hủy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_hd)).BeginInit();
@@ -96,15 +97,15 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button3
+            // btn_Quet_MaQr
             // 
-            this.button3.Location = new System.Drawing.Point(207, 29);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 29);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn_Quet_MaQr.Location = new System.Drawing.Point(207, 29);
+            this.btn_Quet_MaQr.Name = "btn_Quet_MaQr";
+            this.btn_Quet_MaQr.Size = new System.Drawing.Size(107, 29);
+            this.btn_Quet_MaQr.TabIndex = 4;
+            this.btn_Quet_MaQr.Text = "Quét mã Qr";
+            this.btn_Quet_MaQr.UseVisualStyleBackColor = true;
+            this.btn_Quet_MaQr.Click += new System.EventHandler(this.btn_Quet_MaQr_Click);
             // 
             // dgrid_sp
             // 
@@ -122,6 +123,7 @@
             // 
             this.dgrid_hd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_hd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgrid_hd.GridColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgrid_hd.Location = new System.Drawing.Point(3, 23);
             this.dgrid_hd.Name = "dgrid_hd";
             this.dgrid_hd.RowHeadersWidth = 51;
@@ -167,7 +169,7 @@
             // 
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.pictureBox1);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.btn_Quet_MaQr);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox2.Location = new System.Drawing.Point(1207, 23);
             this.groupBox2.Name = "groupBox2";
@@ -178,6 +180,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btn_Hủy);
             this.groupBox3.Controls.Add(this.btn_thanhtoan);
             this.groupBox3.Controls.Add(this.textBox7);
             this.groupBox3.Controls.Add(this.textBox6);
@@ -366,6 +369,7 @@
             // 
             this.dgrid_gh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_gh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgrid_gh.GridColor = System.Drawing.SystemColors.Control;
             this.dgrid_gh.Location = new System.Drawing.Point(3, 23);
             this.dgrid_gh.Name = "dgrid_gh";
             this.dgrid_gh.RowHeadersWidth = 51;
@@ -383,6 +387,16 @@
             this.groupBox6.TabIndex = 10;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Danh Sách HD";
+            // 
+            // btn_Hủy
+            // 
+            this.btn_Hủy.Location = new System.Drawing.Point(47, 616);
+            this.btn_Hủy.Name = "btn_Hủy";
+            this.btn_Hủy.Size = new System.Drawing.Size(107, 29);
+            this.btn_Hủy.TabIndex = 5;
+            this.btn_Hủy.Text = "Hủy";
+            this.btn_Hủy.UseVisualStyleBackColor = true;
+            this.btn_Hủy.Click += new System.EventHandler(this.btn_Hủy_Click);
             // 
             // FrmBanHang
             // 
@@ -417,7 +431,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_Quet_MaQr;
         private System.Windows.Forms.DataGridView dgrid_sp;
         private System.Windows.Forms.DataGridView dgrid_hd;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -446,5 +460,6 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.PictureBox pb_anh;
+        private System.Windows.Forms.Button btn_Hủy;
     }
 }
