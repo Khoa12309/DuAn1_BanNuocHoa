@@ -138,7 +138,7 @@ namespace _2.BUS.Services
 
                 return "Không tìm thấy";
             }
-            if (_Irep.Delete(sp))
+            if (_Irep.Update(sp))
             {
 
                 return "Sửa  thành công";

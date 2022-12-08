@@ -189,8 +189,7 @@ namespace _3.PL.Views
         }
 
         private void Vn_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-           
+        {           
             pictureBox1.Image = (Bitmap)eventArgs.Frame.Clone();
         }
         private void button1_Click(object sender, EventArgs e)
@@ -228,7 +227,7 @@ namespace _3.PL.Views
         private void dgrid_sp_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var row = e.RowIndex;
-            var id = Guid.Parse(dgrid_sp.Rows[row].Cells[1].Value.ToString());
+           var id = Guid.Parse(dgrid_sp.Rows[row].Cells[1].Value.ToString());
             var z = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == id);
             addGH((Guid)z.ID);
             pb_anh.Image = img(z.HinhAnh);
@@ -249,7 +248,7 @@ namespace _3.PL.Views
                 dtp_ntt.Text= dt.NgayMua.ToString();
                 txt_tk.Text = kh.TenKH;
                 txt_tnv.Text = nv.TenNV;
-                txt_tt.Text = dt.TongTien.ToString();
+                txt_tt.Text = tinhtien(0).ToString();
 
             }
             catch (Exception ex)
@@ -268,7 +267,8 @@ namespace _3.PL.Views
         }
         private float tinhtien(int gkm)
         {
-            foreach (var x in _lstghct)
+            tt = 0;
+            foreach (var x in _ihdctser.HDCTGetAll().Where(c => c.IdHD == _id))
             {
                 tt += x.SoLuong * x.DonGia;
             }
@@ -281,7 +281,7 @@ namespace _3.PL.Views
     private void btn_thd_Click(object sender, EventArgs e)
         {
 
-            addGH(_id);
+           
             HoaDonView hd = new HoaDonView()
             {
                 Id = Guid.NewGuid(),
@@ -302,7 +302,7 @@ namespace _3.PL.Views
                      DonGia=x.DonGia,
                       SoLuong=x.SoLuong,
                        IdSP=x.IdSP,
-                       IdHD =_id,                  
+                       IdHD =hd.Id,                  
                 };
                 _ihdctser.Add(hdct);
                 var sp = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == x.IdSP);
@@ -330,8 +330,7 @@ namespace _3.PL.Views
                 TongTien = tinhtien((int)_Ikmser.KmGetAll()[cmb_km.SelectedIndex].GiaTriKM),
                 IdKM = _Ikmser.KmGetAll()[cmb_km.SelectedIndex].Id,
             };
-            _ihdser.Update(hd);
-                        
+            _ihdser.Update(hd);                        
         }
         private void ihd()
         {
@@ -386,7 +385,8 @@ namespace _3.PL.Views
             {
                 var thanhtien = x.SoLuong * x.DonGia;
                 e.Graphics.DrawString(String.Format("{0}",stt++), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(10, y));
-                e.Graphics.DrawString(String.Format("{0}"), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(100, y));
+                e.Graphics.DrawString(String.Format("{0}", x.tensp), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(100, y));
+
                 e.Graphics.DrawString(String.Format("{0}",x.SoLuong), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2, y));
                 e.Graphics.DrawString(String.Format("{0}",x.DonGia), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 100, y));
                 e.Graphics.DrawString(String.Format("{0}",thanhtien), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 200, y));
@@ -397,6 +397,25 @@ namespace _3.PL.Views
         private void btn_ihd_Click(object sender, EventArgs e)
         {
             ihd();
+        }
+
+        private void btn_xoahd_Click(object sender, EventArgs e)
+        {
+            var kh = _ikhser.KhGetAll().FirstOrDefault(c => c.TenKH == txt_tk.Text);
+            var nv = _invser.NvGetAll().FirstOrDefault(c => c.TenNV == txt_tnv.Text);
+            var hd = _ihdser.HdGetAll().FirstOrDefault(c => c.Id == _id);
+            HoaDonView hdw = new HoaDonView()
+            {
+                Id = _id,
+                IdKH = kh.Id,
+                IdNV = nv.Id,
+                MaHD = hd.MaHD,
+                NgayMua = hd.NgayMua,
+                TrangThai = hd.TrangThai,
+                TongTien = hd.TongTien,
+                IdKM = hd.IdKM,
+            };
+            MessageBox.Show(_ihdser.Delete(hdw));
         }
     }
 }
