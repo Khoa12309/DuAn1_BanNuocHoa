@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBanHang));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -40,6 +41,7 @@
             this.pb_anh = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_ihd = new System.Windows.Forms.Button();
             this.dtp_ntt = new System.Windows.Forms.DateTimePicker();
             this.btn_thanhtoan = new System.Windows.Forms.Button();
             this.txt_tth = new System.Windows.Forms.TextBox();
@@ -70,6 +72,9 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgrid_gh = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.pdhd = new System.Drawing.Printing.PrintDocument();
+            this.ppdhd = new System.Windows.Forms.PrintPreviewDialog();
+            this.btn_xoahd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_hd)).BeginInit();
@@ -191,6 +196,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btn_ihd);
             this.groupBox3.Controls.Add(this.dtp_ntt);
             this.groupBox3.Controls.Add(this.btn_thanhtoan);
             this.groupBox3.Controls.Add(this.txt_tth);
@@ -216,6 +222,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thanh Toán";
             // 
+            // btn_ihd
+            // 
+            this.btn_ihd.Location = new System.Drawing.Point(204, 556);
+            this.btn_ihd.Name = "btn_ihd";
+            this.btn_ihd.Size = new System.Drawing.Size(94, 29);
+            this.btn_ihd.TabIndex = 17;
+            this.btn_ihd.Text = "In hóa đơn";
+            this.btn_ihd.UseVisualStyleBackColor = true;
+            this.btn_ihd.Click += new System.EventHandler(this.btn_ihd_Click);
+            // 
             // dtp_ntt
             // 
             this.dtp_ntt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -226,7 +242,7 @@
             // 
             // btn_thanhtoan
             // 
-            this.btn_thanhtoan.Location = new System.Drawing.Point(126, 506);
+            this.btn_thanhtoan.Location = new System.Drawing.Point(69, 556);
             this.btn_thanhtoan.Name = "btn_thanhtoan";
             this.btn_thanhtoan.Size = new System.Drawing.Size(94, 29);
             this.btn_thanhtoan.TabIndex = 16;
@@ -358,6 +374,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btn_xoahd);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.dtp_nm);
             this.groupBox4.Controls.Add(this.txt_mhd);
@@ -445,7 +462,7 @@
             // 
             // btn_thd
             // 
-            this.btn_thd.Location = new System.Drawing.Point(146, 530);
+            this.btn_thd.Location = new System.Drawing.Point(64, 540);
             this.btn_thd.Name = "btn_thd";
             this.btn_thd.Size = new System.Drawing.Size(111, 45);
             this.btn_thd.TabIndex = 0;
@@ -486,6 +503,30 @@
             this.groupBox6.TabIndex = 10;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Danh Sách HD";
+            // 
+            // pdhd
+            // 
+            this.pdhd.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.pdhd_PrintPage);
+            // 
+            // ppdhd
+            // 
+            this.ppdhd.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.ppdhd.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.ppdhd.ClientSize = new System.Drawing.Size(400, 300);
+            this.ppdhd.Enabled = true;
+            this.ppdhd.Icon = ((System.Drawing.Icon)(resources.GetObject("ppdhd.Icon")));
+            this.ppdhd.Name = "ppdhd";
+            this.ppdhd.Visible = false;
+            // 
+            // btn_xoahd
+            // 
+            this.btn_xoahd.Location = new System.Drawing.Point(224, 540);
+            this.btn_xoahd.Name = "btn_xoahd";
+            this.btn_xoahd.Size = new System.Drawing.Size(111, 45);
+            this.btn_xoahd.TabIndex = 13;
+            this.btn_xoahd.Text = "Xóa hóa đơn";
+            this.btn_xoahd.UseVisualStyleBackColor = true;
+            this.btn_xoahd.Click += new System.EventHandler(this.btn_xoahd_Click);
             // 
             // FrmBanHang
             // 
@@ -560,5 +601,9 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DateTimePicker dtp_nm;
         private System.Windows.Forms.DateTimePicker dtp_ntt;
+        private System.Drawing.Printing.PrintDocument pdhd;
+        private System.Windows.Forms.PrintPreviewDialog ppdhd;
+        private System.Windows.Forms.Button btn_ihd;
+        private System.Windows.Forms.Button btn_xoahd;
     }
 }

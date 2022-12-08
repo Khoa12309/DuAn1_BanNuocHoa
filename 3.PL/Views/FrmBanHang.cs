@@ -23,6 +23,7 @@ using ZXing.Common;
 using ZXing.QrCode;
 using static System.Net.Mime.MediaTypeNames;
 using Image = System.Drawing.Image;
+using Point = System.Drawing.Point;
 
 namespace _3.PL.Views
 {
@@ -84,17 +85,21 @@ namespace _3.PL.Views
             {
                 cmb_kh.Items.Add(x.TenKH);
 
-            } 
+            }
             foreach (var x in _invser.NvGetAll())
             {
                 cmb_nv.Items.Add(x.TenNV);
 
-            } 
+            }
             foreach (var x in _Ikmser.KmGetAll())
             {
                 cmb_km.Items.Add(x.MaKM);
 
             }
+            //foreach (var x in _ihdctser.HDCTGetAll())
+            //{
+            //    cmb_km.Items.Add(x.IdSP);
+            //}
         }
 
         private void loadfrmsp()
@@ -119,6 +124,7 @@ namespace _3.PL.Views
             {
                 dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong,x.Tenloai, x.Tenhang,x.GiaBan);
             }
+            
         }
 
         private void loadfrmgh()
@@ -155,7 +161,7 @@ namespace _3.PL.Views
                        IdSP=id
                     
                 };
-                _lstghct.Add(ghct);
+               _lstghct.Add(ghct);
             }
             else
             {
@@ -164,10 +170,7 @@ namespace _3.PL.Views
             loadfrmgh();
         }
 
-        private void loadcmb()
-        {
-            throw new NotImplementedException();
-        }
+     
 
        
 
@@ -186,8 +189,7 @@ namespace _3.PL.Views
         }
 
         private void Vn_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-           
+        {           
             pictureBox1.Image = (Bitmap)eventArgs.Frame.Clone();
         }
         private void button1_Click(object sender, EventArgs e)
@@ -225,7 +227,7 @@ namespace _3.PL.Views
         private void dgrid_sp_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var row = e.RowIndex;
-            var id = Guid.Parse(dgrid_sp.Rows[row].Cells[1].Value.ToString());
+           var id = Guid.Parse(dgrid_sp.Rows[row].Cells[1].Value.ToString());
             var z = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == id);
             addGH((Guid)z.ID);
             pb_anh.Image = img(z.HinhAnh);
@@ -246,7 +248,7 @@ namespace _3.PL.Views
                 dtp_ntt.Text= dt.NgayMua.ToString();
                 txt_tk.Text = kh.TenKH;
                 txt_tnv.Text = nv.TenNV;
-                txt_tt.Text = dt.TongTien.ToString();
+                txt_tt.Text = tinhtien(0).ToString();
 
             }
             catch (Exception ex)
@@ -265,7 +267,8 @@ namespace _3.PL.Views
         }
         private float tinhtien(int gkm)
         {
-            foreach (var x in _lstghct)
+            tt = 0;
+            foreach (var x in _ihdctser.HDCTGetAll().Where(c => c.IdHD == _id))
             {
                 tt += x.SoLuong * x.DonGia;
             }
@@ -277,8 +280,8 @@ namespace _3.PL.Views
         }
     private void btn_thd_Click(object sender, EventArgs e)
         {
-            
-            
+
+           
             HoaDonView hd = new HoaDonView()
             {
                 Id = Guid.NewGuid(),
@@ -308,6 +311,8 @@ namespace _3.PL.Views
             }
             MessageBox.Show("Tao hoa don thanh cong");
             _lstghct.Clear();
+            loadfrmgh();
+            loadhd();
         }
 
         private void btn_thanhtoan_Click(object sender, EventArgs e)
@@ -325,28 +330,92 @@ namespace _3.PL.Views
                 TongTien = tinhtien((int)_Ikmser.KmGetAll()[cmb_km.SelectedIndex].GiaTriKM),
                 IdKM = _Ikmser.KmGetAll()[cmb_km.SelectedIndex].Id,
             };
-            _ihdser.Update(hd);
-            
-
-            SaveFileDialog of = new SaveFileDialog()
-            {
-                Filter = "PDF flie|*.pdf", ValidateNames = true,
-
-
-            };
-            if (of.ShowDialog()==DialogResult.OK)
-            {
-                iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A7.Rotate());
-                PdfWriter.GetInstance(doc, new FileStream(of.FileName, FileMode.Create));
-                doc.Open();
-                doc.Add();
-            }
-
-            
+            _ihdser.Update(hd);                        
         }
         private void ihd()
         {
+            ppdhd.Document = pdhd;
+            ppdhd.ShowDialog();
 
+        }
+
+        private void pdhd_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            var hd = _ihdser.HdGetAll().FirstOrDefault(c=>c.Id==_id);
+            var kh = _ikhser.KhGetAll().FirstOrDefault(c => c.Id == hd.IdKH);
+            var km = _Ikmser.KmGetAll().FirstOrDefault(c => c.Id == hd.IdKM);
+            var nv = _invser.NvGetAll().FirstOrDefault(c => c.Id == hd.IdNV);
+
+            //lấy chiều rộng của giấy
+            var w =pdhd.DefaultPageSettings.PaperSize.Width;
+            //
+            e.Graphics.DrawString("Của Hàng Nước Hoa",new System.Drawing.Font("Times New Roman",15,FontStyle.Bold),Brushes.Black,new System.Drawing.Point(100,20));
+
+            e.Graphics.DrawString(String.Format("Mã Hóa Đơn : {0}",hd.MaHD),new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w/2+200, 20));
+            e.Graphics.DrawString(String.Format(" {0}",DateTime.Now.ToString()),new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w/2+200, 45));
+
+            //
+            Pen pn= new Pen(Color.Black,1);
+
+            var y = 70;
+            Point p1 = new Point(10,y);
+            Point p2 = new Point(w-10,y);
+            e.Graphics.DrawLine(pn,p1,p2);
+            y+=10;
+            e.Graphics.DrawString(String.Format("HÓA ĐƠN BÁN HÀNG"), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2, y));
+            y += 20;
+            e.Graphics.DrawString(String.Format("Ngày Mua : {0}", hd.NgayMua), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 200, y));
+            e.Graphics.DrawString(String.Format("Tên Khách Hàng : {0}",kh.TenKH ), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(10, y));
+            e.Graphics.DrawString(String.Format("STD : {0}",kh.STD ), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(10, y+30));
+            y += 70;
+            e.Graphics.DrawString(String.Format("STT"), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(10, y)); 
+            e.Graphics.DrawString(String.Format("Tên Sản Phẩm"), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(100, y));
+            e.Graphics.DrawString(String.Format("Số Lượng"), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2, y));
+            e.Graphics.DrawString(String.Format("Đơn Giá"), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w/2+100, y));
+            e.Graphics.DrawString(String.Format("Thành Tiền"), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 200, y));
+
+            /////
+            ///
+           
+
+            int stt= 1;
+            y += 20;
+            
+            foreach (var x in _ihdctser.HDCTGetAll().Where(c=>c.IdHD==_id) )
+            {
+                var thanhtien = x.SoLuong * x.DonGia;
+                e.Graphics.DrawString(String.Format("{0}",stt++), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(10, y));
+                e.Graphics.DrawString(String.Format("{0}", x.tensp), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(100, y));
+
+                e.Graphics.DrawString(String.Format("{0}",x.SoLuong), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2, y));
+                e.Graphics.DrawString(String.Format("{0}",x.DonGia), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 100, y));
+                e.Graphics.DrawString(String.Format("{0}",thanhtien), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 200, y));
+                y += 20;
+            }
+        }
+
+        private void btn_ihd_Click(object sender, EventArgs e)
+        {
+            ihd();
+        }
+
+        private void btn_xoahd_Click(object sender, EventArgs e)
+        {
+            var kh = _ikhser.KhGetAll().FirstOrDefault(c => c.TenKH == txt_tk.Text);
+            var nv = _invser.NvGetAll().FirstOrDefault(c => c.TenNV == txt_tnv.Text);
+            var hd = _ihdser.HdGetAll().FirstOrDefault(c => c.Id == _id);
+            HoaDonView hdw = new HoaDonView()
+            {
+                Id = _id,
+                IdKH = kh.Id,
+                IdNV = nv.Id,
+                MaHD = hd.MaHD,
+                NgayMua = hd.NgayMua,
+                TrangThai = hd.TrangThai,
+                TongTien = hd.TongTien,
+                IdKM = hd.IdKM,
+            };
+            MessageBox.Show(_ihdser.Delete(hdw));
         }
     }
 }

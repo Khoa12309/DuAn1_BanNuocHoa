@@ -126,10 +126,7 @@ namespace _3.PL.Views
                 ID = _id
             };
         }
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void dgrid_sp_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
