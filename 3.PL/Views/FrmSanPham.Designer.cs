@@ -393,7 +393,7 @@
             this.rrbtn_hh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rrbtn_hh.AutoSize = true;
             this.rrbtn_hh.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rrbtn_hh.Location = new System.Drawing.Point(854, 205);
+            this.rrbtn_hh.Location = new System.Drawing.Point(727, 206);
             this.rrbtn_hh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rrbtn_hh.Name = "rrbtn_hh";
             this.rrbtn_hh.Size = new System.Drawing.Size(111, 28);
