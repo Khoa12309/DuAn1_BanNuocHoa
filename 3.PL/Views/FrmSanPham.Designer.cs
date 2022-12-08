@@ -103,6 +103,7 @@
             this.txt_tk.Size = new System.Drawing.Size(252, 27);
             this.txt_tk.TabIndex = 3;
             this.txt_tk.Text = "Tìm Kiếm";
+            this.txt_tk.TextChanged += new System.EventHandler(this.txt_tk_TextChanged);
             // 
             // btn_them
             // 

@@ -216,7 +216,34 @@ namespace _3.PL.Views
                 
             }
         }
-        
+
+        private void txt_tk_TextChanged(object sender, EventArgs e)
+        {
+            var stt = 1;
+            dgrid_sp.ColumnCount = 12;
+            dgrid_sp.Columns[0].Name = "Stt";
+            dgrid_sp.Columns[1].Name = "ID";
+            dgrid_sp.Columns[2].Name = "Mã SP";
+            dgrid_sp.Columns[3].Name = "Tên SP";
+            dgrid_sp.Columns[4].Name = "Mùi Hương";
+            dgrid_sp.Columns[5].Name = "Dung Tích";
+            dgrid_sp.Columns[6].Name = "Số Lượng";
+            dgrid_sp.Columns[7].Name = "Trạng Thái";
+            dgrid_sp.Columns[8].Name = "Loại";
+            dgrid_sp.Columns[9].Name = "Hãng";
+            dgrid_sp.Columns[10].Name = "Giá Nhập";
+            dgrid_sp.Columns[11].Name = "Giá Bán";
+            //dgrid_sp.Columns[12].Name = "Hình Ảnh";
+
+            dgrid_sp.Rows.Clear();
+            this.dgrid_sp.Columns["ID"].Visible = false;
+            foreach (var x in _Iser.SpGetAll().Where(c=>c.MaSp==txt_tk.Text||c.TenSp==txt_tk.Text))
+            {
+                dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong, x.TrangThai, x.Tenloai, x.Tenhang, x.GiaNhap, x.GiaBan);
+            }
+
+        }
+
         //private Object ByteArrayToObject(byte[] arrBytes)
         //{
         //    MemoryStream memStream = new MemoryStream();

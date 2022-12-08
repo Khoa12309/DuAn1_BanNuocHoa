@@ -35,7 +35,6 @@
           "lib/AForge.Video.DirectShow.dll": {}
         }
       },
-<<<<<<< HEAD
       "BouncyCastle/1.8.9": {
         "type": "package",
         "compile": {
@@ -69,8 +68,6 @@
           "lib/itextsharp.dll": {}
         }
       },
-=======
->>>>>>> origin/Dungndph20833
       "Microsoft.CSharp/4.5.0": {
         "type": "package",
         "compile": {
@@ -1882,7 +1879,6 @@
         "lib/AForge.Video.DirectShow.xml"
       ]
     },
-<<<<<<< HEAD
     "BouncyCastle/1.8.9": {
       "sha512": "axnBgvdD5n+FnEG6efk/tfKuMFru7R/EoISH9zjh319yb3HD24TEHSAbNN/lTRT2ulOGRxDgOsCjkuk08iwWPg==",
       "type": "package",
@@ -1930,8 +1926,6 @@
         "notice.txt"
       ]
     },
-=======
->>>>>>> origin/Dungndph20833
     "Microsoft.CSharp/4.5.0": {
       "sha512": "kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
       "type": "package",
@@ -6259,27 +6253,28 @@
       "AForge.Video.DirectShow >= 2.2.5",
       "FontAwesome.Sharp >= 6.1.1",
       "QRCoder >= 1.4.3",
-      "ZXing.Net >= 0.16.6"
+      "ZXing.Net >= 0.16.6",
+      "iTextSharp >= 5.5.13.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DELL E5570\\.nuget\\packages\\": {},
+    "C:\\Users\\ACER\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\3.PL\\3.PL.csproj",
+      "projectUniqueName": "D:\\DuAn1_BanNuocHoa\\3.PL\\3.PL.csproj",
       "projectName": "3.PL",
-      "projectPath": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\3.PL\\3.PL.csproj",
-      "packagesPath": "C:\\Users\\DELL E5570\\.nuget\\packages\\",
-      "outputPath": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\3.PL\\obj\\",
+      "projectPath": "D:\\DuAn1_BanNuocHoa\\3.PL\\3.PL.csproj",
+      "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+      "outputPath": "D:\\DuAn1_BanNuocHoa\\3.PL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\DELL E5570\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6294,8 +6289,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\2.BUS\\2.BUS.csproj": {
-              "projectPath": "E:\\Github\\laiiii\\DuAn1_BanNuocHoa\\2.BUS\\2.BUS.csproj"
+            "D:\\DuAn1_BanNuocHoa\\2.BUS\\2.BUS.csproj": {
+              "projectPath": "D:\\DuAn1_BanNuocHoa\\2.BUS\\2.BUS.csproj"
             }
           }
         }
@@ -6329,6 +6324,10 @@
           "ZXing.Net": {
             "target": "Package",
             "version": "[0.16.6, )"
+          },
+          "iTextSharp": {
+            "target": "Package",
+            "version": "[5.5.13.3, )"
           }
         },
         "imports": [
@@ -6381,6 +6380,26 @@
       "warningLevel": 1,
       "message": "Package 'AForge.Video.DirectShow 2.2.5' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
       "libraryId": "AForge.Video.DirectShow",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'BouncyCastle 1.8.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "BouncyCastle",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'iTextSharp 5.5.13.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "iTextSharp",
       "targetGraphs": [
         "net5.0-windows7.0"
       ]

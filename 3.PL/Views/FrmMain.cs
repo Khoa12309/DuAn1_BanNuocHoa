@@ -22,8 +22,7 @@ namespace _3.PL.Views
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
-            this.Text = string.Empty;
-            
+
         }
         private struct RGBColors
         {
@@ -67,6 +66,7 @@ namespace _3.PL.Views
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
         }
+        //Opem From
         private void OpenChildForm(Form childForm)
         {
             if (currentChildForm != null)
@@ -83,46 +83,46 @@ namespace _3.PL.Views
             childForm.Show();
             lblTitleChildForm.Text = childForm.Text;
         }
-
+        //Bán Hàng
         private void iconButton1_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new FrmBanHang());
         }
-
+        //Sản Phẩm
         private void iconButton2_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new FrmSanPham());
         }
-
+        //Nhân Viên
         private void iconButton3_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            //OpenChildForm(new FrmNhanViens());
+            OpenChildForm(new FrmTaiKhoan());
         }
-
+        //Khuyến Mãi
         private void iconButton4_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
             OpenChildForm(new FrmKhuyenMai());
         }
-
+        //Thông Báo
         private void iconButton5_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
         }
-
+        //Khuyến Mãi
         private void iconButton6_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
         }
-
+        //Đăng Xuất
         private void iconButton7_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color7);
         }
-
+        //Trang Chủ
         private void btnHome_Click(object sender, EventArgs e)
         {
             currentChildForm.Close();
@@ -151,7 +151,7 @@ namespace _3.PL.Views
         {
 
         }
-
+       
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

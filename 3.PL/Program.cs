@@ -15,19 +15,12 @@ namespace _3.PL
         [STAThread]
         static void Main()
         {
+
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-<<<<<<< HEAD
-            Application.Run(new FrmMain());
-=======
-            //   Application.Run(new FrmDangNhap());
-           //  A/pplication.Run(new FrmHangSp());
-             Application.Run(new FrmBanHang());
-           //  Application.Run(new FrmLoaiSp());
->>>>>>> origin/Dungndph20833
+            Application.Run(new FrmDangNhap());
             
-
         }
     }
 }

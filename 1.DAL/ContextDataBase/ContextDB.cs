@@ -24,8 +24,7 @@ namespace _1.DAL.ContextDataBase
         {
             // Thực hiện các ràng buộc kết nối
             base.OnConfiguring(optionsBuilder.
-                UseSqlServer("Data Source=DUNG-DEP-TRAI\\SQLEXPRESS;Initial Catalog=DABanNuocHoaa;" +
-                "Persist Security Info=True;User ID=dungndph20833;Password=123456"));
+                UseSqlServer("Data Source=LAPTOP-N6FK027M;Initial Catalog=DABanNuocHoa;User ID=khoaph20877;Password=123456"));
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -33,14 +32,14 @@ namespace _1.DAL.ContextDataBase
         }
         public virtual DbSet<Account> accounts { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
-        public virtual DbSet<BaoHanh> BaoHanhs { get; set; }
+       
         public virtual DbSet<GioHang> GioHangs { get; set; }
         public virtual DbSet<GioHangChiTiet> GioHangChiTiets { get; set; }
         public virtual DbSet<HangSp> HangSps { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<HoaDonChiTiet> HoaDonChiTiets { get; set; }
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
-        public virtual DbSet<Kho> Khos { get; set; }
+     
         public virtual DbSet<KhuyenMai> KhuyenMais { get; set; }
         public virtual DbSet<LoaiSp> LoaiSps  { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }

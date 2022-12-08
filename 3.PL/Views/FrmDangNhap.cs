@@ -58,7 +58,8 @@ namespace _3.PL.Views
             }
             else
             MessageBox.Show("Tài Khoản 0 ");
-
+            FrmMain frm = new FrmMain();
+            frm.ShowDialog();
         }
 
         private void txt_Tk_TextChanged(object sender, EventArgs e)
