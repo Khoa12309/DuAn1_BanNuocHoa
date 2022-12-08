@@ -215,7 +215,12 @@ namespace _3.PL.Views
                 
             }
         }
-        
+
+        private void txt_tk_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         //private Object ByteArrayToObject(byte[] arrBytes)
         //{
         //    MemoryStream memStream = new MemoryStream();

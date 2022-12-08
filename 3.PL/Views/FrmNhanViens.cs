@@ -188,5 +188,10 @@ namespace _3.PL.Views
             //    dgird_TaiKhoan.Rows.Add(item.Id);
             //}
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

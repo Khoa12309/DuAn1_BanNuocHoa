@@ -366,7 +366,7 @@ namespace _3.PL.Views
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            timer1.Start();
+            
         }
     }
 }

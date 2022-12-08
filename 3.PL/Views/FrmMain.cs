@@ -174,5 +174,21 @@ namespace _3.PL.Views
         {
 
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label4.Text = DateTime.Now.ToString("hh:mm:ss");
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void panelTitleBar_Paint(object sender, PaintEventArgs e)
+        {
+            timer1.Start();
+        }
     }
 }
