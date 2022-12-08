@@ -40,7 +40,7 @@ namespace _3.PL.Views
         private INhanVienSer _invser;
         private IKhuyenMaiSer _Ikmser;
         Guid _id ;
-        float tt = 0;
+        float tt ;
         bool check = false;
         public FrmBanHang()
         {
@@ -54,7 +54,7 @@ namespace _3.PL.Views
             _ihdser=new HoaDonSer();
             _ihdctser = new HoaDonCtSer();
             loadcam();
-            // loadcmb();
+           
             loadfrmgh();
             loadfrmsp();
             loadhd();
@@ -72,7 +72,7 @@ namespace _3.PL.Views
             dgrid_hd.Columns[4].Name = "ID";
             this.dgrid_hd.Columns[4].Visible = false;
 
-            dgrid_gh.Rows.Clear();
+            dgrid_hd.Rows.Clear();
             foreach (var x in _ihdser.HdGetAll())
             {
                 dgrid_hd.Rows.Add(stt++, x.MaHD, x.NgayMua, x.TrangThai == 0 ? "Chưa thanh toán":"Đã thanh toán",x.Id);
@@ -86,6 +86,7 @@ namespace _3.PL.Views
                 cmb_kh.Items.Add(x.TenKH);
 
             }
+            
             foreach (var x in _invser.NvGetAll())
             {
                 cmb_nv.Items.Add(x.TenNV);
@@ -96,7 +97,9 @@ namespace _3.PL.Views
                 cmb_km.Items.Add(x.MaKM);
 
             }
-          
+            cmb_km.SelectedIndex = 0;   
+            cmb_kh.SelectedIndex = 0;
+            cmb_nv.SelectedIndex = 0;
         }
 
         private void loadfrmsp()
@@ -182,9 +185,7 @@ namespace _3.PL.Views
         private void Vn_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {           
             pictureBox1.Image = (Bitmap)eventArgs.Frame.Clone();
-        }
-      
-      
+        }          
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (pictureBox1.Image != null)
@@ -224,66 +225,56 @@ namespace _3.PL.Views
 
         private void dgrid_hd_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
             try
             {
-
                 var row= e.RowIndex;
                 _id = Guid.Parse(dgrid_hd.Rows[row].Cells[4].Value.ToString());
                 var dt = _ihdser.HdGetAll().FirstOrDefault(c => c.Id == _id);
                 var kh = _ikhser.KhGetAll().FirstOrDefault(c => c.Id == dt.IdKH);
                 var nv = _invser.NvGetAll().FirstOrDefault(c => c.Id == dt.IdNV);
+                var km = _Ikmser.KmGetAll().FirstOrDefault(c => c.Id == dt.IdKM);
                 txt_mhd1.Text = dt.MaHD;
                 dtp_ntt.Text= dt.NgayMua.ToString();
                 txt_tk.Text = kh.TenKH;
                 txt_tnv.Text = nv.TenNV;
-                txt_tt.Text = tinhtien(0).ToString();
-
+                txt_tt.Text = dt.TongTien.ToString();
+                txt_km.Text = (dt.TongTien * km.GiaTriKM / 100).ToString();
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Lỗi :" + ex);
             }
         }
-
-       
-
         private void txt_mhd_TextChanged(object sender, EventArgs e)
         {
-            txt_tth.Text = _id.ToString();
+         
 
         }
-        private float tinhtien(int gkm)
+       
+        private HoaDonView hdw()
         {
-            tt = 0;
-            foreach (var x in _ihdctser.HDCTGetAll().Where(c => c.IdHD == _id))
+           float tt = 0;
+            foreach (var x in _lstghct)
             {
                 tt += x.SoLuong * x.DonGia;
             }
-            if (gkm!=0)
-            {
-                return tt-=tt*(gkm/100);
-            }
-            return tt;
-        }
-    private void btn_thd_Click(object sender, EventArgs e)
-        {
 
-           
-            HoaDonView hd = new HoaDonView()
+            return new HoaDonView()
             {
-                Id = Guid.NewGuid(),
+                 Id=_id,
                 IdKH = _ikhser.KhGetAll()[cmb_kh.SelectedIndex].Id,
                 IdNV = _invser.NvGetAll()[cmb_nv.SelectedIndex].Id,
                 MaHD = txt_mhd.Text,
                 NgayMua = dtp_nm.Value,
                 TrangThai = 0,
                 TongTien = tt,
-                IdKM = Guid.Parse("02e3a23d-24f3-4c25-8819-6f98918b058c"),
-
+                IdKM = _Ikmser.KmGetAll()[cmb_km.SelectedIndex].Id
             };
-            _ihdser.Add(hd);          
+        }
+    private void btn_thd_Click(object sender, EventArgs e)
+        {           
+           _id=Guid.NewGuid();
+            _ihdser.Add(hdw());          
             foreach (var x in _lstghct)
             {
                 var hdct = new HoaDonChiTietView()               
@@ -291,7 +282,7 @@ namespace _3.PL.Views
                      DonGia=x.DonGia,
                       SoLuong=x.SoLuong,
                        IdSP=x.IdSP,
-                       IdHD =hd.Id,                  
+                       IdHD =hdw().Id,                  
                 };
                 _ihdctser.Add(hdct);
                 var sp = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == x.IdSP);
@@ -308,23 +299,23 @@ namespace _3.PL.Views
         {
             try
             {
-
-            var kh = _ikhser.KhGetAll().FirstOrDefault(c => c.TenKH == txt_tk.Text);
-            var nv = _invser.NvGetAll().FirstOrDefault(c => c.TenNV == txt_tnv.Text);
-            HoaDonView hd = new HoaDonView()
-            {
-                Id =_id,
-                IdKH = kh.Id,
-                IdNV = nv.Id,
-                MaHD = txt_mhd1.Text,
-                NgayMua = dtp_ntt.Value,
-                TrangThai = 1,
-                TongTien = tinhtien((int)_Ikmser.KmGetAll()[cmb_km.SelectedIndex].GiaTriKM),
-                IdKM = _Ikmser.KmGetAll()[cmb_km.SelectedIndex].Id,
-            };
-            _ihdser.Update(hd);
-            check = true;
-            MessageBox.Show("Thanh Toán Thành Công");
+                var temp = _ihdser.HdGetAll().FirstOrDefault(c => c.Id == _id);
+                if (temp.TrangThai == 0)
+                {
+                    var temp1 = _Ikmser.KmGetAll().FirstOrDefault(c => c.Id == temp.IdKM);
+                    temp.TrangThai = 1;
+                    temp.TongTien = temp.TongTien - temp.TongTien * (int)temp1.GiaTriKM / 100;
+                    check = true;
+                   _ihdser.Update(temp);
+                    loadhd();
+                    DialogResult dialogResult = MessageBox.Show("Thanh toán thành công,bạn có muốn in hóa đơn không ?", "Thông báo", MessageBoxButtons.YesNo);
+                    if (dialogResult==DialogResult.Yes)
+                    {
+                        ihd();
+                    }
+                }
+                else MessageBox.Show("Hóa đơn đã được thanh toán");
+               
             }
             catch (Exception a)
             {
@@ -430,6 +421,47 @@ namespace _3.PL.Views
         {
             timer1.Stop();
             cam.Stop();
+        }
+
+        private void txt_tkd_TextChanged(object sender, EventArgs e)
+        {
+            //tiền khách đưa ,tiền thừa  ,tt-=tt-km dg
+            txt_tth.Text= (float.Parse(txt_tkd.Text)-float.Parse(txt_tt.Text)).ToString();
+            //
+        }
+
+        private void txt_km_TextChanged(object sender, EventArgs e)
+        {
+            txt_tt.Text = (float.Parse(txt_tt.Text) - float.Parse(txt_km.Text)).ToString();
+        }
+
+        private void FrmBanHang_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //timer1.Stop();
+            //if (cam.IsRunning&& cam!=null)
+            //{
+            //    cam.Stop();
+            //}
+            
+        }
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            if (cam.IsRunning && cam != null)
+            {
+                timer1.Stop();
+                cam.SignalToStop();
+                cam.WaitForStop();
+                cam = null;
+            }
+        }
+        private void FrmBanHang_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //if (cam.IsRunning && cam != null)
+            //{
+            //    timer1.Stop();
+            //    cam.Stop();               
+            //}
         }
     }
 }

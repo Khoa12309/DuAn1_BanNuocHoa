@@ -102,15 +102,20 @@ namespace _2.BUS.Services
             {
                 Id = obj.Id,
                 MaHD = obj.MaHD,
-                TongTien = (float)obj.TongTien,
+          
                 IdKH = obj.IdKH,
-                IdKM = (Guid)obj.IdKM,
-                IdNV = obj.IdNV,
+                IdKM = obj.IdKM,
                 TrangThai = obj.TrangThai,
+                IdNV = obj.IdNV,
                 NgayMua = obj.NgayMua,
-                 
-
+                TongTien = obj.TongTien,
             };
+            var temp = HdGetAll().FindIndex(c => c.Id == obj.Id);
+            if (temp == -1)
+            {
+
+                return "Không tìm thấy";
+            }
             _IhoaDonr.Update(hoaDon);
             return "Sửa thành công";
         }

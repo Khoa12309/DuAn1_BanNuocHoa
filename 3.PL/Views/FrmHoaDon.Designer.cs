@@ -30,8 +30,8 @@
         {
             this.dgrid_hd = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cmb_km = new System.Windows.Forms.ComboBox();
+            this.txt_ma = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,6 +42,7 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.btn_sua = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_hd)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             this.dgrid_hd.RowTemplate.Height = 29;
             this.dgrid_hd.Size = new System.Drawing.Size(800, 188);
             this.dgrid_hd.TabIndex = 0;
+            this.dgrid_hd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_hd_CellContentClick);
             // 
             // label1
             // 
@@ -65,20 +67,20 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
             // 
-            // comboBox1
+            // cmb_km
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(509, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 28);
-            this.comboBox1.TabIndex = 2;
+            this.cmb_km.FormattingEnabled = true;
+            this.cmb_km.Location = new System.Drawing.Point(509, 33);
+            this.cmb_km.Name = "cmb_km";
+            this.cmb_km.Size = new System.Drawing.Size(151, 28);
+            this.cmb_km.TabIndex = 2;
             // 
-            // textBox1
+            // txt_ma
             // 
-            this.textBox1.Location = new System.Drawing.Point(181, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 27);
-            this.textBox1.TabIndex = 3;
+            this.txt_ma.Location = new System.Drawing.Point(181, 38);
+            this.txt_ma.Name = "txt_ma";
+            this.txt_ma.Size = new System.Drawing.Size(125, 27);
+            this.txt_ma.TabIndex = 3;
             // 
             // dateTimePicker1
             // 
@@ -170,11 +172,21 @@
             this.radioButton2.Text = "radioButton2";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
+            // btn_sua
+            // 
+            this.btn_sua.Location = new System.Drawing.Point(119, 183);
+            this.btn_sua.Name = "btn_sua";
+            this.btn_sua.Size = new System.Drawing.Size(94, 29);
+            this.btn_sua.TabIndex = 20;
+            this.btn_sua.Text = "Sửa";
+            this.btn_sua.UseVisualStyleBackColor = true;
+            // 
             // FrmHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_sua);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.comboBox3);
@@ -185,8 +197,8 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txt_ma);
+            this.Controls.Add(this.cmb_km);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgrid_hd);
             this.Name = "FrmHoaDon";
@@ -201,8 +213,8 @@
 
         private System.Windows.Forms.DataGridView dgrid_hd;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cmb_km;
+        private System.Windows.Forms.TextBox txt_ma;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
@@ -213,5 +225,6 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Button btn_sua;
     }
 }

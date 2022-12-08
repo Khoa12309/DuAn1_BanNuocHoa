@@ -20,5 +20,10 @@ namespace _3.PL.Views
             InitializeComponent();
             _Ikmser = new KhuyenMaiSer();
         }
+
+        private void dgrid_hd_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

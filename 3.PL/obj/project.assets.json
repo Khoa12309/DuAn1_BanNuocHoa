@@ -6219,6 +6219,7 @@
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
       "2.BUS >= 1.0.0",
+      "AForge >= 2.2.5",
       "AForge.Video.DirectShow >= 2.2.5",
       "QRCoder >= 1.4.3",
       "ZXing.Net >= 0.16.6",
@@ -6273,6 +6274,10 @@
       "net5.0-windows7.0": {
         "targetAlias": "net5.0-windows",
         "dependencies": {
+          "AForge": {
+            "target": "Package",
+            "version": "[2.2.5, )"
+          },
           "AForge.Video.DirectShow": {
             "target": "Package",
             "version": "[2.2.5, )"

@@ -9,6 +9,7 @@
       "3.PL/1.0.0": {
         "dependencies": {
           "2.BUS": "1.0.0",
+          "AForge": "2.2.5",
           "AForge.Video.DirectShow": "2.2.5",
           "QRCoder": "1.4.3",
           "ZXing.Net": "0.16.6",

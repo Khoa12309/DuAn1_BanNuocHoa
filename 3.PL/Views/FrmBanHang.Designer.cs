@@ -41,7 +41,8 @@
             this.pb_anh = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btn_ihd = new System.Windows.Forms.Button();
+            this.txt_km = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.dtp_ntt = new System.Windows.Forms.DateTimePicker();
             this.btn_thanhtoan = new System.Windows.Forms.Button();
             this.txt_tth = new System.Windows.Forms.TextBox();
@@ -53,12 +54,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmb_km = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmb_km = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btn_xoahd = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -117,7 +118,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 29);
             this.button3.TabIndex = 4;
-            this.button3.Text = "button3";
+            this.button3.Text = "Quét mã Qr";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -196,7 +197,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btn_ihd);
+            this.groupBox3.Controls.Add(this.txt_km);
+            this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.dtp_ntt);
             this.groupBox3.Controls.Add(this.btn_thanhtoan);
             this.groupBox3.Controls.Add(this.txt_tth);
@@ -208,11 +210,9 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.cmb_km);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox3.Location = new System.Drawing.Point(1210, 0);
@@ -222,15 +222,22 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thanh Toán";
             // 
-            // btn_ihd
+            // txt_km
             // 
-            this.btn_ihd.Location = new System.Drawing.Point(204, 556);
-            this.btn_ihd.Name = "btn_ihd";
-            this.btn_ihd.Size = new System.Drawing.Size(94, 29);
-            this.btn_ihd.TabIndex = 17;
-            this.btn_ihd.Text = "In hóa đơn";
-            this.btn_ihd.UseVisualStyleBackColor = true;
-            this.btn_ihd.Click += new System.EventHandler(this.btn_ihd_Click);
+            this.txt_km.Location = new System.Drawing.Point(160, 264);
+            this.txt_km.Name = "txt_km";
+            this.txt_km.Size = new System.Drawing.Size(151, 27);
+            this.txt_km.TabIndex = 19;
+            this.txt_km.TextChanged += new System.EventHandler(this.txt_km_TextChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(28, 267);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 20);
+            this.label13.TabIndex = 18;
+            this.label13.Text = "Khuyến Mãi";
             // 
             // dtp_ntt
             // 
@@ -242,7 +249,7 @@
             // 
             // btn_thanhtoan
             // 
-            this.btn_thanhtoan.Location = new System.Drawing.Point(69, 556);
+            this.btn_thanhtoan.Location = new System.Drawing.Point(135, 556);
             this.btn_thanhtoan.Name = "btn_thanhtoan";
             this.btn_thanhtoan.Size = new System.Drawing.Size(94, 29);
             this.btn_thanhtoan.TabIndex = 16;
@@ -252,24 +259,25 @@
             // 
             // txt_tth
             // 
-            this.txt_tth.Location = new System.Drawing.Point(160, 412);
+            this.txt_tth.Location = new System.Drawing.Point(160, 408);
             this.txt_tth.Name = "txt_tth";
             this.txt_tth.Size = new System.Drawing.Size(151, 27);
             this.txt_tth.TabIndex = 15;
             // 
             // txt_tt
             // 
-            this.txt_tt.Location = new System.Drawing.Point(160, 364);
+            this.txt_tt.Location = new System.Drawing.Point(160, 360);
             this.txt_tt.Name = "txt_tt";
             this.txt_tt.Size = new System.Drawing.Size(151, 27);
             this.txt_tt.TabIndex = 14;
             // 
             // txt_tkd
             // 
-            this.txt_tkd.Location = new System.Drawing.Point(160, 319);
+            this.txt_tkd.Location = new System.Drawing.Point(160, 315);
             this.txt_tkd.Name = "txt_tkd";
             this.txt_tkd.Size = new System.Drawing.Size(151, 27);
             this.txt_tkd.TabIndex = 13;
+            this.txt_tkd.TextChanged += new System.EventHandler(this.txt_tkd_TextChanged);
             // 
             // txt_tnv
             // 
@@ -295,7 +303,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(28, 415);
+            this.label8.Location = new System.Drawing.Point(28, 411);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 20);
             this.label8.TabIndex = 8;
@@ -304,7 +312,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 367);
+            this.label7.Location = new System.Drawing.Point(28, 363);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(75, 20);
             this.label7.TabIndex = 7;
@@ -313,20 +321,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 322);
+            this.label6.Location = new System.Drawing.Point(28, 318);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 20);
             this.label6.TabIndex = 6;
             this.label6.Text = "Tiền Khách Đưa";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 264);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 20);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Khuyến Mãi";
             // 
             // label4
             // 
@@ -355,14 +354,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Ngày thanh toán";
             // 
-            // cmb_km
-            // 
-            this.cmb_km.FormattingEnabled = true;
-            this.cmb_km.Location = new System.Drawing.Point(160, 256);
-            this.cmb_km.Name = "cmb_km";
-            this.cmb_km.Size = new System.Drawing.Size(151, 28);
-            this.cmb_km.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -371,6 +362,23 @@
             this.label1.Size = new System.Drawing.Size(94, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã Hóa Đơn";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 340);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 20);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Khuyến Mãi";
+            // 
+            // cmb_km
+            // 
+            this.cmb_km.FormattingEnabled = true;
+            this.cmb_km.Location = new System.Drawing.Point(146, 332);
+            this.cmb_km.Name = "cmb_km";
+            this.cmb_km.Size = new System.Drawing.Size(151, 28);
+            this.cmb_km.TabIndex = 1;
             // 
             // groupBox4
             // 
@@ -384,6 +392,8 @@
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.btn_thd);
+            this.groupBox4.Controls.Add(this.cmb_km);
+            this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
@@ -540,6 +550,8 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmBanHang";
             this.Text = "FrmBanHang";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmBanHang_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmBanHang_FormClosed);
             this.Leave += new System.EventHandler(this.FrmBanHang_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sp)).EndInit();
@@ -604,7 +616,8 @@
         private System.Windows.Forms.DateTimePicker dtp_ntt;
         private System.Drawing.Printing.PrintDocument pdhd;
         private System.Windows.Forms.PrintPreviewDialog ppdhd;
-        private System.Windows.Forms.Button btn_ihd;
         private System.Windows.Forms.Button btn_xoahd;
+        private System.Windows.Forms.TextBox txt_km;
+        private System.Windows.Forms.Label label13;
     }
 }
