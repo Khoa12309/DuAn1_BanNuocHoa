@@ -40,8 +40,13 @@ namespace _3.PL.Views
         private INhanVienSer _invser;
         private IKhuyenMaiSer _Ikmser;
         Guid _id ;
+<<<<<<< HEAD
         float tt ;
         bool check = false;
+=======
+        string chuoidung = "1234567890QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopas dfghjklzxcvbnm";
+        float tt = 0;
+>>>>>>> origin/giangnt
         public FrmBanHang()
         {
             InitializeComponent();
@@ -261,6 +266,7 @@ namespace _3.PL.Views
 
             return new HoaDonView()
             {
+<<<<<<< HEAD
                  Id=_id,
                 IdKH = _ikhser.KhGetAll()[cmb_kh.SelectedIndex].Id,
                 IdNV = _invser.NvGetAll()[cmb_nv.SelectedIndex].Id,
@@ -293,10 +299,87 @@ namespace _3.PL.Views
             _lstghct.Clear();
             loadfrmgh();
             loadhd();
+=======
+                return tt-=tt*(gkm/100);
+            }
+            return tt;
+        }
+        private bool kiemtrakitu(string chuoiCanKiemTra)
+        {
+            foreach (char kiTu in chuoiCanKiemTra)
+            {
+                bool dung = false;
+
+                foreach (char kitu2 in chuoidung)
+                {
+                    if (kiTu == kitu2) dung = true;
+                }
+                if (dung == false) return false;
+            }
+
+
+            return true;
+        }
+        public bool checktrung(string masp)
+        {
+            var r = _ihdser.HdGetAll().Any(c => c.MaHD == masp);
+            if (r == true) { return true; }
+            return false;
+        }
+
+        private void btn_thd_Click(object sender, EventArgs e)
+        {
+            DialogResult diaolog = MessageBox.Show("Bạn muốn tạo hóa đơn này chứ ? ","Thông báo",MessageBoxButtons.YesNo);
+            if (diaolog == DialogResult.Yes)
+            {
+                HoaDonView hd = new HoaDonView();
+                hd.Id = Guid.NewGuid();
+                if (checktrung(txt_mhd.Text) == true)
+                {
+
+                    MessageBox.Show("Trùng mã hóa đơn");
+                    return;
+
+                }
+                else
+                {
+
+                    
+                    hd.IdKH = _ikhser.KhGetAll()[cmb_kh.SelectedIndex].Id;
+                    hd.IdNV = _invser.NvGetAll()[cmb_nv.SelectedIndex].Id;
+                    hd.MaHD = txt_mhd.Text;
+                    hd.NgayMua = dtp_nm.Value;
+                    hd.TrangThai = 0;
+                    hd.TongTien = tt;
+
+
+                    _ihdser.Add(hd);
+                }
+                foreach (var x in _lstghct)
+                {
+                    var hdct = new HoaDonChiTietView()
+                    {
+                        DonGia = x.DonGia,
+                        SoLuong = x.SoLuong,
+                        IdSP = x.IdSP,
+                        IdHD = hd.Id,
+                    };
+                    _ihdctser.Add(hdct);
+                    var sp = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == x.IdSP);
+                    sp.Solong -= x.SoLuong;
+                    _Isersp.Update(sp);
+                }
+                MessageBox.Show("Tao hoa don thanh cong");
+                _lstghct.Clear();
+            }
+            else { return; }
+            
+>>>>>>> origin/giangnt
         }
 
         private void btn_thanhtoan_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             try
             {
                 var temp = _ihdser.HdGetAll().FirstOrDefault(c => c.Id == _id);
@@ -316,6 +399,36 @@ namespace _3.PL.Views
                 }
                 else MessageBox.Show("Hóa đơn đã được thanh toán");
                
+=======
+            var kh = _ikhser.KhGetAll().FirstOrDefault(c => c.TenKH == txt_tk.Text);
+            var nv = _invser.NvGetAll().FirstOrDefault(c => c.TenNV == txt_tnv.Text);
+            HoaDonView hd = new HoaDonView()
+            {   
+                Id =_id,
+                IdKH = kh.Id,
+                IdNV = nv.Id,
+                MaHD = txt_mhd1.Text,
+                NgayMua = dtp_ntt.Value,
+                TrangThai = 1,
+                TongTien = tinhtien((int)_Ikmser.KmGetAll()[cmb_km.SelectedIndex].GiaTriKM),
+                IdKM = _Ikmser.KmGetAll()[cmb_km.SelectedIndex].Id,
+            };
+            _ihdser.Update(hd);
+            
+
+            SaveFileDialog of = new SaveFileDialog()
+            {
+                Filter = "PDF flie|*.pdf", ValidateNames = true,
+
+
+            };
+            if (of.ShowDialog()==DialogResult.OK)
+            {
+                iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A7.Rotate());
+                PdfWriter.GetInstance(doc, new FileStream(of.FileName, FileMode.Create));
+                doc.Open();
+                //doc.Add();
+>>>>>>> origin/giangnt
             }
             catch (Exception a)
             {
@@ -330,6 +443,7 @@ namespace _3.PL.Views
 
         }
 
+<<<<<<< HEAD
         private void pdhd_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             var hd = _ihdser.HdGetAll().FirstOrDefault(c=>c.Id==_id);
@@ -462,6 +576,11 @@ namespace _3.PL.Views
             //    timer1.Stop();
             //    cam.Stop();               
             //}
+=======
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+>>>>>>> origin/giangnt
         }
     }
 }

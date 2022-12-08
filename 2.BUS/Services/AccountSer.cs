@@ -86,7 +86,11 @@ namespace _2.BUS.Services
             }
             var tk = new Account()
             {
+<<<<<<< HEAD
                 Id = obj.Id,
+=======
+               Id =obj.Id,  
+>>>>>>> origin/giangnt
                 TaiKhoan = obj.TaiKhoan,
                 MatKhau = obj.MatKhau
             };

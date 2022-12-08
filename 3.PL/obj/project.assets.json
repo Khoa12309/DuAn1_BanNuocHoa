@@ -44,18 +44,6 @@
           "lib/BouncyCastle.Crypto.dll": {}
         }
       },
-      "FontAwesome.Sharp/6.1.1": {
-        "type": "package",
-        "compile": {
-          "lib/net5.0-windows7.0/FontAwesome.Sharp.dll": {}
-        },
-        "runtime": {
-          "lib/net5.0-windows7.0/FontAwesome.Sharp.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App"
-        ]
-      },
       "iTextSharp/5.5.13.3": {
         "type": "package",
         "dependencies": {
@@ -1890,24 +1878,6 @@
         "bouncycastle.1.8.9.nupkg.sha512",
         "bouncycastle.nuspec",
         "lib/BouncyCastle.Crypto.dll"
-      ]
-    },
-    "FontAwesome.Sharp/6.1.1": {
-      "sha512": "p6dnSMcKQg790vGSJgvFk6S8gXQnEcCugfaJ21WFxZz9h+9KyxL+sX6kbGv8p4iVoX/e5BAMnTV4QJFJvx8QxQ==",
-      "type": "package",
-      "path": "fontawesome.sharp/6.1.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "fontawesome.sharp.6.1.1.nupkg.sha512",
-        "fontawesome.sharp.nuspec",
-        "lib/net40/FontAwesome.Sharp.dll",
-        "lib/net45/FontAwesome.Sharp.dll",
-        "lib/net472/FontAwesome.Sharp.dll",
-        "lib/net48/FontAwesome.Sharp.dll",
-        "lib/net5.0-windows7.0/FontAwesome.Sharp.dll",
-        "lib/net6.0-windows7.0/FontAwesome.Sharp.dll",
-        "lib/netcoreapp3.1/FontAwesome.Sharp.dll"
       ]
     },
     "iTextSharp/5.5.13.3": {
@@ -6251,7 +6221,6 @@
       "2.BUS >= 1.0.0",
       "AForge >= 2.2.5",
       "AForge.Video.DirectShow >= 2.2.5",
-      "FontAwesome.Sharp >= 6.1.1",
       "QRCoder >= 1.4.3",
       "ZXing.Net >= 0.16.6",
       "iTextSharp >= 5.5.13.3"
@@ -6313,10 +6282,6 @@
             "target": "Package",
             "version": "[2.2.5, )"
           },
-          "FontAwesome.Sharp": {
-            "target": "Package",
-            "version": "[6.1.1, )"
-          },
           "QRCoder": {
             "target": "Package",
             "version": "[1.4.3, )"
@@ -6354,6 +6319,12 @@
     }
   },
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\DuAn1_BanNuocHoa\\3.PL\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",

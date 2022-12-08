@@ -53,7 +53,7 @@ namespace _1.DAL.Repositories
             var temp = _Dbcontext.HangSps.FirstOrDefault(c => c.ID == obj.ID);
             temp.TenHang = obj.TenHang;
             temp.MaHang = obj.MaHang;
-           
+
             _Dbcontext.HangSps.Update(temp);
             _Dbcontext.SaveChanges();
             return true;

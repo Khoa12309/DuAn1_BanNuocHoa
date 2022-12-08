@@ -3,11 +3,15 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace _1.DAL.Migrations
 {
+<<<<<<<< HEAD:1.DAL/Migrations/20221206063620_dungnd.cs
 <<<<<<<< HEAD:1.DAL/Migrations/20221207145752_migration.cs
     public partial class migration : Migration
 ========
     public partial class dungnd : Migration
 >>>>>>>> origin/Dungndph20833:1.DAL/Migrations/20221206063620_dungnd.cs
+========
+    public partial class asjds : Migration
+>>>>>>>> origin/giangnt:1.DAL/Migrations/20221207163944_asjds.cs
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

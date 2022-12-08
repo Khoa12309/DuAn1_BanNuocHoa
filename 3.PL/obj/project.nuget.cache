@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XQk8kXEFNzUS23gxX12il6uzqG8rVS4cMJXxHQOcsnMXyd6cmpl3EyQ3p52s38ICHy+4DPvrXBwkqzyvQlWCgg==",
+  "dgSpecHash": "I99y/k4Eid1NCXr/25acBqiIRec9LU/2sh2Qn6mYzeQmTCxVTbLBnlXv4eaCgtyFrMZbIbU74M3M+BPFmdit7w==",
   "success": true,
   "projectFilePath": "D:\\DuAn1_BanNuocHoa\\3.PL\\3.PL.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,6 @@
     "C:\\Users\\ACER\\.nuget\\packages\\aforge.video\\2.2.5\\aforge.video.2.2.5.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\aforge.video.directshow\\2.2.5\\aforge.video.directshow.2.2.5.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\bouncycastle\\1.8.9\\bouncycastle.1.8.9.nupkg.sha512",
-    "C:\\Users\\ACER\\.nuget\\packages\\fontawesome.sharp\\6.1.1\\fontawesome.sharp.6.1.1.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\itextsharp\\5.5.13.3\\itextsharp.5.5.13.3.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
@@ -108,6 +107,12 @@
     "C:\\Users\\ACER\\.nuget\\packages\\zxing.net\\0.16.6\\zxing.net.0.16.6.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\DuAn1_BanNuocHoa\\3.PL\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",

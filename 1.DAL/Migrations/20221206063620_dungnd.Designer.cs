@@ -10,6 +10,7 @@ using _1.DAL.ContextDataBase;
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(ContextDB))]
+<<<<<<<< HEAD:1.DAL/Migrations/20221206063620_dungnd.Designer.cs
 <<<<<<<< HEAD:1.DAL/Migrations/20221207145752_migration.Designer.cs
     [Migration("20221207145752_migration")]
     partial class migration
@@ -17,6 +18,10 @@ namespace _1.DAL.Migrations
     [Migration("20221206063620_dungnd")]
     partial class dungnd
 >>>>>>>> origin/Dungndph20833:1.DAL/Migrations/20221206063620_dungnd.Designer.cs
+========
+    [Migration("20221207163944_asjds")]
+    partial class asjds
+>>>>>>>> origin/giangnt:1.DAL/Migrations/20221207163944_asjds.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
