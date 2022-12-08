@@ -12,6 +12,7 @@ namespace _2.BUS.ViewModels
         public Guid IdSP { get; set; }
         public float DonGia { get; set; }
         public float SoLuong { get; set; }
+        public string? tensp { get; set; }
 
     }
 }
