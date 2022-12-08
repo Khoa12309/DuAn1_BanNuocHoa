@@ -19,7 +19,6 @@ namespace _2.BUS.Services
         {
             _Itkr = new TaiKhoanRepositories();
             _Invr = new NhanVienRep();
-            GetAll();
         }
         public string Add(AccountView obj)
         {
@@ -57,13 +56,22 @@ namespace _2.BUS.Services
         public List<AccountView> GetAll()
         {
             var Acc = from a in _Itkr.GetAllAccounts().ToList()
-                         join b in _Invr.GetAllNv() on a.Id equals b.Id
+                 join b in _Invr.GetAllNv() on a.Id equals b.Id
                       select new AccountView()
                       {
+
                           Id = a.Id,
                           MatKhau = a.MatKhau,
-                          TaiKhoan = a.TaiKhoan,                         
-                          ChucVu=b.ChucVu,
+                          TaiKhoan = a.TaiKhoan,
+                          
+                         ChucVu=b.ChucVu,
+                          TenNV = b.TenNV,
+                          DiaChi = b.DiaChi,
+                          MaNV = b.MaNV,
+                          TrangThai = b.TrangThai,
+                          GioiTinh = b.GioiTinh,
+                          STD = b.STD,
+
                       };
 
 
@@ -78,7 +86,7 @@ namespace _2.BUS.Services
             }
             var tk = new Account()
             {
-               
+                Id = obj.Id,
                 TaiKhoan = obj.TaiKhoan,
                 MatKhau = obj.MatKhau
             };
@@ -90,11 +98,12 @@ namespace _2.BUS.Services
         {
             var a = GetAll().FirstOrDefault(x => x.TaiKhoan == obj.TaiKhoan && x.MatKhau == obj.MatKhau);
             if (a == null) { return 0; }
-            if (a.ChucVu == "Nhân viên")
+            if (a.ChucVu == "Nhân Viên")
             {
+
                 return 2;
             }
-            else if (a.ChucVu == "Quản lý")
+            else if (a.ChucVu == "Quản Lý")
             {
                 return 1;
             }

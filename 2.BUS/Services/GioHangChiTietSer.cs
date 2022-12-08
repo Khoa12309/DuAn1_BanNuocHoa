@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.Services
 {
-    public class GioHangChiTietSer :IGioHangChiTietSer
+     public class GioHangChiTietSer :IGioHangChiTietSer
     {
       
        
@@ -42,7 +42,7 @@ namespace _2.BUS.Services
                       select new GioHangChiTietView()
                       {
                           DonGia = (float)a.DonGia,
-                          SoLuong = (int)a.SoLuong
+                          SoLuong = (float)a.SoLuong
 
                       };
             return lst.ToList();

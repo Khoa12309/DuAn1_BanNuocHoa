@@ -33,7 +33,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_Quet_MaQr = new System.Windows.Forms.Button();
             this.dgrid_sp = new System.Windows.Forms.DataGridView();
             this.dgrid_hd = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -41,14 +41,14 @@
             this.pb_anh = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dtp_ntt = new System.Windows.Forms.DateTimePicker();
             this.btn_thanhtoan = new System.Windows.Forms.Button();
-            this.txt_tth = new System.Windows.Forms.TextBox();
-            this.txt_tt = new System.Windows.Forms.TextBox();
-            this.txt_tkd = new System.Windows.Forms.TextBox();
-            this.txt_tnv = new System.Windows.Forms.TextBox();
-            this.txt_tk = new System.Windows.Forms.TextBox();
-            this.txt_mhd1 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,23 +56,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmb_km = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.dtp_nm = new System.Windows.Forms.DateTimePicker();
-            this.txt_mhd = new System.Windows.Forms.TextBox();
-            this.cmb_nv = new System.Windows.Forms.ComboBox();
-            this.cmb_kh = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btn_thd = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgrid_gh = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+<<<<<<< HEAD
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+=======
+            this.btn_Hủy = new System.Windows.Forms.Button();
+>>>>>>> origin/Dungndph20833
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_hd)).BeginInit();
@@ -81,7 +76,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_anh)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_gh)).BeginInit();
             this.groupBox6.SuspendLayout();
@@ -113,8 +107,9 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button3
+            // btn_Quet_MaQr
             // 
+<<<<<<< HEAD
             this.button3.Location = new System.Drawing.Point(181, 22);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
@@ -123,10 +118,18 @@
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+=======
+            this.btn_Quet_MaQr.Location = new System.Drawing.Point(207, 29);
+            this.btn_Quet_MaQr.Name = "btn_Quet_MaQr";
+            this.btn_Quet_MaQr.Size = new System.Drawing.Size(107, 29);
+            this.btn_Quet_MaQr.TabIndex = 4;
+            this.btn_Quet_MaQr.Text = "Quét mã Qr";
+            this.btn_Quet_MaQr.UseVisualStyleBackColor = true;
+            this.btn_Quet_MaQr.Click += new System.EventHandler(this.btn_Quet_MaQr_Click);
+>>>>>>> origin/Dungndph20833
             // 
             // dgrid_sp
             // 
-            this.dgrid_sp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrid_sp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_sp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrid_sp.Location = new System.Drawing.Point(3, 18);
@@ -140,18 +143,24 @@
             // 
             // dgrid_hd
             // 
+<<<<<<< HEAD
             this.dgrid_hd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrid_hd.BackgroundColor = System.Drawing.Color.White;
             this.dgrid_hd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_hd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrid_hd.Location = new System.Drawing.Point(3, 18);
             this.dgrid_hd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+=======
+            this.dgrid_hd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrid_hd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgrid_hd.GridColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgrid_hd.Location = new System.Drawing.Point(3, 23);
+>>>>>>> origin/Dungndph20833
             this.dgrid_hd.Name = "dgrid_hd";
             this.dgrid_hd.RowHeadersWidth = 51;
             this.dgrid_hd.RowTemplate.Height = 29;
             this.dgrid_hd.Size = new System.Drawing.Size(662, 201);
             this.dgrid_hd.TabIndex = 6;
-            this.dgrid_hd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_hd_CellContentClick);
             // 
             // groupBox1
             // 
@@ -196,7 +205,7 @@
             // 
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.pictureBox1);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.btn_Quet_MaQr);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox2.Location = new System.Drawing.Point(1055, 18);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -209,15 +218,20 @@
             // 
             // groupBox3
             // 
+<<<<<<< HEAD
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.groupBox3.Controls.Add(this.dtp_ntt);
+=======
+            this.groupBox3.Controls.Add(this.btn_Hủy);
+>>>>>>> origin/Dungndph20833
             this.groupBox3.Controls.Add(this.btn_thanhtoan);
-            this.groupBox3.Controls.Add(this.txt_tth);
-            this.groupBox3.Controls.Add(this.txt_tt);
-            this.groupBox3.Controls.Add(this.txt_tkd);
-            this.groupBox3.Controls.Add(this.txt_tnv);
-            this.groupBox3.Controls.Add(this.txt_tk);
-            this.groupBox3.Controls.Add(this.txt_mhd1);
+            this.groupBox3.Controls.Add(this.textBox7);
+            this.groupBox3.Controls.Add(this.textBox6);
+            this.groupBox3.Controls.Add(this.textBox5);
+            this.groupBox3.Controls.Add(this.textBox4);
+            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label6);
@@ -225,7 +239,7 @@
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.cmb_km);
+            this.groupBox3.Controls.Add(this.comboBox2);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox3.Location = new System.Drawing.Point(1058, 0);
@@ -237,6 +251,7 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thanh Toán";
             // 
+<<<<<<< HEAD
             // dtp_ntt
             // 
             this.dtp_ntt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -246,6 +261,8 @@
             this.dtp_ntt.Size = new System.Drawing.Size(133, 23);
             this.dtp_ntt.TabIndex = 13;
             // 
+=======
+>>>>>>> origin/Dungndph20833
             // btn_thanhtoan
             // 
             this.btn_thanhtoan.Location = new System.Drawing.Point(102, 371);
@@ -255,55 +272,103 @@
             this.btn_thanhtoan.TabIndex = 16;
             this.btn_thanhtoan.Text = "Thanh Toán";
             this.btn_thanhtoan.UseVisualStyleBackColor = true;
-            this.btn_thanhtoan.Click += new System.EventHandler(this.btn_thanhtoan_Click);
             // 
-            // txt_tth
+            // textBox7
             // 
+<<<<<<< HEAD
             this.txt_tth.Location = new System.Drawing.Point(140, 309);
             this.txt_tth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_tth.Name = "txt_tth";
             this.txt_tth.Size = new System.Drawing.Size(133, 23);
             this.txt_tth.TabIndex = 15;
+=======
+            this.textBox7.Location = new System.Drawing.Point(160, 412);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(151, 27);
+            this.textBox7.TabIndex = 15;
+>>>>>>> origin/Dungndph20833
             // 
-            // txt_tt
+            // textBox6
             // 
+<<<<<<< HEAD
             this.txt_tt.Location = new System.Drawing.Point(140, 273);
             this.txt_tt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_tt.Name = "txt_tt";
             this.txt_tt.Size = new System.Drawing.Size(133, 23);
             this.txt_tt.TabIndex = 14;
+=======
+            this.textBox6.Location = new System.Drawing.Point(160, 364);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(151, 27);
+            this.textBox6.TabIndex = 14;
+>>>>>>> origin/Dungndph20833
             // 
-            // txt_tkd
+            // textBox5
             // 
+<<<<<<< HEAD
             this.txt_tkd.Location = new System.Drawing.Point(140, 239);
             this.txt_tkd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_tkd.Name = "txt_tkd";
             this.txt_tkd.Size = new System.Drawing.Size(133, 23);
             this.txt_tkd.TabIndex = 13;
+=======
+            this.textBox5.Location = new System.Drawing.Point(160, 319);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(151, 27);
+            this.textBox5.TabIndex = 13;
+>>>>>>> origin/Dungndph20833
             // 
-            // txt_tnv
+            // textBox4
             // 
+<<<<<<< HEAD
             this.txt_tnv.Location = new System.Drawing.Point(140, 152);
             this.txt_tnv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_tnv.Name = "txt_tnv";
             this.txt_tnv.Size = new System.Drawing.Size(133, 23);
             this.txt_tnv.TabIndex = 12;
+=======
+            this.textBox4.Location = new System.Drawing.Point(160, 203);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(151, 27);
+            this.textBox4.TabIndex = 12;
+>>>>>>> origin/Dungndph20833
             // 
-            // txt_tk
+            // textBox3
             // 
+<<<<<<< HEAD
             this.txt_tk.Location = new System.Drawing.Point(140, 109);
             this.txt_tk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_tk.Name = "txt_tk";
             this.txt_tk.Size = new System.Drawing.Size(133, 23);
             this.txt_tk.TabIndex = 11;
+=======
+            this.textBox3.Location = new System.Drawing.Point(160, 145);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(151, 27);
+            this.textBox3.TabIndex = 11;
+>>>>>>> origin/Dungndph20833
             // 
-            // txt_mhd1
+            // textBox2
             // 
+<<<<<<< HEAD
             this.txt_mhd1.Location = new System.Drawing.Point(140, 24);
             this.txt_mhd1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_mhd1.Name = "txt_mhd1";
             this.txt_mhd1.Size = new System.Drawing.Size(133, 23);
             this.txt_mhd1.TabIndex = 9;
+=======
+            this.textBox2.Location = new System.Drawing.Point(160, 87);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(151, 27);
+            this.textBox2.TabIndex = 10;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(160, 32);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(151, 27);
+            this.textBox1.TabIndex = 9;
+>>>>>>> origin/Dungndph20833
             // 
             // label8
             // 
@@ -364,18 +429,30 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(23, 70);
             this.label2.Name = "label2";
+<<<<<<< HEAD
             this.label2.Size = new System.Drawing.Size(96, 15);
+=======
+            this.label2.Size = new System.Drawing.Size(73, 20);
+>>>>>>> origin/Dungndph20833
             this.label2.TabIndex = 2;
-            this.label2.Text = "Ngày thanh toán";
+            this.label2.Text = "Ngày Tạo";
             // 
-            // cmb_km
+            // comboBox2
             // 
+<<<<<<< HEAD
             this.cmb_km.FormattingEnabled = true;
             this.cmb_km.Location = new System.Drawing.Point(140, 192);
             this.cmb_km.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmb_km.Name = "cmb_km";
             this.cmb_km.Size = new System.Drawing.Size(133, 23);
             this.cmb_km.TabIndex = 1;
+=======
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(160, 256);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(151, 28);
+            this.comboBox2.TabIndex = 1;
+>>>>>>> origin/Dungndph20833
             // 
             // label1
             // 
@@ -388,6 +465,7 @@
             // 
             // groupBox4
             // 
+<<<<<<< HEAD
             this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.groupBox4.Controls.Add(this.pictureBox3);
             this.groupBox4.Controls.Add(this.pictureBox2);
@@ -400,6 +478,8 @@
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.btn_thd);
+=======
+>>>>>>> origin/Dungndph20833
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox4.ForeColor = System.Drawing.Color.Black;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
@@ -411,6 +491,7 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Hóa Đơn";
             // 
+<<<<<<< HEAD
             // label12
             // 
             this.label12.AutoSize = true;
@@ -494,6 +575,8 @@
             this.btn_thd.UseVisualStyleBackColor = true;
             this.btn_thd.Click += new System.EventHandler(this.btn_thd_Click);
             // 
+=======
+>>>>>>> origin/Dungndph20833
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.dgrid_gh);
@@ -505,16 +588,23 @@
             this.groupBox5.Size = new System.Drawing.Size(668, 230);
             this.groupBox5.TabIndex = 11;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Danh Sách GH";
+            this.groupBox5.Text = "Giỏ Hàng";
             // 
             // dgrid_gh
             // 
+<<<<<<< HEAD
             this.dgrid_gh.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrid_gh.BackgroundColor = System.Drawing.Color.White;
             this.dgrid_gh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_gh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrid_gh.Location = new System.Drawing.Point(3, 18);
             this.dgrid_gh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+=======
+            this.dgrid_gh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrid_gh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgrid_gh.GridColor = System.Drawing.SystemColors.Control;
+            this.dgrid_gh.Location = new System.Drawing.Point(3, 23);
+>>>>>>> origin/Dungndph20833
             this.dgrid_gh.Name = "dgrid_gh";
             this.dgrid_gh.RowHeadersWidth = 51;
             this.dgrid_gh.RowTemplate.Height = 29;
@@ -534,6 +624,7 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Danh Sách HD";
             // 
+<<<<<<< HEAD
             // pictureBox2
             // 
             
@@ -553,6 +644,17 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 13;
             this.pictureBox3.TabStop = false;
+=======
+            // btn_Hủy
+            // 
+            this.btn_Hủy.Location = new System.Drawing.Point(47, 616);
+            this.btn_Hủy.Name = "btn_Hủy";
+            this.btn_Hủy.Size = new System.Drawing.Size(107, 29);
+            this.btn_Hủy.TabIndex = 5;
+            this.btn_Hủy.Text = "Hủy";
+            this.btn_Hủy.UseVisualStyleBackColor = true;
+            this.btn_Hủy.Click += new System.EventHandler(this.btn_Hủy_Click);
+>>>>>>> origin/Dungndph20833
             // 
             // FrmBanHang
             // 
@@ -577,8 +679,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_gh)).EndInit();
             this.groupBox6.ResumeLayout(false);
@@ -593,7 +693,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_Quet_MaQr;
         private System.Windows.Forms.DataGridView dgrid_sp;
         private System.Windows.Forms.DataGridView dgrid_hd;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -605,22 +705,24 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmb_km;
+        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btn_thanhtoan;
-        private System.Windows.Forms.TextBox txt_tth;
-        private System.Windows.Forms.TextBox txt_tt;
-        private System.Windows.Forms.TextBox txt_tkd;
-        private System.Windows.Forms.TextBox txt_tnv;
-        private System.Windows.Forms.TextBox txt_tk;
-        private System.Windows.Forms.TextBox txt_mhd1;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataGridView dgrid_gh;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.PictureBox pb_anh;
+<<<<<<< HEAD
         private System.Windows.Forms.ComboBox cmb_nv;
         private System.Windows.Forms.ComboBox cmb_kh;
         private System.Windows.Forms.Label label11;
@@ -633,5 +735,8 @@
         private System.Windows.Forms.DateTimePicker dtp_ntt;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
+=======
+        private System.Windows.Forms.Button btn_Hủy;
+>>>>>>> origin/Dungndph20833
     }
 }

@@ -36,6 +36,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "BouncyCastle/1.8.9": {
         "runtime": {
           "lib/BouncyCastle.Crypto.dll": {
@@ -63,6 +64,8 @@
           }
         }
       },
+=======
+>>>>>>> origin/Dungndph20833
       "Microsoft.CSharp/4.5.0": {},
       "Microsoft.Data.SqlClient/2.0.1": {
         "dependencies": {
@@ -1438,6 +1441,7 @@
       "path": "aforge.video.directshow/2.2.5",
       "hashPath": "aforge.video.directshow.2.2.5.nupkg.sha512"
     },
+<<<<<<< HEAD
     "BouncyCastle/1.8.9": {
       "type": "package",
       "serviceable": true,
@@ -1459,6 +1463,8 @@
       "path": "itextsharp/5.5.13.3",
       "hashPath": "itextsharp.5.5.13.3.nupkg.sha512"
     },
+=======
+>>>>>>> origin/Dungndph20833
     "Microsoft.CSharp/4.5.0": {
       "type": "package",
       "serviceable": true,

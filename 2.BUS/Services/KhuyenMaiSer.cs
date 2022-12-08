@@ -62,9 +62,9 @@ namespace _2.BUS.Services
                      {
                          Id = a.Id,
                          MaKM = a.MaKM,
-                         GiaTriKM = (float)a.GiaTriKM,
-                         NgayBD = (DateTime)a.NgayBD,
-                         NgayKT = (DateTime)a.NgayKT,
+                         GiaTriKM = a.GiaTriKM,
+                         NgayBD = a.NgayBD,
+                         NgayKT = a.NgayKT,
                      };
             return km.ToList();
         }

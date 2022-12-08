@@ -1,8 +1,14 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
+<<<<<<< HEAD
       "C:\\Users\\p2003\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\p2003\\.nuget\\packages"
+=======
+      "C:\\Users\\DELL E5570\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\DELL E5570\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+>>>>>>> origin/Dungndph20833
     ]
   }
 }

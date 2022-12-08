@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Mail;
 
 namespace _3.PL.Views
 {
@@ -98,5 +100,7 @@ namespace _3.PL.Views
             tbx_SoDienThoai.Text = dgird_KhachHang.Rows[e.RowIndex].Cells[6].Value.ToString();
 
         }
+
+       
     }
 }

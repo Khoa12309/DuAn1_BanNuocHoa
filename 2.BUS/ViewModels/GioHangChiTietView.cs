@@ -11,6 +11,6 @@ namespace _2.BUS.ViewModels
         public Guid IdGH { get; set; }
         public Guid IdSP { get; set; }
         public float DonGia { get; set; }
-        public int SoLuong { get; set; }
+        public float SoLuong { get; set; }
     }
 }

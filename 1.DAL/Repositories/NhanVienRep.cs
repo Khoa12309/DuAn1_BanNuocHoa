@@ -25,7 +25,7 @@ namespace _1.DAL.Repositories
             {
                 return false;
             }
-            _Dbcontext.NhanViens.Add(obj);
+            _Dbcontext.Add(obj);
             _Dbcontext.SaveChanges();
             return true;
         }
@@ -62,8 +62,7 @@ namespace _1.DAL.Repositories
             temp.DiaChi = obj.DiaChi;
             temp.TrangThai = obj.TrangThai;
             temp.GioiTinh = obj.GioiTinh;
-            temp.Email=obj.Email;   
-            temp.HinhAnh=obj.HinhAnh;
+            temp.Email = obj.Email;
             _Dbcontext.Update(temp);
             _Dbcontext.SaveChanges();
             return true;

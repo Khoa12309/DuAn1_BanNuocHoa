@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,12 +20,9 @@ namespace _1.DAL.Configurations
             builder.Property(x => x.TenNV).HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(x => x.DiaChi).HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(x => x.GioiTinh).HasColumnType("nvarchar(100)").IsRequired();
-            builder.Property(x => x.TrangThai).HasColumnType("int").IsRequired();
+            builder.Property(x => x.TrangThai).HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(x => x.ChucVu).HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(x => x.Email).HasColumnType("nvarchar(100)").IsRequired();
-            builder.Property(x => x.HinhAnh).HasColumnType("Image").IsRequired();
-
-            builder.HasOne(x => x.Account).WithOne().HasForeignKey<Account>(x => x.Id);
         }
     }
 }
