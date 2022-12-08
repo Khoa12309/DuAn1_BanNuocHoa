@@ -214,7 +214,7 @@ namespace _3.PL.Views
 
         private void button3_Click(object sender, EventArgs e)
         {
-            timer1.Start();
+            TimerBH.Start();
         }
         private Image img(byte[] bt)
         {
@@ -347,6 +347,26 @@ namespace _3.PL.Views
         private void ihd()
         {
 
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmBanHang_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            lblTimer.Text = DateTime.Now.ToString("hh:mm:ss");
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            timer1.Start();
         }
     }
 }
