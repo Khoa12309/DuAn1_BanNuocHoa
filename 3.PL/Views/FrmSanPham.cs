@@ -410,6 +410,7 @@ namespace _3.PL.Views
 
         private void txt_tk_TextChanged(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             var stt = 1;
             dgrid_sp.ColumnCount = 12;
             dgrid_sp.Columns[0].Name = "Stt";
@@ -432,6 +433,8 @@ namespace _3.PL.Views
             {
                 dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong, x.TrangThai, x.Tenloai, x.Tenhang, x.GiaNhap, x.GiaBan);
             }
+=======
+>>>>>>> TheAnh
 
         }
 

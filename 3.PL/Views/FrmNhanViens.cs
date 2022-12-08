@@ -475,5 +475,10 @@ namespace _3.PL.Views
         {
             LoadData();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -539,6 +539,7 @@ namespace _3.PL.Views
 
         private void txt_tkd_TextChanged(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             //tiền khách đưa ,tiền thừa  ,tt-=tt-km dg
             txt_tth.Text= (float.Parse(txt_tkd.Text)-float.Parse(txt_tt.Text)).ToString();
             //
@@ -581,6 +582,9 @@ namespace _3.PL.Views
         {
 
 >>>>>>> origin/giangnt
+=======
+            
+>>>>>>> TheAnh
         }
     }
 }

@@ -74,8 +74,11 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgrid_gh = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+<<<<<<< HEAD
             this.pdhd = new System.Drawing.Printing.PrintDocument();
             this.ppdhd = new System.Windows.Forms.PrintPreviewDialog();
+=======
+>>>>>>> TheAnh
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_hd)).BeginInit();
@@ -627,6 +630,7 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Danh Sách HD";
             // 
+<<<<<<< HEAD
             // pdhd
             // 
             this.pdhd.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.pdhd_PrintPage);
@@ -641,11 +645,17 @@
             this.ppdhd.Name = "ppdhd";
             this.ppdhd.Visible = false;
             // 
+=======
+>>>>>>> TheAnh
             // FrmBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1924, 1050);
+=======
+            this.ClientSize = new System.Drawing.Size(1200, 718);
+>>>>>>> TheAnh
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -723,5 +733,14 @@
         private System.Windows.Forms.Button btn_xoahd;
         private System.Windows.Forms.TextBox txt_km;
         private System.Windows.Forms.Label label13;
+<<<<<<< HEAD
+=======
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Timer timer1;
+>>>>>>> TheAnh
     }
 }
