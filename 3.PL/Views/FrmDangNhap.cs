@@ -39,17 +39,21 @@ namespace _3.PL.Views
         {
             if (_Iser.check(getfrm()) == 1)
             {
-                MessageBox.Show("Tài Khoản adim");
-            
-            }else if (_Iser.check(getfrm()) == 2)
+             
+                FrmMain frm = new FrmMain();               
+                frm.ShowDialog();
+            }
+            else if (_Iser.check(getfrm()) == 2)
             {
-                MessageBox.Show("Tài Khoản user");
-            
+               
+
+                FrmMain frm = new FrmMain();
+                frm.check("Nhân viên");
+                frm.ShowDialog();
             }
             else
-            MessageBox.Show("Tài Khoản 0 ");
-            FrmMain frm = new FrmMain();
-            frm.ShowDialog();
+            MessageBox.Show("Tài Khoản hoạc mật khẩu không đúng ");
+            this.Hide();
         }
 
         private void txt_Tk_TextChanged(object sender, EventArgs e)

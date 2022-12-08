@@ -22,7 +22,16 @@ namespace _3.PL.Views
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
-
+            
+        }
+        public void check(string v)
+        {
+            if (v=="Nhân viên")
+            {
+                iconButton3.Hide();
+                iconButton4.Hide();
+                
+            }
         }
         private struct RGBColors
         {
@@ -96,13 +105,13 @@ namespace _3.PL.Views
             OpenChildForm(new FrmSanPham());
         }
         //Nhân Viên
-        private void iconButton3_Click(object sender, EventArgs e)
+        public void iconButton3_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
             OpenChildForm(new FrmTaiKhoan());
         }
         //Khuyến Mãi
-        private void iconButton4_Click(object sender, EventArgs e)
+        public void iconButton4_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
             OpenChildForm(new FrmKhuyenMai());
@@ -111,8 +120,9 @@ namespace _3.PL.Views
         private void iconButton5_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
+            OpenChildForm(new Gmail());
         }
-        //Khuyến Mãi
+        // khác
         private void iconButton6_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
@@ -121,6 +131,13 @@ namespace _3.PL.Views
         private void iconButton7_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color7);
+           DialogResult dialogResult= MessageBox.Show("Bạn có muốn thoát","Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation);
+            if (dialogResult==DialogResult.Yes)
+            {
+                this.Hide();
+                FrmDangNhap frm = new FrmDangNhap();
+                frm.ShowDialog();
+            }
         }
         //Trang Chủ
         private void btnHome_Click(object sender, EventArgs e)

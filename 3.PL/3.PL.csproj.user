@@ -31,5 +31,8 @@
     <Compile Update="Views\FrmSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\Gmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

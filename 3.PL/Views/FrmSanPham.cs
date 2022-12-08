@@ -240,6 +240,11 @@ namespace _3.PL.Views
 
         }
 
+        private void txt_tk_Leave(object sender, EventArgs e)
+        {
+            loadfrm();
+        }
+
         //private Object ByteArrayToObject(byte[] arrBytes)
         //{
         //    MemoryStream memStream = new MemoryStream();

@@ -104,6 +104,7 @@
             this.txt_tk.TabIndex = 3;
             this.txt_tk.Text = "Tìm Kiếm";
             this.txt_tk.TextChanged += new System.EventHandler(this.txt_tk_TextChanged);
+            this.txt_tk.Leave += new System.EventHandler(this.txt_tk_Leave);
             // 
             // btn_them
             // 

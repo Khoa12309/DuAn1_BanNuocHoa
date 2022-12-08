@@ -141,3 +141,4 @@ D:\DuAn1_BanNuocHoa\3.PL\bin\Debug\net5.0-windows\BouncyCastle.Crypto.dll
 D:\DuAn1_BanNuocHoa\3.PL\bin\Debug\net5.0-windows\itextsharp.dll
 D:\DuAn1_BanNuocHoa\3.PL\bin\Debug\net5.0-windows\FontAwesome.Sharp.dll
 D:\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmMain.resources
+D:\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.Gmail.resources
