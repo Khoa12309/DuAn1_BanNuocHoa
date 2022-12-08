@@ -55,5 +55,20 @@ namespace _3.PL.Views
         {
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+        #region Event
+        void registerEnvent()
+        {
+            lbl_closer.Click += lbl_closer_Click;
+        }
+        private void lbl_closer_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
     }
 }
