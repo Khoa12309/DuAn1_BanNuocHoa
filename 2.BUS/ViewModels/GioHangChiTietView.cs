@@ -12,5 +12,6 @@ namespace _2.BUS.ViewModels
         public Guid IdSP { get; set; }
         public float DonGia { get; set; }
         public int SoLuong { get; set; }
+      
     }
 }

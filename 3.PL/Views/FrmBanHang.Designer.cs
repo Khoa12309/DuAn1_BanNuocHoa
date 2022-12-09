@@ -41,6 +41,8 @@
             this.pb_anh = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txt_km = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.dtp_ntt = new System.Windows.Forms.DateTimePicker();
             this.btn_thanhtoan = new System.Windows.Forms.Button();
             this.txt_tth = new System.Windows.Forms.TextBox();
@@ -53,13 +55,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmb_km = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmb_km = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btn_xoahd = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.dtp_nm = new System.Windows.Forms.DateTimePicker();
@@ -76,6 +79,9 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgrid_gh = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.pdhd = new System.Drawing.Printing.PrintDocument();
+            this.ppdhd = new System.Windows.Forms.PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_hd)).BeginInit();
@@ -219,6 +225,8 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox3.Controls.Add(this.txt_km);
+            this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.dtp_ntt);
             this.groupBox3.Controls.Add(this.btn_thanhtoan);
             this.groupBox3.Controls.Add(this.txt_tth);
@@ -231,11 +239,9 @@
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.cmb_km);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox3.Location = new System.Drawing.Point(900, 0);
@@ -246,6 +252,25 @@
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thanh Toán";
+            // 
+            // txt_km
+            // 
+            this.txt_km.Location = new System.Drawing.Point(128, 205);
+            this.txt_km.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_km.Name = "txt_km";
+            this.txt_km.Size = new System.Drawing.Size(156, 23);
+            this.txt_km.TabIndex = 18;
+            this.txt_km.TextChanged += new System.EventHandler(this.txt_km_TextChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label17.Location = new System.Drawing.Point(12, 213);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(80, 16);
+            this.label17.TabIndex = 17;
+            this.label17.Text = "Khuyến  mãi";
             // 
             // dtp_ntt
             // 
@@ -293,6 +318,7 @@
             this.txt_tkd.Name = "txt_tkd";
             this.txt_tkd.Size = new System.Drawing.Size(156, 23);
             this.txt_tkd.TabIndex = 13;
+            this.txt_tkd.TextChanged += new System.EventHandler(this.txt_tkd_TextChanged);
             // 
             // txt_tnv
             // 
@@ -356,16 +382,6 @@
             this.label10.Size = new System.Drawing.Size(300, 2);
             this.label10.TabIndex = 3;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(12, 213);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 16);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Khuyến mãi";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -396,15 +412,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Ngày thanh toán";
             // 
-            // cmb_km
-            // 
-            this.cmb_km.FormattingEnabled = true;
-            this.cmb_km.Location = new System.Drawing.Point(128, 205);
-            this.cmb_km.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmb_km.Name = "cmb_km";
-            this.cmb_km.Size = new System.Drawing.Size(156, 23);
-            this.cmb_km.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -415,9 +422,29 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã HĐ";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(10, 304);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 16);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Khuyến mãi";
+            // 
+            // cmb_km
+            // 
+            this.cmb_km.FormattingEnabled = true;
+            this.cmb_km.Location = new System.Drawing.Point(126, 296);
+            this.cmb_km.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmb_km.Name = "cmb_km";
+            this.cmb_km.Size = new System.Drawing.Size(156, 23);
+            this.cmb_km.TabIndex = 1;
+            // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox4.Controls.Add(this.btn_xoahd);
             this.groupBox4.Controls.Add(this.pictureBox3);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.dtp_nm);
@@ -429,8 +456,10 @@
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.btn_thd);
+            this.groupBox4.Controls.Add(this.cmb_km);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox4.ForeColor = System.Drawing.Color.Black;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
@@ -441,6 +470,20 @@
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tạo Hóa Đơn";
+            // 
+            // btn_xoahd
+            // 
+            this.btn_xoahd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_xoahd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btn_xoahd.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_xoahd.Location = new System.Drawing.Point(151, 428);
+            this.btn_xoahd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_xoahd.Name = "btn_xoahd";
+            this.btn_xoahd.Size = new System.Drawing.Size(121, 37);
+            this.btn_xoahd.TabIndex = 14;
+            this.btn_xoahd.Text = "Xóa hóa đơn";
+            this.btn_xoahd.UseVisualStyleBackColor = false;
+            this.btn_xoahd.Click += new System.EventHandler(this.btn_xoahd_Click);
             // 
             // pictureBox3
             // 
@@ -544,7 +587,6 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(300, 2);
             this.label15.TabIndex = 3;
-            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // label9
             // 
@@ -559,10 +601,10 @@
             this.btn_thd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_thd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btn_thd.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_thd.Location = new System.Drawing.Point(82, 411);
+            this.btn_thd.Location = new System.Drawing.Point(12, 428);
             this.btn_thd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_thd.Name = "btn_thd";
-            this.btn_thd.Size = new System.Drawing.Size(148, 53);
+            this.btn_thd.Size = new System.Drawing.Size(119, 37);
             this.btn_thd.TabIndex = 0;
             this.btn_thd.Text = "Tạo Hóa Đơn";
             this.btn_thd.UseVisualStyleBackColor = false;
@@ -595,6 +637,7 @@
             this.dgrid_gh.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgrid_gh.Size = new System.Drawing.Size(594, 210);
             this.dgrid_gh.TabIndex = 0;
+            this.dgrid_gh.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_gh_CellValueChanged);
             // 
             // groupBox6
             // 
@@ -608,6 +651,24 @@
             this.groupBox6.TabIndex = 10;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Danh Sách HD";
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // pdhd
+            // 
+            this.pdhd.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.pdhd_PrintPage);
+            // 
+            // ppdhd
+            // 
+            this.ppdhd.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.ppdhd.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.ppdhd.ClientSize = new System.Drawing.Size(400, 300);
+            this.ppdhd.Enabled = true;
+            this.ppdhd.Icon = ((System.Drawing.Icon)(resources.GetObject("ppdhd.Icon")));
+            this.ppdhd.Name = "ppdhd";
+            this.ppdhd.Visible = false;
             // 
             // FrmBanHang
             // 
@@ -623,7 +684,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmBanHang";
             this.Text = "FrmBanHang";
-            this.Load += new System.EventHandler(this.FrmBanHang_Load);
+            this.Leave += new System.EventHandler(this.FrmBanHang_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_hd)).EndInit();
@@ -693,5 +754,11 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label lblTimer;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Button btn_xoahd;
+        private System.Windows.Forms.TextBox txt_km;
+        private System.Windows.Forms.Label label17;
+        private System.Drawing.Printing.PrintDocument pdhd;
+        private System.Windows.Forms.PrintPreviewDialog ppdhd;
     }
 }
