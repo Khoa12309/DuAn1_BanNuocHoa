@@ -419,13 +419,13 @@ namespace _3.PL.Views
 
         private void FrmBanHang_Leave(object sender, EventArgs e)
         {
-            if (cam.IsRunning && cam != null)
-            {
-                timer1.Stop();
-                cam.SignalToStop();
-                cam.WaitForStop();
-                cam = null;
-            }
+            //if (cam.IsRunning && cam != null)
+            //{
+            //    timer1.Stop();
+            //    cam.SignalToStop();
+            //    cam.WaitForStop();
+            //    cam = null;
+            //}
         }
 
         private void txt_tkd_TextChanged(object sender, EventArgs e)
@@ -454,7 +454,7 @@ namespace _3.PL.Views
             base.OnClosed(e);
             if (cam.IsRunning && cam != null)
             {
-                timer1.Stop();
+                //timer1.Stop();
                 cam.SignalToStop();
                 cam.WaitForStop();
                 cam = null;
