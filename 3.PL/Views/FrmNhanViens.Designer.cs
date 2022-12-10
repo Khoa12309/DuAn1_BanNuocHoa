@@ -76,12 +76,12 @@
             this.dgird_TaiKhoan.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgird_TaiKhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgird_TaiKhoan.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgird_TaiKhoan.Location = new System.Drawing.Point(0, 383);
+            this.dgird_TaiKhoan.Location = new System.Drawing.Point(0, 293);
             this.dgird_TaiKhoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgird_TaiKhoan.Name = "dgird_TaiKhoan";
             this.dgird_TaiKhoan.RowHeadersWidth = 51;
             this.dgird_TaiKhoan.RowTemplate.Height = 29;
-            this.dgird_TaiKhoan.Size = new System.Drawing.Size(1412, 147);
+            this.dgird_TaiKhoan.Size = new System.Drawing.Size(1412, 237);
             this.dgird_TaiKhoan.TabIndex = 0;
             this.dgird_TaiKhoan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgird_TaiKhoan_CellContentClick);
             // 
@@ -89,7 +89,7 @@
             // 
             this.btn_Add.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btn_Add.Location = new System.Drawing.Point(12, 258);
+            this.btn_Add.Location = new System.Drawing.Point(12, 213);
             this.btn_Add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(110, 37);
@@ -102,7 +102,7 @@
             // 
             this.btn_Delete.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btn_Delete.Location = new System.Drawing.Point(304, 258);
+            this.btn_Delete.Location = new System.Drawing.Point(304, 213);
             this.btn_Delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(110, 37);
@@ -115,7 +115,7 @@
             // 
             this.btn_Update.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btn_Update.Location = new System.Drawing.Point(157, 258);
+            this.btn_Update.Location = new System.Drawing.Point(157, 213);
             this.btn_Update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Update.Name = "btn_Update";
             this.btn_Update.Size = new System.Drawing.Size(110, 37);
@@ -129,7 +129,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(18, 150);
+            this.label1.Location = new System.Drawing.Point(18, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(126, 22);
             this.label1.TabIndex = 4;
@@ -140,7 +140,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(18, 211);
+            this.label2.Location = new System.Drawing.Point(18, 166);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 22);
             this.label2.TabIndex = 6;
@@ -150,7 +150,7 @@
             // 
             this.tbx_MaNhanVien.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbx_MaNhanVien.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbx_MaNhanVien.Location = new System.Drawing.Point(149, 75);
+            this.tbx_MaNhanVien.Location = new System.Drawing.Point(149, 30);
             this.tbx_MaNhanVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbx_MaNhanVien.Name = "tbx_MaNhanVien";
             this.tbx_MaNhanVien.Size = new System.Drawing.Size(205, 29);
@@ -161,7 +161,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(18, 84);
+            this.label3.Location = new System.Drawing.Point(18, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 22);
             this.label3.TabIndex = 10;
@@ -171,7 +171,7 @@
             // 
             this.tbx_TenNhanVien.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbx_TenNhanVien.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbx_TenNhanVien.Location = new System.Drawing.Point(149, 22);
+            this.tbx_TenNhanVien.Location = new System.Drawing.Point(149, -23);
             this.tbx_TenNhanVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbx_TenNhanVien.Name = "tbx_TenNhanVien";
             this.tbx_TenNhanVien.Size = new System.Drawing.Size(205, 29);
@@ -182,7 +182,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(16, 30);
+            this.label4.Location = new System.Drawing.Point(16, -15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 22);
             this.label4.TabIndex = 8;
@@ -193,7 +193,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(47, 84);
+            this.label5.Location = new System.Drawing.Point(47, 39);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 22);
             this.label5.TabIndex = 18;
@@ -203,7 +203,7 @@
             // 
             this.tbx_DiaChi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbx_DiaChi.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbx_DiaChi.Location = new System.Drawing.Point(188, 22);
+            this.tbx_DiaChi.Location = new System.Drawing.Point(188, -23);
             this.tbx_DiaChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbx_DiaChi.Name = "tbx_DiaChi";
             this.tbx_DiaChi.Size = new System.Drawing.Size(244, 29);
@@ -214,7 +214,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(50, 30);
+            this.label6.Location = new System.Drawing.Point(50, -15);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 22);
             this.label6.TabIndex = 16;
@@ -225,7 +225,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(47, 131);
+            this.label7.Location = new System.Drawing.Point(47, 86);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(120, 22);
             this.label7.TabIndex = 14;
@@ -236,7 +236,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(47, 172);
+            this.label8.Location = new System.Drawing.Point(47, 127);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(92, 22);
             this.label8.TabIndex = 12;
@@ -247,7 +247,7 @@
             this.rbtn_DangDiLam.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbtn_DangDiLam.AutoSize = true;
             this.rbtn_DangDiLam.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbtn_DangDiLam.Location = new System.Drawing.Point(188, 168);
+            this.rbtn_DangDiLam.Location = new System.Drawing.Point(188, 123);
             this.rbtn_DangDiLam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtn_DangDiLam.Name = "rbtn_DangDiLam";
             this.rbtn_DangDiLam.Size = new System.Drawing.Size(128, 26);
@@ -260,7 +260,7 @@
             // 
             this.tbx_MK.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbx_MK.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbx_MK.Location = new System.Drawing.Point(149, 207);
+            this.tbx_MK.Location = new System.Drawing.Point(149, 162);
             this.tbx_MK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbx_MK.Name = "tbx_MK";
             this.tbx_MK.Size = new System.Drawing.Size(205, 29);
@@ -270,7 +270,7 @@
             // 
             this.tbx_Ten_TK.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbx_Ten_TK.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbx_Ten_TK.Location = new System.Drawing.Point(149, 143);
+            this.tbx_Ten_TK.Location = new System.Drawing.Point(149, 98);
             this.tbx_Ten_TK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbx_Ten_TK.Name = "tbx_Ten_TK";
             this.tbx_Ten_TK.Size = new System.Drawing.Size(205, 29);
@@ -280,7 +280,7 @@
             // 
             this.tbx_SoDienThoai.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbx_SoDienThoai.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbx_SoDienThoai.Location = new System.Drawing.Point(188, 123);
+            this.tbx_SoDienThoai.Location = new System.Drawing.Point(188, 78);
             this.tbx_SoDienThoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbx_SoDienThoai.Name = "tbx_SoDienThoai";
             this.tbx_SoDienThoai.Size = new System.Drawing.Size(244, 29);
@@ -291,7 +291,7 @@
             this.rbtn_DaNghi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbtn_DaNghi.AutoSize = true;
             this.rbtn_DaNghi.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbtn_DaNghi.Location = new System.Drawing.Point(326, 168);
+            this.rbtn_DaNghi.Location = new System.Drawing.Point(326, 123);
             this.rbtn_DaNghi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtn_DaNghi.Name = "rbtn_DaNghi";
             this.rbtn_DaNghi.Size = new System.Drawing.Size(92, 26);
@@ -305,7 +305,7 @@
             this.cmb_GioiTinh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmb_GioiTinh.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmb_GioiTinh.FormattingEnabled = true;
-            this.cmb_GioiTinh.Location = new System.Drawing.Point(188, 79);
+            this.cmb_GioiTinh.Location = new System.Drawing.Point(188, 34);
             this.cmb_GioiTinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmb_GioiTinh.Name = "cmb_GioiTinh";
             this.cmb_GioiTinh.Size = new System.Drawing.Size(244, 30);
@@ -316,7 +316,7 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(50, 207);
+            this.label9.Location = new System.Drawing.Point(50, 162);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(81, 22);
             this.label9.TabIndex = 24;
@@ -327,7 +327,7 @@
             this.cmb_ChucVu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmb_ChucVu.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmb_ChucVu.FormattingEnabled = true;
-            this.cmb_ChucVu.Location = new System.Drawing.Point(188, 204);
+            this.cmb_ChucVu.Location = new System.Drawing.Point(188, 159);
             this.cmb_ChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmb_ChucVu.Name = "cmb_ChucVu";
             this.cmb_ChucVu.Size = new System.Drawing.Size(244, 30);
@@ -337,7 +337,7 @@
             // 
             this.btn_ca.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_ca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btn_ca.Location = new System.Drawing.Point(197, 258);
+            this.btn_ca.Location = new System.Drawing.Point(197, 213);
             this.btn_ca.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_ca.Name = "btn_ca";
             this.btn_ca.Size = new System.Drawing.Size(110, 37);
@@ -361,7 +361,7 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(50, 253);
+            this.label10.Location = new System.Drawing.Point(50, 208);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 22);
             this.label10.TabIndex = 29;
@@ -371,7 +371,7 @@
             // 
             this.txt_email.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txt_email.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_email.Location = new System.Drawing.Point(188, 250);
+            this.txt_email.Location = new System.Drawing.Point(188, 205);
             this.txt_email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(258, 29);
@@ -379,7 +379,7 @@
             // 
             // txt_TimKiem
             // 
-            this.txt_TimKiem.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.txt_TimKiem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.txt_TimKiem.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_TimKiem.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_TimKiem.Location = new System.Drawing.Point(3, 11);
@@ -394,7 +394,7 @@
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.groupBox1.Controls.Add(this.pb_ca);
-            this.groupBox1.Location = new System.Drawing.Point(84, 12);
+            this.groupBox1.Location = new System.Drawing.Point(84, -33);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(331, 195);
             this.groupBox1.TabIndex = 31;
@@ -402,10 +402,10 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel1.Controls.Add(this.txt_TimKiem);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 326);
+            this.panel1.Location = new System.Drawing.Point(0, 236);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1412, 57);
             this.panel1.TabIndex = 32;
@@ -427,12 +427,13 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(420, 326);
+            this.groupBox2.Size = new System.Drawing.Size(420, 236);
             this.groupBox2.TabIndex = 33;
             this.groupBox2.TabStop = false;
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox3.Controls.Add(this.tbx_DiaChi);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.tbx_SoDienThoai);
@@ -449,7 +450,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox3.Location = new System.Drawing.Point(921, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(491, 326);
+            this.groupBox3.Size = new System.Drawing.Size(491, 236);
             this.groupBox3.TabIndex = 34;
             this.groupBox3.TabStop = false;
             // 
@@ -460,7 +461,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(420, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(501, 326);
+            this.groupBox4.Size = new System.Drawing.Size(501, 236);
             this.groupBox4.TabIndex = 35;
             this.groupBox4.TabStop = false;
             // 
@@ -468,7 +469,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1412, 530);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);

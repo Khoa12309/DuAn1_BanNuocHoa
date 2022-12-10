@@ -216,3 +216,7 @@ C:\Users\p2003\OneDrive\Desktop\000\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windo
 C:\Users\p2003\OneDrive\Desktop\000\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\ref\3.PL.dll
 C:\Users\p2003\OneDrive\Desktop\000\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmMain.resources
 C:\Users\p2003\OneDrive\Desktop\000\DuAn1_BanNuocHoa\3.PL\bin\Debug\net5.0-windows\FontAwesome.Sharp.dll
+C:\Users\p2003\OneDrive\Desktop\000\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmThongBao.resources
+C:\Users\p2003\OneDrive\Desktop\000\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmQuenMatKhau.resources
+C:\Users\p2003\OneDrive\Desktop\000\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmMatKhauMoi.resources
+C:\Users\p2003\OneDrive\Desktop\000\DuAn1_BanNuocHoa\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmKhac.resources

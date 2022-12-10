@@ -53,7 +53,7 @@
             this.txt_Tk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txt_Tk.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Tk.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_Tk.ForeColor = System.Drawing.Color.Gray;
+            this.txt_Tk.ForeColor = System.Drawing.Color.Black;
             this.txt_Tk.Location = new System.Drawing.Point(77, 138);
             this.txt_Tk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Tk.Name = "txt_Tk";
@@ -67,7 +67,7 @@
             this.txt_Mk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txt_Mk.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Mk.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_Mk.ForeColor = System.Drawing.Color.Gray;
+            this.txt_Mk.ForeColor = System.Drawing.Color.Black;
             this.txt_Mk.Location = new System.Drawing.Point(77, 199);
             this.txt_Mk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Mk.Name = "txt_Mk";
@@ -148,6 +148,7 @@
             this.label5.Size = new System.Drawing.Size(128, 23);
             this.label5.TabIndex = 6;
             this.label5.Text = "Forgot Password ?";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // pictureBox3
             // 

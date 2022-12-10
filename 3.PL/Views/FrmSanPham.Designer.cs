@@ -118,7 +118,7 @@
             // 
             // txt_tk
             // 
-            this.txt_tk.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.txt_tk.BackColor = System.Drawing.Color.LightSkyBlue;
             this.txt_tk.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_tk.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_tk.Location = new System.Drawing.Point(13, 11);
@@ -453,7 +453,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel1.Controls.Add(this.txt_tk);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 345);
@@ -520,7 +520,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1445, 546);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);

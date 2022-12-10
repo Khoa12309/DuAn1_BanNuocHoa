@@ -62,12 +62,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cmb_km = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txt_tennv = new System.Windows.Forms.TextBox();
             this.btn_xoahd = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.dtp_nm = new System.Windows.Forms.DateTimePicker();
             this.txt_mhd = new System.Windows.Forms.TextBox();
-            this.cmb_nv = new System.Windows.Forms.ComboBox();
             this.cmb_kh = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -225,7 +225,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox3.Controls.Add(this.txt_km);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.dtp_ntt);
@@ -427,7 +427,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(10, 304);
+            this.label5.Location = new System.Drawing.Point(6, 303);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 16);
             this.label5.TabIndex = 5;
@@ -444,13 +444,13 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox4.Controls.Add(this.txt_tennv);
             this.groupBox4.Controls.Add(this.btn_xoahd);
             this.groupBox4.Controls.Add(this.pictureBox3);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.dtp_nm);
             this.groupBox4.Controls.Add(this.txt_mhd);
-            this.groupBox4.Controls.Add(this.cmb_nv);
             this.groupBox4.Controls.Add(this.cmb_kh);
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.label14);
@@ -472,15 +472,23 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tạo Hóa Đơn";
             // 
+            // txt_tennv
+            // 
+            this.txt_tennv.Enabled = false;
+            this.txt_tennv.Location = new System.Drawing.Point(114, 153);
+            this.txt_tennv.Name = "txt_tennv";
+            this.txt_tennv.Size = new System.Drawing.Size(168, 23);
+            this.txt_tennv.TabIndex = 15;
+            // 
             // btn_xoahd
             // 
             this.btn_xoahd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_xoahd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btn_xoahd.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_xoahd.Location = new System.Drawing.Point(151, 428);
+            this.btn_xoahd.Location = new System.Drawing.Point(150, 411);
             this.btn_xoahd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_xoahd.Name = "btn_xoahd";
-            this.btn_xoahd.Size = new System.Drawing.Size(121, 37);
+            this.btn_xoahd.Size = new System.Drawing.Size(132, 54);
             this.btn_xoahd.TabIndex = 14;
             this.btn_xoahd.Text = "Xóa hóa đơn";
             this.btn_xoahd.UseVisualStyleBackColor = false;
@@ -525,15 +533,6 @@
             this.txt_mhd.TabIndex = 10;
             this.txt_mhd.TextChanged += new System.EventHandler(this.txt_mhd_TextChanged);
             this.txt_mhd.Leave += new System.EventHandler(this.txt_mhd_Leave);
-            // 
-            // cmb_nv
-            // 
-            this.cmb_nv.FormattingEnabled = true;
-            this.cmb_nv.Location = new System.Drawing.Point(114, 148);
-            this.cmb_nv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmb_nv.Name = "cmb_nv";
-            this.cmb_nv.Size = new System.Drawing.Size(168, 23);
-            this.cmb_nv.TabIndex = 7;
             // 
             // cmb_kh
             // 
@@ -603,10 +602,10 @@
             this.btn_thd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_thd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btn_thd.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_thd.Location = new System.Drawing.Point(12, 428);
+            this.btn_thd.Location = new System.Drawing.Point(0, 411);
             this.btn_thd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_thd.Name = "btn_thd";
-            this.btn_thd.Size = new System.Drawing.Size(119, 37);
+            this.btn_thd.Size = new System.Drawing.Size(130, 54);
             this.btn_thd.TabIndex = 0;
             this.btn_thd.Text = "Tạo Hóa Đơn";
             this.btn_thd.UseVisualStyleBackColor = false;
@@ -739,7 +738,6 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.PictureBox pb_anh;
-        private System.Windows.Forms.ComboBox cmb_nv;
         private System.Windows.Forms.ComboBox cmb_kh;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
@@ -762,5 +760,6 @@
         private System.Windows.Forms.Label label17;
         private System.Drawing.Printing.PrintDocument pdhd;
         private System.Windows.Forms.PrintPreviewDialog ppdhd;
+        private System.Windows.Forms.TextBox txt_tennv;
     }
 }

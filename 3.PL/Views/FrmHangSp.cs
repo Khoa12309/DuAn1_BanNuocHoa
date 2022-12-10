@@ -19,6 +19,9 @@ namespace _3.PL.Views
         private IHangSer _IHangSpr;
         private HangView _HangSp_view;
         Guid _id;
+        string chuoidung = "1234567890QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopas dfghjklzxcvbnm";
+        string chuoisdt = "1234567890";
+        string ma;
 
         public FrmHangSp()
         {
@@ -55,30 +58,160 @@ namespace _3.PL.Views
         {
             tbx_MaSp.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             tbx_Tensp.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            _id = Guid.Parse( dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+            _id = Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+            _HangSp_view = _IHangSpr.HspGetAll().FirstOrDefault(c => c.ID == Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
+            ma = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
 
+        private bool kiemtrakitu(string chuoiCanKiemTra)
+        {
+            foreach (char kiTu in chuoiCanKiemTra)
+            {
+                bool dung = false;
+
+                foreach (char kitu2 in chuoidung)
+                {
+                    if (kiTu == kitu2) dung = true;
+                }
+                if (dung == false) return false;
+            }
+            return true;
+        }
+        private bool kiemtraten(string chuoiCanKiemTra)
+        {
+            foreach (char kiTu in chuoiCanKiemTra)
+            {
+                bool dung = false;
+
+                foreach (char kitu2 in chuoisdt)
+                {
+                    if (kiTu == kitu2) dung = true;
+                }
+                if (dung == false) return false;
+            }
+
+
+            return true;
+        }
+        public bool checktrung(string masp)
+        {
+            var r = _IHangSpr.HspGetAll().Any(c => c.MaHang == masp);
+            if (r == true) { return true; }
+            return false;
+        }
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_IHangSpr.Add(GetDataFromGUI()));
-            LoadData();
+            DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thực hiện chức năng này không ? ", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                _HangSp_view = new HangView();
+                _HangSp_view.ID = Guid.NewGuid();
+                if (tbx_MaSp.Text.Trim() == "" || kiemtrakitu(tbx_MaSp.Text.Trim()) == false)
+                {
+
+                    MessageBox.Show("Bạn đang để trống mã hãng sản phẩm hoặc mã hãng sản phẩm có kí tự đặc biệt");
+                    return;
+                }
+                else if (checktrung(tbx_MaSp.Text.Trim()) == true)
+                {
+                    MessageBox.Show("Trùng mã hãng sản phẩm");
+                    return;
+                }
+                else if (tbx_Tensp.Text.Trim() == "" || kiemtrakitu(tbx_Tensp.Text.Trim()) == false)
+                {
+                    MessageBox.Show("Bạn đang để trống tên hãng sản phẩm hoặc tên hãng sản phẩm có kí tự đặc biệt");
+                    return;
+                }
+                else
+                {
+                    _HangSp_view.MaHang = tbx_MaSp.Text;
+                    _HangSp_view.TenHang = tbx_Tensp.Text;
+                    MessageBox.Show(_IHangSpr.Add(_HangSp_view));
+                    LoadData();
+                }
+            }
+            else
+            {
+                return;
+
+            }
+
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            var temp = GetDataFromGUI();
-            temp.ID = _id;
-            
-            MessageBox.Show(_IHangSpr.Update(temp));
-            LoadData();
+            DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thực hiện chức năng này không ? ", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+
+
+                if (tbx_MaSp.Text.Trim() == "" || kiemtrakitu(tbx_MaSp.Text.Trim()) == false)
+                {
+
+                    MessageBox.Show("Bạn đang để trống mã hãng sản phẩm hoặc mã hãng sản phẩm có kí tự đặc biệt");
+                    return;
+                }
+                else if (checktrung(tbx_MaSp.Text.Trim()) && (tbx_MaSp.Text.Trim() != ma == true))
+                {
+                    MessageBox.Show("Trùng mã hãng sản phẩm");
+                    return;
+                }
+                else if (tbx_Tensp.Text.Trim() == "" || kiemtrakitu(tbx_Tensp.Text.Trim()) == false)
+                {
+                    MessageBox.Show("Bạn đang để trống tên hãng sản phẩm hoặc tên hãng sản phẩm có kí tự đặc biệt");
+                    return;
+                }
+                else
+                {
+                    _HangSp_view.ID = _id;
+                    _HangSp_view.MaHang = tbx_MaSp.Text;
+                    _HangSp_view.TenHang = tbx_Tensp.Text;
+                    MessageBox.Show(_IHangSpr.Update(_HangSp_view));
+                    LoadData();
+                }
+
+            }
+            else
+            {
+                return;
+
+            }
+
         }
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            var temp = GetDataFromGUI();
-            temp.ID = _id;
-            MessageBox.Show(_IHangSpr.Delete(temp));
-            LoadData();
+            DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thực hiện chức năng này không ? ", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                var temp = _HangSp_view;
+                temp.ID = _id;
+                MessageBox.Show(_IHangSpr.Delete(temp));
+                LoadData();
+            }
+            else
+            {
+                return;
+            }
+
+        }
+
+        private void FrmHangSp_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbx_MaSp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        void closer()
+        {
+            label3.Click += label3_Click;
+        }
+        private void label3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

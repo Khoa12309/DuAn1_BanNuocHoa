@@ -40,10 +40,11 @@ namespace _3.PL.Views
         private IKhachHangSer _ikhser;
         private INhanVienSer _invser;
         private IKhuyenMaiSer _Ikmser;
+        public Guid _idnv;
         Guid _id;
         float tt;
         bool check = false;
-        public FrmBanHang()
+        public FrmBanHang(Guid id)
         {
             InitializeComponent();
             _Iserghct=new GioHangChiTietSer();
@@ -54,6 +55,7 @@ namespace _3.PL.Views
             _invser= new NhanVienSer();
             _ihdser=new HoaDonSer();
             _ihdctser = new HoaDonCtSer();
+            _idnv=id;
             loadcam();
             // loadcmb();
             loadfrmgh();
@@ -90,13 +92,10 @@ namespace _3.PL.Views
             foreach (var x in _ikhser.KhGetAll())
             {
                 cmb_kh.Items.Add(x.TenKH);
+            }
+            var nv = _invser.NvGetAll().FirstOrDefault(c => c.Id == _idnv);
+            txt_tennv.Text = nv.TenNV;
 
-            } 
-            foreach (var x in _invser.NvGetAll())
-            {
-                cmb_nv.Items.Add(x.TenNV);
-
-            } 
             foreach (var x in _Ikmser.KmGetAll().Where(c=>c.NgayKT.Date>=DateTime.Now))
             {
                 cmb_km.Items.Add(x.MaKM);
@@ -104,13 +103,12 @@ namespace _3.PL.Views
             }
             cmb_km.SelectedIndex = 0;
             cmb_kh.SelectedIndex = 0;
-            cmb_nv.SelectedIndex = 0;
         }
 
         private void loadfrmsp()
         {
             var stt = 1;
-            dgrid_sp.ColumnCount = 12;
+            dgrid_sp.ColumnCount = 10;
             dgrid_sp.Columns[0].Name = "Stt";
             dgrid_sp.Columns[1].Name = "ID";
             dgrid_sp.Columns[2].Name = "Mã SP";
@@ -121,8 +119,6 @@ namespace _3.PL.Views
             dgrid_sp.Columns[7].Name = "Loại";
             dgrid_sp.Columns[8].Name = "Hãng";          
             dgrid_sp.Columns[9].Name = "Giá Bán";
-            //dgrid_sp.Columns[12].Name = "Hình Ảnh";
-
             dgrid_sp.Rows.Clear();
             this.dgrid_sp.Columns["ID"].Visible = false;
             foreach (var x in _Isersp.SpGetAll())
@@ -267,7 +263,7 @@ namespace _3.PL.Views
             {
                 Id = _id,
                 IdKH = _ikhser.KhGetAll()[cmb_kh.SelectedIndex].Id,
-                IdNV = _invser.NvGetAll()[cmb_nv.SelectedIndex].Id,
+                IdNV = _idnv,
                 MaHD = txt_mhd.Text,
                 NgayMua = dtp_nm.Value,
                 TrangThai = 0,
@@ -453,25 +449,24 @@ namespace _3.PL.Views
 
         private void FrmBanHang_Leave(object sender, EventArgs e)
         {
-            if (cam.IsRunning && cam != null)
-            {
-                
-                
-                cam.SignalToStop();
-                cam.WaitForStop();
-                cam = null;
-            }
+            if (cam != null)
+                if (cam.IsRunning)
+                {
+                    cam.SignalToStop();
+                    cam.WaitForStop();
+                    cam = null;
+                }
         }
-        protected override void OnClosed(EventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
-            base.OnClosed(e);
-            if (cam.IsRunning && cam != null)
-            {
-                timer1.Stop();
-                cam.SignalToStop();
-                cam.WaitForStop();
-                cam = null;
-            }
+            base.OnClosing(e);
+            if (cam != null)
+                if (cam.IsRunning)
+                {
+                    cam.SignalToStop();
+                    cam.WaitForStop();
+                    cam = null;
+                }
         }
 
         private void txt_tkd_TextChanged(object sender, EventArgs e)
@@ -533,5 +528,7 @@ namespace _3.PL.Views
             }
             
         }
+
+
     }
 }
