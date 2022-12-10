@@ -25,11 +25,7 @@ namespace _3.PL.Views
             panelMenu.Controls.Add(leftBorderBtn);
             
         }
-        //public Guid getidnv(Guid idnv)
-        //{
-        //    _idnv = idnv;
-        //    return _idnv;
-        //}
+       
         public void check(string v)
         {
             if (v=="Nhân viên")

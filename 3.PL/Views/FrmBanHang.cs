@@ -42,7 +42,7 @@ namespace _3.PL.Views
         Guid _id ;
         float tt ;
         bool check = false;
-       public Guid _idnv;
+         public Guid _idnv;
         public FrmBanHang(Guid id)
         {
             InitializeComponent();
@@ -55,15 +55,13 @@ namespace _3.PL.Views
             _ihdser=new HoaDonSer();
             _ihdctser = new HoaDonCtSer();
             //
-              _idnv= id;
+            _idnv = id;
             loadcam();           
             loadfrmgh();
             loadfrmsp();
             loadhd();
             Loadcmb();
-            
-        }
-        
+        }              
         private void loadhd()
         {
             dgrid_hd.ColumnCount = 5;
@@ -211,6 +209,7 @@ namespace _3.PL.Views
         private void button3_Click(object sender, EventArgs e)
         {
             timer1.Start();
+           
         }
         private Image img(byte[] bt)
         {
@@ -318,12 +317,10 @@ namespace _3.PL.Views
                         ihd();
                     }
                 }
-                else MessageBox.Show("Hóa đơn đã được thanh toán");
-               
+                else MessageBox.Show("Hóa đơn đã được thanh toán");               
             }
             catch (Exception a)
             {
-
                 MessageBox.Show("Lỗi : " + a);
             }
         }
@@ -423,9 +420,10 @@ namespace _3.PL.Views
 
         private void FrmBanHang_Leave(object sender, EventArgs e)
         {
+            timer1.Stop();
             if (cam.IsRunning && cam != null)
             {
-                timer1.Stop();
+                
                 cam.SignalToStop();
                 cam.WaitForStop();
                 cam = null;
@@ -451,15 +449,16 @@ namespace _3.PL.Views
                 timer1.Stop();
                 cam.SignalToStop();
                 cam.WaitForStop();
-                cam = null;
+               
             }
         }
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
+            timer1.Stop();
             if (cam.IsRunning && cam != null)
             {
-                timer1.Stop();
+                
                 cam.SignalToStop();
                 cam.WaitForStop();
                 cam = null;
@@ -467,9 +466,10 @@ namespace _3.PL.Views
         }
         private void FrmBanHang_FormClosing(object sender, FormClosingEventArgs e)
         {
+            timer1.Stop();
             if (cam.IsRunning && cam != null)
             {
-                timer1.Stop();
+            
                 cam.SignalToStop();
                 cam.WaitForStop();
                 cam = null;

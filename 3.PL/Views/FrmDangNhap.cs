@@ -39,22 +39,26 @@ namespace _3.PL.Views
         {
             if (_Iser.check(getfrm()) == 1)
             {
-                _id = _Iser.GetAll().FirstOrDefault(c => c.TaiKhoan ==txt_Tk.Text).Id;
-                FrmMain frm = new FrmMain();   
-               frm._idnv=getid();
+                _id = _Iser.GetAll().FirstOrDefault(c => c.TaiKhoan == txt_Tk.Text).Id;
+                FrmMain frm = new FrmMain();
+                frm._idnv = getid();
                 frm.ShowDialog();
+                this.Hide();
             }
             else if (_Iser.check(getfrm()) == 2)
             {
                 _id = _Iser.GetAll().FirstOrDefault(c => c.TaiKhoan == txt_Tk.Text).Id;
-                FrmMain frm = new FrmMain();              
+                FrmMain frm = new FrmMain();
                 frm._idnv = getid();
                 frm.check("Nhân viên");
                 frm.ShowDialog();
+                this.Hide();
             }
             else
-            MessageBox.Show("Tài Khoản hoạc mật khẩu không đúng ");
-            this.Hide();
+            {
+                MessageBox.Show("Tài Khoản hoạc mật khẩu không đúng ");
+              
+            }
         }
       
         public Guid getid()
