@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using _1.DAL.IRepositories;
@@ -59,7 +60,11 @@ namespace _3.PL.Views
             loadfrmsp();
             loadhd();
             Loadcmb();
-
+            txt_km.Enabled = false;
+            txt_mhd1.Enabled = false;
+            txt_tnv.Enabled = false;    
+            txt_tk.Enabled = false;
+            txt_tt.Enabled = false;
         }
 
         private void loadhd()
@@ -74,7 +79,7 @@ namespace _3.PL.Views
             this.dgrid_hd.Columns[4].Visible = false;
 
             dgrid_hd.Rows.Clear();
-            foreach (var x in _ihdser.HdGetAll())
+            foreach (var x in _ihdser.HdGetAll().Where(c=>c.TrangThai==0))
             {
                 dgrid_hd.Rows.Add(stt++, x.MaHD, x.NgayMua, x.TrangThai == 0 ? "Chưa thanh toán":"Đã thanh toán",x.Id);
             }
@@ -92,14 +97,14 @@ namespace _3.PL.Views
                 cmb_nv.Items.Add(x.TenNV);
 
             } 
-            foreach (var x in _Ikmser.KmGetAll())
+            foreach (var x in _Ikmser.KmGetAll().Where(c=>c.NgayKT.Date>=DateTime.Now))
             {
                 cmb_km.Items.Add(x.MaKM);
 
             }
-            //cmb_km.selectedindex = 0;
-            //cmb_kh.selectedindex = 0;
-            //cmb_nv.selectedindex = 0;
+            cmb_km.SelectedIndex = 0;
+            cmb_kh.SelectedIndex = 0;
+            cmb_nv.SelectedIndex = 0;
         }
 
         private void loadfrmsp()
@@ -421,6 +426,8 @@ namespace _3.PL.Views
             y += 20;
             e.Graphics.DrawLine(pn, p1, p2);
             y += 20;
+            e.Graphics.DrawString(String.Format("Giảm : {0}",txt_km.Text), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 200, y));
+            y += 20;
             e.Graphics.DrawString(String.Format("Tổng Tiền : {0}", hd.TongTien), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 200, y));
         }
 
@@ -441,6 +448,7 @@ namespace _3.PL.Views
                 IdKM = hd.IdKM,
             };
             MessageBox.Show(_ihdser.Delete(hdw));
+            loadhd();
         }
 
         private void FrmBanHang_Leave(object sender, EventArgs e)
@@ -490,7 +498,40 @@ namespace _3.PL.Views
                 dgrid_gh.Rows[row].Cells[3].Value = z.Solong;
             };
             _lstghct[row].SoLuong = int.Parse(dgrid_gh.Rows[row].Cells[3].Value.ToString());
+            loadfrmgh();
+        }
 
+        private void txt_mhd_Leave(object sender, EventArgs e)
+        {
+            Regex check = new Regex(@"^\w*$");
+            if (check.IsMatch(txt_mhd.Text)==false)
+            {
+                MessageBox.Show("Mã không được chứa kí tự đặc biệt");
+                txt_mhd.Clear();
+            }
+        }
+
+        private void dgrid_hd_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = e.RowIndex;
+            var id = Guid.Parse(dgrid_hd.Rows[row].Cells[4].Value.ToString());
+            dgrid_gh.ColumnCount = 7;
+            var stt = 1;
+            dgrid_gh.Columns[0].Name = "Stt";
+            dgrid_gh.Columns[1].Name = "Mã";
+            dgrid_gh.Columns[2].Name = "Tên";
+            dgrid_gh.Columns[3].Name = "Số Lượng";
+            dgrid_gh.Columns[4].Name = "Giá";
+            dgrid_gh.Columns[5].Name = "Thành Tiền";
+            dgrid_gh.Columns[6].Name = "ID";
+            this.dgrid_gh.Columns[6].Visible = false;
+            dgrid_gh.Rows.Clear();
+            foreach (var x in _ihdctser.HDCTGetAll().Where(c=>c.IdHD==id))
+            {
+                var gh = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == x.IdSP);
+                dgrid_gh.Rows.Add(stt++, gh.MaSp, gh.TenSp, x.SoLuong, gh.GiaBan, x.SoLuong * gh.GiaBan, x.IdSP);
+            }
+            
         }
     }
 }

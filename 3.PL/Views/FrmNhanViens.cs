@@ -66,7 +66,7 @@ namespace _3.PL.Views
             dgird_TaiKhoan.Columns[8].Name = "Trạng thái";
             dgird_TaiKhoan.Columns[9].Name = "Giới tính";
             dgird_TaiKhoan.Columns[10].Name = "Chức vụ";
-            dgird_TaiKhoan.Columns[10].Name = "Email";
+            dgird_TaiKhoan.Columns[11].Name = "Email";
             dgird_TaiKhoan.Rows.Clear();
             foreach (var x in _InhanVienSer.NvGetAll())
             {
@@ -192,6 +192,30 @@ namespace _3.PL.Views
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void txt_TimKiem_TextChanged(object sender, EventArgs e)
+        {
+            int stt = 1;
+            dgird_TaiKhoan.ColumnCount = 12;
+            dgird_TaiKhoan.Columns[0].Name = "Stt";
+            dgird_TaiKhoan.Columns[1].Name = "ID";
+            dgird_TaiKhoan.Columns[1].Visible = false;
+            dgird_TaiKhoan.Columns[2].Name = "Tên NV";
+            dgird_TaiKhoan.Columns[3].Name = "Mã NV";
+            dgird_TaiKhoan.Columns[4].Name = "Tên TK";
+            dgird_TaiKhoan.Columns[5].Name = "Mật khẩu";
+            dgird_TaiKhoan.Columns[6].Name = "Địa chỉ";
+            dgird_TaiKhoan.Columns[7].Name = "Số DT";
+            dgird_TaiKhoan.Columns[8].Name = "Trạng thái";
+            dgird_TaiKhoan.Columns[9].Name = "Giới tính";
+            dgird_TaiKhoan.Columns[10].Name = "Chức vụ";
+            dgird_TaiKhoan.Columns[11].Name = "Email";
+            dgird_TaiKhoan.Rows.Clear();
+            foreach (var x in _InhanVienSer.NvGetAll().Where(c => c.TenNV == tbx_TenNhanVien.Text || c.MaNV == tbx_MaNhanVien.Text))
+            {
+                dgird_TaiKhoan.Rows.Add(stt++, x.Id, x.TenNV, x.MaNV, x.tk, x.mk, x.DiaChi, x.STD, x.TrangThai, x.GioiTinh, x.ChucVu, x.Email);
+            }
         }
     }
 }

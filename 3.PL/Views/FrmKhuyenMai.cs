@@ -85,5 +85,38 @@ namespace _3.PL.Views
             MessageBox.Show(_IkhuyenMair.Update(temp));
             LoadData();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            int stt = 1;
+            dgird_KhuyenMai.ColumnCount = 6;
+            dgird_KhuyenMai.Columns[0].Name = "Stt";
+            dgird_KhuyenMai.Columns[1].Name = "ID";
+            dgird_KhuyenMai.Columns[0].Visible = false;
+            dgird_KhuyenMai.Columns[2].Name = "Gia tri KM";
+            dgird_KhuyenMai.Columns[3].Name = "Ma khuyen mai";
+            dgird_KhuyenMai.Columns[4].Name = "Ngay bat dau ";
+            dgird_KhuyenMai.Columns[5].Name = "Ngay ket thuc ";
+            dgird_KhuyenMai.Rows.Clear();
+            foreach (var x in _IkhuyenMair.KmGetAll().Where(c=>c.MaKM== textBox1.Text))
+            {
+                dgird_KhuyenMai.Rows.Add(stt++, x.Id, x.GiaTriKM, x.MaKM, x.NgayBD, x.NgayKT);
+            }
+        }
+
+        private void dtpKetThuc_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpKetThuc.Value < dtp_BatDau.Value)
+            {
+                MessageBox.Show("ngày kết thúc không được bé hơn ngày bắt đầu");
+               dtpKetThuc.Value = DateTime.Now;
+            }
+          
+        }
+
+        private void dtp_BatDau_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

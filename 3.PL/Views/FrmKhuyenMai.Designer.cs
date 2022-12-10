@@ -121,6 +121,7 @@
             this.dtp_BatDau.Name = "dtp_BatDau";
             this.dtp_BatDau.Size = new System.Drawing.Size(218, 29);
             this.dtp_BatDau.TabIndex = 5;
+            this.dtp_BatDau.ValueChanged += new System.EventHandler(this.dtp_BatDau_ValueChanged);
             // 
             // dtpKetThuc
             // 
@@ -131,6 +132,7 @@
             this.dtpKetThuc.Name = "dtpKetThuc";
             this.dtpKetThuc.Size = new System.Drawing.Size(218, 29);
             this.dtpKetThuc.TabIndex = 6;
+            this.dtpKetThuc.ValueChanged += new System.EventHandler(this.dtpKetThuc_ValueChanged);
             // 
             // NgayBatDau
             // 
@@ -213,6 +215,7 @@
             this.textBox1.PlaceholderText = "Tìm Kiếm...";
             this.textBox1.Size = new System.Drawing.Size(197, 28);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // groupBox1
             // 

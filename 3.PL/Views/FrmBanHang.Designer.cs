@@ -139,14 +139,14 @@
             this.dgrid_sp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrid_sp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgrid_sp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_sp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgrid_sp.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgrid_sp.Location = new System.Drawing.Point(3, 18);
             this.dgrid_sp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgrid_sp.Name = "dgrid_sp";
             this.dgrid_sp.RowHeadersWidth = 51;
             this.dgrid_sp.RowTemplate.Height = 29;
             this.dgrid_sp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_sp.Size = new System.Drawing.Size(898, 198);
+            this.dgrid_sp.Size = new System.Drawing.Size(669, 198);
             this.dgrid_sp.TabIndex = 5;
             this.dgrid_sp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_sp_CellContentClick);
             // 
@@ -165,6 +165,7 @@
             this.dgrid_hd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgrid_hd.Size = new System.Drawing.Size(594, 201);
             this.dgrid_hd.TabIndex = 6;
+            this.dgrid_hd.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_hd_CellClick);
             this.dgrid_hd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_hd_CellContentClick);
             // 
             // groupBox1
@@ -198,7 +199,7 @@
             // pb_anh
             // 
             this.pb_anh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pb_anh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_anh.Dock = System.Windows.Forms.DockStyle.Left;
             this.pb_anh.Location = new System.Drawing.Point(3, 18);
             this.pb_anh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pb_anh.Name = "pb_anh";
@@ -268,9 +269,9 @@
             this.label17.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label17.Location = new System.Drawing.Point(12, 213);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(80, 16);
+            this.label17.Size = new System.Drawing.Size(38, 16);
             this.label17.TabIndex = 17;
-            this.label17.Text = "Khuyến  mãi";
+            this.label17.Text = "Giảm";
             // 
             // dtp_ntt
             // 
@@ -435,10 +436,10 @@
             // cmb_km
             // 
             this.cmb_km.FormattingEnabled = true;
-            this.cmb_km.Location = new System.Drawing.Point(126, 296);
+            this.cmb_km.Location = new System.Drawing.Point(114, 296);
             this.cmb_km.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmb_km.Name = "cmb_km";
-            this.cmb_km.Size = new System.Drawing.Size(156, 23);
+            this.cmb_km.Size = new System.Drawing.Size(168, 23);
             this.cmb_km.TabIndex = 1;
             // 
             // groupBox4
@@ -523,6 +524,7 @@
             this.txt_mhd.Size = new System.Drawing.Size(168, 23);
             this.txt_mhd.TabIndex = 10;
             this.txt_mhd.TextChanged += new System.EventHandler(this.txt_mhd_TextChanged);
+            this.txt_mhd.Leave += new System.EventHandler(this.txt_mhd_Leave);
             // 
             // cmb_nv
             // 

@@ -387,6 +387,7 @@
             this.txt_TimKiem.PlaceholderText = "Tìm Kiếm...";
             this.txt_TimKiem.Size = new System.Drawing.Size(236, 28);
             this.txt_TimKiem.TabIndex = 30;
+            this.txt_TimKiem.TextChanged += new System.EventHandler(this.txt_TimKiem_TextChanged);
             // 
             // groupBox1
             // 
