@@ -16,6 +16,7 @@ namespace _3.PL.Views
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
+        public Guid _idnv;
         public FrmMain()
         {
             InitializeComponent();
@@ -24,6 +25,11 @@ namespace _3.PL.Views
             panelMenu.Controls.Add(leftBorderBtn);
             
         }
+        //public Guid getidnv(Guid idnv)
+        //{
+        //    _idnv = idnv;
+        //    return _idnv;
+        //}
         public void check(string v)
         {
             if (v=="Nhân viên")
@@ -32,6 +38,7 @@ namespace _3.PL.Views
                 iconButton4.Hide();
                 
             }
+            
         }
         private struct RGBColors
         {
@@ -96,7 +103,8 @@ namespace _3.PL.Views
         private void iconButton1_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new FrmBanHang());
+            var bh = new FrmBanHang(_idnv);         
+            OpenChildForm(bh);
         }
         //Sản Phẩm
         private void iconButton2_Click(object sender, EventArgs e)

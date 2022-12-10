@@ -61,6 +61,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cmb_km = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txt_tennv = new System.Windows.Forms.TextBox();
             this.btn_xoahd = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.dtp_nm = new System.Windows.Forms.DateTimePicker();
@@ -382,6 +383,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txt_tennv);
             this.groupBox4.Controls.Add(this.btn_xoahd);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.dtp_nm);
@@ -401,6 +403,14 @@
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Hóa Đơn";
+            // 
+            // txt_tennv
+            // 
+            this.txt_tennv.Location = new System.Drawing.Point(146, 199);
+            this.txt_tennv.Name = "txt_tennv";
+            this.txt_tennv.Size = new System.Drawing.Size(151, 27);
+            this.txt_tennv.TabIndex = 14;
+            this.txt_tennv.TextChanged += new System.EventHandler(this.txt_tennv_TextChanged);
             // 
             // btn_xoahd
             // 
@@ -440,15 +450,16 @@
             // cmb_nv
             // 
             this.cmb_nv.FormattingEnabled = true;
-            this.cmb_nv.Location = new System.Drawing.Point(146, 127);
+            this.cmb_nv.Location = new System.Drawing.Point(272, 48);
             this.cmb_nv.Name = "cmb_nv";
             this.cmb_nv.Size = new System.Drawing.Size(151, 28);
             this.cmb_nv.TabIndex = 7;
+            this.cmb_nv.SelectedIndexChanged += new System.EventHandler(this.cmb_nv_SelectedIndexChanged);
             // 
             // cmb_kh
             // 
             this.cmb_kh.FormattingEnabled = true;
-            this.cmb_kh.Location = new System.Drawing.Point(146, 198);
+            this.cmb_kh.Location = new System.Drawing.Point(146, 135);
             this.cmb_kh.Name = "cmb_kh";
             this.cmb_kh.Size = new System.Drawing.Size(151, 28);
             this.cmb_kh.TabIndex = 6;
@@ -619,5 +630,6 @@
         private System.Windows.Forms.Button btn_xoahd;
         private System.Windows.Forms.TextBox txt_km;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txt_tennv;
     }
 }

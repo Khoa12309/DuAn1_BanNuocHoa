@@ -97,6 +97,7 @@ namespace _2.BUS.Services
             else if (a.ChucVu == "Quản lý")
             {
                 return 1;
+                
             }
             else return 0;
 

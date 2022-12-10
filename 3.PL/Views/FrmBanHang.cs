@@ -42,7 +42,8 @@ namespace _3.PL.Views
         Guid _id ;
         float tt ;
         bool check = false;
-        public FrmBanHang()
+       public Guid _idnv;
+        public FrmBanHang(Guid id)
         {
             InitializeComponent();
             _Iserghct=new GioHangChiTietSer();
@@ -53,14 +54,16 @@ namespace _3.PL.Views
             _invser= new NhanVienSer();
             _ihdser=new HoaDonSer();
             _ihdctser = new HoaDonCtSer();
-            loadcam();
-           
+            //
+              _idnv= id;
+            loadcam();           
             loadfrmgh();
             loadfrmsp();
             loadhd();
             Loadcmb();
+            
         }
-
+        
         private void loadhd()
         {
             dgrid_hd.ColumnCount = 5;
@@ -86,7 +89,8 @@ namespace _3.PL.Views
                 cmb_kh.Items.Add(x.TenKH);
 
             }
-            
+            var nv = _invser.NvGetAll().FirstOrDefault(c => c.Id == _idnv);
+            txt_tennv.Text = nv.TenNV;
             foreach (var x in _invser.NvGetAll())
             {
                 cmb_nv.Items.Add(x.TenNV);
@@ -258,12 +262,12 @@ namespace _3.PL.Views
             {
                 tt += x.SoLuong * x.DonGia;
             }
-
+            
             return new HoaDonView()
             {
-                 Id=_id,
+                Id = _id,
                 IdKH = _ikhser.KhGetAll()[cmb_kh.SelectedIndex].Id,
-                IdNV = _invser.NvGetAll()[cmb_nv.SelectedIndex].Id,
+                IdNV = _idnv,
                 MaHD = txt_mhd.Text,
                 NgayMua = dtp_nm.Value,
                 TrangThai = 0,
@@ -372,7 +376,7 @@ namespace _3.PL.Views
             int stt= 1;
             y += 20;
             
-            foreach (var x in _ihdctser.HDCTGetAll().Where(c=>c.IdHD==_id) )
+            foreach (var x in _ihdctser.HDCTGetAll().Where(c=>c.IdHD==hd.Id) )
             {
                 var thanhtien = x.SoLuong * x.DonGia;
                 e.Graphics.DrawString(String.Format("{0}",stt++), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(10, y));
@@ -419,13 +423,13 @@ namespace _3.PL.Views
 
         private void FrmBanHang_Leave(object sender, EventArgs e)
         {
-            //if (cam.IsRunning && cam != null)
-            //{
-            //    timer1.Stop();
-            //    cam.SignalToStop();
-            //    cam.WaitForStop();
-            //    cam = null;
-            //}
+            if (cam.IsRunning && cam != null)
+            {
+                timer1.Stop();
+                cam.SignalToStop();
+                cam.WaitForStop();
+                cam = null;
+            }
         }
 
         private void txt_tkd_TextChanged(object sender, EventArgs e)
@@ -442,19 +446,20 @@ namespace _3.PL.Views
 
         private void FrmBanHang_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //timer1.Stop();
-            //if (cam.IsRunning&& cam!=null)
-            //{
-            //    cam.Stop();
-            //}
-            
+            if (cam.IsRunning && cam != null)
+            {
+                timer1.Stop();
+                cam.SignalToStop();
+                cam.WaitForStop();
+                cam = null;
+            }
         }
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
             if (cam.IsRunning && cam != null)
             {
-                //timer1.Stop();
+                timer1.Stop();
                 cam.SignalToStop();
                 cam.WaitForStop();
                 cam = null;
@@ -462,11 +467,23 @@ namespace _3.PL.Views
         }
         private void FrmBanHang_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //if (cam.IsRunning && cam != null)
-            //{
-            //    timer1.Stop();
-            //    cam.Stop();               
-            //}
+            if (cam.IsRunning && cam != null)
+            {
+                timer1.Stop();
+                cam.SignalToStop();
+                cam.WaitForStop();
+                cam = null;
+            }
+        }
+
+        private void cmb_nv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        
+        private void txt_tennv_TextChanged(object sender, EventArgs e)
+        {
+          
         }
     }
 }
