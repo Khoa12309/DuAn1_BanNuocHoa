@@ -43,3 +43,11 @@ C:\Users\giang\OneDrive\Máy tính\Thư mục mới\DuAn1_BanNuocHoa\1.DAL\obj\
 C:\Users\giang\OneDrive\Máy tính\Thư mục mới\DuAn1_BanNuocHoa\1.DAL\obj\Debug\net5.0\1.DAL.pdb
 C:\Users\giang\OneDrive\Máy tính\Thư mục mới\DuAn1_BanNuocHoa\1.DAL\obj\Debug\net5.0\1.DAL.genruntimeconfig.cache
 C:\Users\giang\OneDrive\Máy tính\Thư mục mới\DuAn1_BanNuocHoa\1.DAL\obj\Debug\net5.0\ref\1.DAL.dll
+C:\Users\giang\OneDrive\Máy tính\pr301\DuAn1_BanNuocHoa\1.DAL\obj\Debug\net5.0\1.DAL.csproj.AssemblyReference.cache
+C:\Users\giang\OneDrive\Máy tính\pr301\DuAn1_BanNuocHoa\1.DAL\obj\Debug\net5.0\1.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\giang\OneDrive\Máy tính\pr301\DuAn1_BanNuocHoa\1.DAL\obj\Debug\net5.0\1.DAL.AssemblyInfoInputs.cache
+C:\Users\giang\OneDrive\Máy tính\pr301\DuAn1_BanNuocHoa\1.DAL\obj\Debug\net5.0\1.DAL.AssemblyInfo.cs
+C:\Users\giang\OneDrive\Máy tính\pr301\DuAn1_BanNuocHoa\1.DAL\obj\Debug\net5.0\1.DAL.csproj.CoreCompileInputs.cache
+C:\Users\giang\OneDrive\Máy tính\pr301\DuAn1_BanNuocHoa\1.DAL\obj\Debug\net5.0\1.DAL.dll
+C:\Users\giang\OneDrive\Máy tính\pr301\DuAn1_BanNuocHoa\1.DAL\obj\Debug\net5.0\refint\1.DAL.dll
+C:\Users\giang\OneDrive\Máy tính\pr301\DuAn1_BanNuocHoa\1.DAL\obj\Debug\net5.0\1.DAL.pdb
