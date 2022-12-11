@@ -11,8 +11,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
-using ZXing;
 
 namespace _3.PL.Views
 {
@@ -24,6 +22,7 @@ namespace _3.PL.Views
         string chuoidung = "1234567890QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopas dfghjklzxcvbnm";
         string chuoisdt = "1234567890";
         string ma;
+
         public FrmHangSp()
         {
             InitializeComponent();
@@ -43,7 +42,17 @@ namespace _3.PL.Views
             {
                 dataGridView1.Rows.Add(x.ID, x.TenHang, x.MaHang);
             }
-
+            
+        }
+        public HangView GetDataFromGUI()
+        {
+            _HangSp_view = new HangView()
+            {
+                ID = Guid.NewGuid(),
+                MaHang = tbx_MaSp.Text,
+                TenHang = tbx_Tensp.Text,
+            };
+            return _HangSp_view;
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -51,9 +60,8 @@ namespace _3.PL.Views
             tbx_Tensp.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             _id = Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             _HangSp_view = _IHangSpr.HspGetAll().FirstOrDefault(c => c.ID == Guid.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
-           ma = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(); 
+            ma = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
-
 
         private bool kiemtrakitu(string chuoiCanKiemTra)
         {
@@ -67,11 +75,8 @@ namespace _3.PL.Views
                 }
                 if (dung == false) return false;
             }
-
-
             return true;
         }
-
         private bool kiemtraten(string chuoiCanKiemTra)
         {
             foreach (char kiTu in chuoiCanKiemTra)
@@ -90,15 +95,12 @@ namespace _3.PL.Views
         }
         public bool checktrung(string masp)
         {
-            var r = _IHangSpr.HspGetAll().Any(c=>c.MaHang == masp);
-            if ( r ==true) { return true; }
+            var r = _IHangSpr.HspGetAll().Any(c => c.MaHang == masp);
+            if (r == true) { return true; }
             return false;
         }
         private void btn_Them_Click(object sender, EventArgs e)
         {
-
-
-
             DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thực hiện chức năng này không ? ", "Thông báo", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
@@ -127,6 +129,46 @@ namespace _3.PL.Views
                     MessageBox.Show(_IHangSpr.Add(_HangSp_view));
                     LoadData();
                 }
+            }
+            else
+            {
+                return;
+
+            }
+
+        }
+
+        private void btn_Sua_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thực hiện chức năng này không ? ", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+
+
+                if (tbx_MaSp.Text.Trim() == "" || kiemtrakitu(tbx_MaSp.Text.Trim()) == false)
+                {
+
+                    MessageBox.Show("Bạn đang để trống mã hãng sản phẩm hoặc mã hãng sản phẩm có kí tự đặc biệt");
+                    return;
+                }
+                else if (checktrung(tbx_MaSp.Text.Trim()) && (tbx_MaSp.Text.Trim() != ma == true))
+                {
+                    MessageBox.Show("Trùng mã hãng sản phẩm");
+                    return;
+                }
+                else if (tbx_Tensp.Text.Trim() == "" || kiemtrakitu(tbx_Tensp.Text.Trim()) == false)
+                {
+                    MessageBox.Show("Bạn đang để trống tên hãng sản phẩm hoặc tên hãng sản phẩm có kí tự đặc biệt");
+                    return;
+                }
+                else
+                {
+                    _HangSp_view.ID = _id;
+                    _HangSp_view.MaHang = tbx_MaSp.Text;
+                    _HangSp_view.TenHang = tbx_Tensp.Text;
+                    MessageBox.Show(_IHangSpr.Update(_HangSp_view));
+                    LoadData();
+                }
 
             }
             else
@@ -134,60 +176,8 @@ namespace _3.PL.Views
                 return;
 
             }
-        }
-
-
-        public bool checkma(string ma2)
-        {
-            if (ma2 == ma) { return true; }
-            else if (checktrung(ma2) == true) { return false; }
-            else { return true; }
-            return true;
 
         }
-            private void btn_Sua_Click(object sender, EventArgs e)
-            {
-
-
-
-                DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thực hiện chức năng này không ? ", "Thông báo", MessageBoxButtons.YesNo);
-                if (dialog == DialogResult.Yes)
-                {
-                    
-               
-                    if (tbx_MaSp.Text.Trim() == "" || kiemtrakitu(tbx_MaSp.Text.Trim()) == false)
-                    {
-
-                        MessageBox.Show("Bạn đang để trống mã hãng sản phẩm hoặc mã hãng sản phẩm có kí tự đặc biệt");
-                        return;
-                    }
-                    else if (checktrung(tbx_MaSp.Text.Trim()) && (tbx_MaSp.Text.Trim() != ma == true))
-                    {
-                        MessageBox.Show("Trùng mã hãng sản phẩm");
-                        return;
-                    }
-                    else if (tbx_Tensp.Text.Trim() == "" || kiemtrakitu(tbx_Tensp.Text.Trim()) == false)
-                    {
-                        MessageBox.Show("Bạn đang để trống tên hãng sản phẩm hoặc tên hãng sản phẩm có kí tự đặc biệt");
-                        return;
-                    }
-                    else
-                    {
-                        _HangSp_view.ID = _id;
-                        _HangSp_view.MaHang = tbx_MaSp.Text;
-                        _HangSp_view.TenHang = tbx_Tensp.Text;
-                        MessageBox.Show(_IHangSpr.Update(_HangSp_view));
-                        LoadData();
-                    }
-
-                }
-                else
-                {
-                    return;
-
-                }
-
-            } 
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
@@ -203,6 +193,25 @@ namespace _3.PL.Views
             {
                 return;
             }
+
+        }
+
+        private void FrmHangSp_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbx_MaSp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        void closer()
+        {
+            label3.Click += label3_Click;
+        }
+        private void label3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

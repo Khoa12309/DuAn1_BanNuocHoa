@@ -9,7 +9,6 @@
       "3.PL/1.0.0": {
         "dependencies": {
           "2.BUS": "1.0.0",
-          "AForge": "2.2.5",
           "AForge.Video.DirectShow": "2.2.5",
           "FontAwesome.Sharp": "6.1.1",
           "QRCoder": "1.4.3",
@@ -58,7 +57,6 @@
           }
         }
       },
-<<<<<<< HEAD
       "FontAwesome.Sharp/6.1.1": {
         "runtime": {
           "lib/net5.0-windows7.0/FontAwesome.Sharp.dll": {
@@ -67,8 +65,6 @@
           }
         }
       },
-=======
->>>>>>> origin/giangnt
       "iTextSharp/5.5.13.3": {
         "dependencies": {
           "BouncyCastle": "1.8.9"
@@ -1121,7 +1117,6 @@
       "path": "bouncycastle/1.8.9",
       "hashPath": "bouncycastle.1.8.9.nupkg.sha512"
     },
-<<<<<<< HEAD
     "FontAwesome.Sharp/6.1.1": {
       "type": "package",
       "serviceable": true,
@@ -1129,8 +1124,6 @@
       "path": "fontawesome.sharp/6.1.1",
       "hashPath": "fontawesome.sharp.6.1.1.nupkg.sha512"
     },
-=======
->>>>>>> origin/giangnt
     "iTextSharp/5.5.13.3": {
       "type": "package",
       "serviceable": true,

@@ -46,6 +46,27 @@ namespace _3.PL.Views
             }
             
         }
+        public KhuyenMaiView GetDataFromUI()
+        {
+            _KhuyenMaiView = new KhuyenMaiView()
+            {
+                Id  =  Guid.NewGuid(),
+                GiaTriKM = int.Parse( tbx_GiaTriKM.Text),
+                MaKM = tbx_Ma.Text,
+                NgayBD = dtp_BatDau.Value,
+                NgayKT = dtpKetThuc.Value,
+            };
+            return _KhuyenMaiView;
+        }
+        private void dgird_KhuyenMai_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tbx_Ma.Text = dgird_KhuyenMai.Rows[e.RowIndex].Cells[3].Value.ToString();
+            tbx_GiaTriKM.Text = dgird_KhuyenMai.Rows[e.RowIndex].Cells[2].Value.ToString();
+            dtp_BatDau.Text = dgird_KhuyenMai.Rows[e.RowIndex].Cells[4].Value.ToString();
+            dtpKetThuc.Text = dgird_KhuyenMai.Rows[e.RowIndex].Cells[5].Value.ToString();
+            _id = Guid.Parse(dgird_KhuyenMai.Rows[e.RowIndex].Cells[1].Value.ToString());
+            ma = dgird_KhuyenMai.Rows[e.RowIndex].Cells[3].Value.ToString();
+        }
         private bool kiemtrakitu(string chuoiCanKiemTra)
         {
             foreach (char kiTu in chuoiCanKiemTra)
@@ -92,27 +113,6 @@ namespace _3.PL.Views
             else { return true; }
             return true;
 
-        }
-        public KhuyenMaiView GetDataFromUI()
-        {
-            _KhuyenMaiView = new KhuyenMaiView()
-            {
-                Id  =  Guid.NewGuid(),
-                GiaTriKM = int.Parse( tbx_GiaTriKM.Text),
-                MaKM = tbx_Ma.Text,
-                NgayBD = DateTime.Parse(dtp_BatDau.Text),
-                NgayKT = DateTime.Parse(dtpKetThuc.Text)
-            };
-            return _KhuyenMaiView;
-        }
-        private void dgird_KhuyenMai_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            tbx_Ma.Text = dgird_KhuyenMai.Rows[e.RowIndex].Cells[3].Value.ToString();
-            tbx_GiaTriKM.Text = dgird_KhuyenMai.Rows[e.RowIndex].Cells[2].Value.ToString();
-           dtp_BatDau. Text = dgird_KhuyenMai.Rows[e.RowIndex].Cells[4].Value.ToString();
-            dtpKetThuc .Text = dgird_KhuyenMai.Rows[e.RowIndex].Cells[5].Value.ToString();
-            _id = Guid.Parse( dgird_KhuyenMai.Rows[e.RowIndex].Cells[1].Value.ToString());
-            ma=dgird_KhuyenMai.Rows[e.RowIndex].Cells[3].Value.ToString();
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
@@ -180,7 +180,7 @@ namespace _3.PL.Views
             if (dialog == DialogResult.Yes)
             {
                 _KhuyenMaiView = new KhuyenMaiView();
-        
+
                 if (tbx_Ma.Text.Trim() == "" || kiemtrakitu(tbx_Ma.Text.Trim()) == false)
                 {
 
@@ -197,7 +197,8 @@ namespace _3.PL.Views
                     MessageBox.Show("Bạn đang để trống giá trị khuyến mại hoặc giá trị khuyến mại không đúng định dạng");
                     return;
                 }
-                else if(songaykm.Days<=0){
+                else if (songaykm.Days <= 0)
+                {
 
                     MessageBox.Show("Số ngày khuyến mại không hợp lí");
                     return;
@@ -219,6 +220,39 @@ namespace _3.PL.Views
                 return;
 
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            int stt = 1;
+            dgird_KhuyenMai.ColumnCount = 6;
+            dgird_KhuyenMai.Columns[0].Name = "Stt";
+            dgird_KhuyenMai.Columns[1].Name = "ID";
+            dgird_KhuyenMai.Columns[0].Visible = false;
+            dgird_KhuyenMai.Columns[2].Name = "Gia tri KM";
+            dgird_KhuyenMai.Columns[3].Name = "Ma khuyen mai";
+            dgird_KhuyenMai.Columns[4].Name = "Ngay bat dau ";
+            dgird_KhuyenMai.Columns[5].Name = "Ngay ket thuc ";
+            dgird_KhuyenMai.Rows.Clear();
+            foreach (var x in _IkhuyenMair.KmGetAll().Where(c=>c.MaKM== textBox1.Text))
+            {
+                dgird_KhuyenMai.Rows.Add(stt++, x.Id, x.GiaTriKM, x.MaKM, x.NgayBD, x.NgayKT);
+            }
+        }
+
+        private void dtpKetThuc_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpKetThuc.Value < dtp_BatDau.Value)
+            {
+                MessageBox.Show("ngày kết thúc không được bé hơn ngày bắt đầu");
+               dtpKetThuc.Value = DateTime.Now;
+            }
+          
+        }
+
+        private void dtp_BatDau_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

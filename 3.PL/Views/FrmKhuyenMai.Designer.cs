@@ -121,6 +121,7 @@
             this.dtp_BatDau.Name = "dtp_BatDau";
             this.dtp_BatDau.Size = new System.Drawing.Size(218, 29);
             this.dtp_BatDau.TabIndex = 5;
+            this.dtp_BatDau.ValueChanged += new System.EventHandler(this.dtp_BatDau_ValueChanged);
             // 
             // dtpKetThuc
             // 
@@ -131,6 +132,7 @@
             this.dtpKetThuc.Name = "dtpKetThuc";
             this.dtpKetThuc.Size = new System.Drawing.Size(218, 29);
             this.dtpKetThuc.TabIndex = 6;
+            this.dtpKetThuc.ValueChanged += new System.EventHandler(this.dtpKetThuc_ValueChanged);
             // 
             // NgayBatDau
             // 
@@ -195,7 +197,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 324);
@@ -205,7 +207,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.textBox1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox1.Location = new System.Drawing.Point(0, 15);
@@ -213,9 +215,11 @@
             this.textBox1.PlaceholderText = "Tìm Kiếm...";
             this.textBox1.Size = new System.Drawing.Size(197, 28);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.tbx_Ma);
             this.groupBox1.Controls.Add(this.NgayKetThuc);
@@ -233,6 +237,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox2.Controls.Add(this.btn_Add);
             this.groupBox2.Controls.Add(this.btn_Update);
             this.groupBox2.Controls.Add(this.btn_Delete);
@@ -245,7 +250,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(420, 0);

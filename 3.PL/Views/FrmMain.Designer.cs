@@ -256,9 +256,9 @@
             // 
             this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
-            this.btnHome.Location = new System.Drawing.Point(-10, 0);
+            this.btnHome.Location = new System.Drawing.Point(-22, -6);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(214, 134);
+            this.btnHome.Size = new System.Drawing.Size(244, 137);
             this.btnHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnHome.TabIndex = 0;
             this.btnHome.TabStop = false;
@@ -418,7 +418,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(494, 98);
+            this.label3.Location = new System.Drawing.Point(473, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(174, 23);
             this.label3.TabIndex = 0;
@@ -429,9 +429,9 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(446, 56);
+            this.label2.Location = new System.Drawing.Point(353, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(275, 23);
+            this.label2.Size = new System.Drawing.Size(469, 23);
             this.label2.TabIndex = 0;
             this.label2.Text = "Đ/C: 193/140 PHÚ DIỄN BẮC TỪ LIÊM HÀ NỘI";
             // 

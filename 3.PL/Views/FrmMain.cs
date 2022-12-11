@@ -16,6 +16,7 @@ namespace _3.PL.Views
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
+        public Guid _idnv;
         public FrmMain()
         {
             InitializeComponent();
@@ -23,6 +24,14 @@ namespace _3.PL.Views
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
 
+        }
+        public void check(string v)
+        {
+            if (v == "Nhân viên")
+            {
+                iconButton3.Hide();
+                iconButton4.Hide();
+            }
         }
         private struct RGBColors
         {
@@ -87,7 +96,8 @@ namespace _3.PL.Views
         private void iconButton1_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new FrmBanHang());
+            var bh = new FrmBanHang(_idnv);
+            OpenChildForm(bh);
         }
         //Sản Phẩm
         private void iconButton2_Click(object sender, EventArgs e)
@@ -111,16 +121,25 @@ namespace _3.PL.Views
         private void iconButton5_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
+            OpenChildForm(new FrmThongBao());
         }
-        //Khuyến Mãi
+        //Khác
         private void iconButton6_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
+            OpenChildForm(new FrmKhac());
         }
         //Đăng Xuất
         private void iconButton7_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color7);
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn thoát", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Hide();
+                FrmDangNhap frm = new FrmDangNhap();
+                frm.ShowDialog();
+            }
         }
         //Trang Chủ
         private void btnHome_Click(object sender, EventArgs e)

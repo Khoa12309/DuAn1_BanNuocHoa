@@ -19,12 +19,11 @@ namespace _3.PL
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-<<<<<<< HEAD
-            Application.Run(new FrmDangNhap());
-=======
-            Application.Run(new FrmSanPham());
->>>>>>> origin/giangnt
-            
+            //Application.Run(new FrmMain());
+            //Application.Run(new FrmDangNhap());
+            Application.Run(new FrmTaiKhoan());
+           // Application.Run(new FrmSanPham());
+
         }
     }
 }

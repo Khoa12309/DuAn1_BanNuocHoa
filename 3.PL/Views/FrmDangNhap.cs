@@ -17,25 +17,13 @@ namespace _3.PL.Views
     public partial class FrmDangNhap : Form
     {
         private IAccountSer _Iser;
+        private Guid _id;
         public FrmDangNhap()
         {
             InitializeComponent();
             _Iser=new AccountSer();
-            loadfrm();
+           
         }
-
-        private void loadfrm()
-        {
-            int stt = 1;
-            Type type = typeof(HoaDon);
-           dataGridView1.ColumnCount = 4;//Hiển thị bao nhiểu cột tự cấu hình
-            dataGridView1.Rows.Clear();
-            foreach (var x in _Iser.GetAll())
-            {
-                dataGridView1.Rows.Add(stt++,x.TaiKhoan,x.MatKhau,x.ChucVu);
-            }
-        }
-
         private AccountView getfrm()
         {
             AccountView view = new AccountView();
@@ -49,19 +37,28 @@ namespace _3.PL.Views
         {
             if (_Iser.check(getfrm()) == 1)
             {
-                MessageBox.Show("Tài Khoản adim");
-            
-            }else if (_Iser.check(getfrm()) == 2)
+                _id = _Iser.GetAll().FirstOrDefault(c => c.TaiKhoan == txt_Tk.Text).Id;
+                FrmMain frm = new FrmMain();
+                frm._idnv = getid();
+                frm.ShowDialog();
+                this.Hide();
+            }
+            else if (_Iser.check(getfrm()) == 2)
             {
-                MessageBox.Show("Tài Khoản user");
-            
+                _id = _Iser.GetAll().FirstOrDefault(c => c.TaiKhoan == txt_Tk.Text).Id;
+                FrmMain frm = new FrmMain();
+                frm._idnv = getid();
+                frm.check("Nhân viên");
+                frm.ShowDialog();
+                this.Hide();
             }
             else
-            MessageBox.Show("Tài Khoản 0 ");
-            FrmMain frm = new FrmMain();
-            frm.ShowDialog();
+                MessageBox.Show("Tài Khoản hoạc mật khẩu không đúng ");
         }
-
+        public Guid getid()
+        {
+            return _id;
+        }
         private void txt_Tk_TextChanged(object sender, EventArgs e)
         {
 
@@ -81,5 +78,12 @@ namespace _3.PL.Views
             this.Close();
         }
         #endregion
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            FrmQuenMatKhau qmk=new FrmQuenMatKhau();
+            qmk.ShowDialog();
+            
+        }
     }
 }

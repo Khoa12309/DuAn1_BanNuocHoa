@@ -30,7 +30,6 @@ namespace _3.PL.Views
             _LoaiView = new LoaiView();
             LoadData();
         }
-
         public void LoadData()
         {
             dgird_LoaiSp.ColumnCount = 4;
@@ -45,6 +44,16 @@ namespace _3.PL.Views
             {
                 dgird_LoaiSp.Rows.Add(stt++, x.Id, x.MaloaiSp, x.TenloaiSp);
             }
+        }
+        public LoaiView GetDataFromUI()
+        {
+            _LoaiView = new LoaiView()
+            {
+                Id = Guid.NewGuid(),
+                MaloaiSp = textBox1.Text,
+                TenloaiSp = textBox2.Text,
+            };
+            return _LoaiView;
         }
 
         private bool kiemtrakitu(string chuoiCanKiemTra)
@@ -77,21 +86,8 @@ namespace _3.PL.Views
             return true;
 
         }
-        public LoaiView GetDataFromUI()
-        {
-            _LoaiView = new LoaiView()
-            {
-                Id = Guid.NewGuid(),
-                MaloaiSp = textBox1.Text,
-                TenloaiSp = textBox2.Text,
-            };
-            return _LoaiView;
-        }
-
         private void btn_Them_Click(object sender, EventArgs e)
         {
-
-
             DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thực hiện chức năng này không ? ", "Thông báo", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
@@ -155,7 +151,7 @@ namespace _3.PL.Views
                 }
                 else
                 {
-                    _LoaiView.Id= _id;
+                    _LoaiView.Id = _id;
                     _LoaiView.MaloaiSp = textBox1.Text;
                     _LoaiView.TenloaiSp = textBox2.Text;
                     MessageBox.Show(_IloaiSpr.Update(_LoaiView));
@@ -199,5 +195,14 @@ namespace _3.PL.Views
             _LoaiView = _IloaiSpr.LspGetAll().FirstOrDefault(c => c.Id == Guid.Parse(dgird_LoaiSp.Rows[e.RowIndex].Cells[1].Value.ToString()));
             ma = dgird_LoaiSp.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
+        void close()
+        {
+            label3.Click += label3_Click;
+        }
+        private void label3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

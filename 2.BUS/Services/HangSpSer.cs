@@ -65,7 +65,7 @@ namespace _2.BUS.Services
 
         public string Update(HangView obj)
         {
-            
+
             if (obj == null)
             {
                 return "Sửa không thành công";

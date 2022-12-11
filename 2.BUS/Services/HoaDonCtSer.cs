@@ -34,7 +34,7 @@ namespace _2.BUS.Services
                 SoLuong = obj.SoLuong,
             };
             _Ihdct.Add(hdct);
-         
+
             return "Thêm thành công";
         }
 
@@ -66,8 +66,8 @@ namespace _2.BUS.Services
                            IdHD = a.IdHD,
                            IdSP = a.IdSP,
                            SoLuong = a.SoLuong,
-                           tensp=b.TenSp
-                        };
+                           tensp = b.TenSp
+                       };
             return hdct.ToList();
         }
 
@@ -90,8 +90,7 @@ namespace _2.BUS.Services
         }
     }
 
-      
 
- 
+
+
 }
-

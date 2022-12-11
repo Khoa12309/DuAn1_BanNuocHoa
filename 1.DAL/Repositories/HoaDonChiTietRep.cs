@@ -25,7 +25,7 @@ namespace _1.DAL.Repositories
             {
                 return false;
             }
-            _Dbcontext.HoaDonChiTiets.Add(obj);
+           _Dbcontext.HoaDonChiTiets.Add(obj);  
             _Dbcontext.SaveChanges();
             return true;
         }

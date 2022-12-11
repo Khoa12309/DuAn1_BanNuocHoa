@@ -8,16 +8,9 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-<<<<<<< HEAD
-using System.Net;
-using System.Net.Mail;
-=======
-using System.Text.RegularExpressions;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Security.Cryptography;
->>>>>>> origin/giangnt
 
 namespace _3.PL.Views
 {
@@ -28,14 +21,14 @@ namespace _3.PL.Views
         Guid _Id;
         string chuoidung = "1234567890QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopas dfghjklzxcvbnm";
         string chuoisdt = "1234567890";
-        string chuoiten = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopas dfghjklzxcvbnm";
+        string chuoiten = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopas dfghjklzxcvbnm ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơ" +
+                          "ƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ";
         string ma;
         public FrmKhachHang()
         {
             InitializeComponent();
             _KhachHang_view = new KhachHangView();
             _IkhachHangr = new KhachHangSer();
-            rbtn_Nam.Checked = true;
             LoadData();
         }
         public void LoadData()
@@ -56,6 +49,20 @@ namespace _3.PL.Views
                 dgird_KhachHang.Rows.Add(stt++, x.Id, x.TenKH, x.MaKH, x.GioiTinh, x.DiaChi, x.STD);
             }
 
+        }
+        public KhachHangView GetDataFromUI()
+        {
+            _KhachHang_view = new KhachHangView()
+            {
+                Id = Guid.NewGuid(),
+                MaKH = tbx_MaKhachHang.Text,
+                TenKH = tbx_TenKhachHang.Text,
+                DiaChi = tbx_DiaChi.Text,
+                STD = tbx_SoDienThoai.Text,
+                GioiTinh = rbtn_Nam.Checked == true ? "Nam" : "Nu"
+
+            };
+            return _KhachHang_view;
         }
         private bool kiemtrakitu(string chuoiCanKiemTra)
         {
@@ -106,7 +113,7 @@ namespace _3.PL.Views
         private bool kiemtrasdt(string chuoiCanKiemTra)
         {
             Regex chechdt = new Regex(@"^0");
-      
+
             foreach (char kiTu in chuoiCanKiemTra)
             {
                 bool dung = false;
@@ -126,25 +133,10 @@ namespace _3.PL.Views
             if (chuoiCanKiemTra.Length != 10)
             {
                 return false;
-                }
+            }
 
             return true;
         }
-        public KhachHangView GetDataFromUI()
-        {
-            _KhachHang_view = new KhachHangView()
-            {
-                Id = Guid.NewGuid(),
-                MaKH = tbx_MaKhachHang.Text,
-                TenKH = tbx_TenKhachHang.Text,
-                DiaChi = tbx_DiaChi.Text,
-                STD = tbx_SoDienThoai.Text,
-                GioiTinh = rbtn_Nam.Checked == true ? "Nam" : "Nu"
-
-            };
-            return _KhachHang_view;
-        }
-
         private void btn_Add_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thực hiện chức năng này không ? ", "Thông báo", MessageBoxButtons.YesNo);
@@ -174,7 +166,7 @@ namespace _3.PL.Views
                     MessageBox.Show("Bạn đang để trống SDT khách hàng hoặc SDT khách hàng sai định dạng");
                     return;
                 }
-          
+
                 else
                 {
                     _KhachHang_view.MaKH = tbx_MaKhachHang.Text;
@@ -200,14 +192,14 @@ namespace _3.PL.Views
             if (dialog == DialogResult.Yes)
             {
                 _KhachHang_view = new KhachHangView();
-            
+
                 if (tbx_MaKhachHang.Text.Trim() == "" || kiemtrakitu(tbx_MaKhachHang.Text.Trim()) == false)
                 {
 
                     MessageBox.Show("Bạn đang để trống mã khách hàng hoặc mã khách hàng có kí tự đặc biệt");
                     return;
                 }
-                else if (checkma(tbx_MaKhachHang.Text.Trim())==false) 
+                else if (checkma(tbx_MaKhachHang.Text.Trim()) == false)
                 {
                     MessageBox.Show("Trùng mã khách hàng");
                     return;
@@ -262,8 +254,8 @@ namespace _3.PL.Views
 
         private void dgird_KhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            _Id = Guid.Parse(dgird_KhachHang.Rows[e.RowIndex].Cells[1].Value.ToString()); 
-            tbx_TenKhachHang.Text = dgird_KhachHang.Rows[e.RowIndex].Cells[2].Value.ToString(); 
+            _Id = Guid.Parse(dgird_KhachHang.Rows[e.RowIndex].Cells[1].Value.ToString());
+            tbx_TenKhachHang.Text = dgird_KhachHang.Rows[e.RowIndex].Cells[2].Value.ToString();
             tbx_MaKhachHang.Text = dgird_KhachHang.Rows[e.RowIndex].Cells[3].Value.ToString();
             var Kh = _IkhachHangr.KhGetAll().FirstOrDefault(c => c.Id == _Id);
 
@@ -278,11 +270,16 @@ namespace _3.PL.Views
             tbx_DiaChi.Text = dgird_KhachHang.Rows[e.RowIndex].Cells[5].Value.ToString();
             tbx_SoDienThoai.Text = dgird_KhachHang.Rows[e.RowIndex].Cells[6].Value.ToString();
             _KhachHang_view = _IkhachHangr.KhGetAll().FirstOrDefault(c => c.Id == Guid.Parse(dgird_KhachHang.Rows[e.RowIndex].Cells[1].Value.ToString()));
-         
+
             ma = dgird_KhachHang.Rows[e.RowIndex].Cells[3].Value.ToString();
-
         }
-
-       
+        void closer()
+        {
+            label6.Click += label6_Click;
+        }
+        private void label6_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

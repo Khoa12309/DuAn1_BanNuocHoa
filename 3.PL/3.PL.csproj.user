@@ -13,6 +13,9 @@
     <Compile Update="Views\FrmHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmKhac.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -25,13 +28,19 @@
     <Compile Update="Views\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmMatKhauMoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmNhanViens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmQuenMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\Gmail.cs">
+    <Compile Update="Views\FrmThongBao.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
