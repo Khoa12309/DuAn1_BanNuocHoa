@@ -78,7 +78,7 @@ namespace _2.BUS.Services
             }
             var tk = new Account()
             {
-               
+                Id=obj.Id,   
                 TaiKhoan = obj.TaiKhoan,
                 MatKhau = obj.MatKhau
             };
