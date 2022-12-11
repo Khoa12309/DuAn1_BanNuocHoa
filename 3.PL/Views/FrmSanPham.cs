@@ -62,13 +62,13 @@ namespace _3.PL.Views
             dgrid_sp.Columns[9].Name = "Hãng";
             dgrid_sp.Columns[10].Name = "Giá Nhập";
             dgrid_sp.Columns[11].Name = "Giá Bán";
-           //dgrid_sp.Columns[12].Name = "Hình Ảnh";
+           
 
             dgrid_sp.Rows.Clear();
             this.dgrid_sp.Columns["ID"].Visible = false;
             foreach (var x in _Iser.SpGetAll())
             {
-                dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong, x.TrangThai, x.Tenloai, x.Tenhang, x.GiaNhap, x.GiaBan);
+                dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong, x.TrangThai, x.TenLoai, x.TenHang, x.GiaNhap, x.GiaBan);
             }
 
 
@@ -80,7 +80,7 @@ namespace _3.PL.Views
             {
                 cmb_Hang.Items.Add(x.TenHang);
             }
-            //cmb_Hang.SelectedIndex = 0;
+
             foreach (var x in _LoaiSer.LspGetAll())
             {
                 cmb_loai.Items.Add(x.TenloaiSp);
@@ -130,10 +130,7 @@ namespace _3.PL.Views
                 ID = _id
             };
         }
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void dgrid_sp_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -158,6 +155,7 @@ namespace _3.PL.Views
                 cmb_loai.SelectedIndex = cmb_loai.FindStringExact(loai.TenloaiSp);
                 rbtn_ch.Checked = dt.TrangThai == 1 ? true : false;
                 rrbtn_hh.Checked = dt.TrangThai == 0 ? true : false;
+                ma = dt.MaSp;
                 var idsp = _id.ToString();
                 if (idsp == null)
                 {
@@ -173,7 +171,6 @@ namespace _3.PL.Views
                MessageBox.Show("Lỗi :" +cv.Message);
             }            
         }
-
         private bool kiemtrakitu(string chuoiCanKiemTra)
         {
             foreach (char kiTu in chuoiCanKiemTra)
@@ -220,6 +217,7 @@ namespace _3.PL.Views
             if (r == true) { return true; }
             return false;
         }
+        
         private void btn_them_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thực hiện chức năng này không ? ", "Thông báo", MessageBoxButtons.YesNo);
@@ -259,7 +257,7 @@ namespace _3.PL.Views
                     return;
 
                 }
-                else if (txt_sl.Text.Trim() == "" || kiemtraten(txt_sl.Text.Trim()) == false)
+                else if (txt_sl.Text.Trim() == "" || kiemtraten(txt_sl.Text.Trim()) == false) 
                 {
                     MessageBox.Show("Bạn đang để trống số lượng bán hoặc số lượng sai định dạng");
                     return;
@@ -367,6 +365,7 @@ namespace _3.PL.Views
                 return;
 
             }
+        
 
         }
 
@@ -407,6 +406,7 @@ namespace _3.PL.Views
 
         private void txt_tk_TextChanged(object sender, EventArgs e)
         {
+
             var stt = 1;
             dgrid_sp.ColumnCount = 12;
             dgrid_sp.Columns[0].Name = "Stt";
@@ -427,8 +427,10 @@ namespace _3.PL.Views
             this.dgrid_sp.Columns["ID"].Visible = false;
             foreach (var x in _Iser.SpGetAll().Where(c=>c.MaSp==txt_tk.Text||c.TenSp==txt_tk.Text))
             {
-                dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong, x.TrangThai, x.Tenloai, x.Tenhang, x.GiaNhap, x.GiaBan);
+                dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong, x.TrangThai, x.TenLoai, x.TenHang, x.GiaNhap, x.GiaBan);
             }
+
+
         }
 
         //private Object ByteArrayToObject(byte[] arrBytes)
