@@ -20,8 +20,8 @@ namespace _3.PL
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FrmMain());
-            //Application.Run(new FrmDangNhap());
-            Application.Run(new FrmTaiKhoan());
+            Application.Run(new FrmDangNhap());
+           // Application.Run(new FrmTaiKhoan());
            // Application.Run(new FrmSanPham());
 
         }

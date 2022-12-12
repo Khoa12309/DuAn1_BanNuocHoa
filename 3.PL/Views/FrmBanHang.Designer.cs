@@ -82,6 +82,7 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.pdhd = new System.Drawing.Printing.PrintDocument();
             this.ppdhd = new System.Windows.Forms.PrintPreviewDialog();
+            this.btn_xoasanpham = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_hd)).BeginInit();
@@ -163,7 +164,7 @@
             this.dgrid_hd.RowHeadersWidth = 51;
             this.dgrid_hd.RowTemplate.Height = 29;
             this.dgrid_hd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_hd.Size = new System.Drawing.Size(594, 201);
+            this.dgrid_hd.Size = new System.Drawing.Size(594, 333);
             this.dgrid_hd.TabIndex = 6;
             this.dgrid_hd.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_hd_CellClick);
             this.dgrid_hd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_hd_CellContentClick);
@@ -186,12 +187,12 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.pb_anh);
-            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox7.Location = new System.Drawing.Point(675, 18);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox7.Location = new System.Drawing.Point(672, 18);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox7.Size = new System.Drawing.Size(226, 198);
+            this.groupBox7.Size = new System.Drawing.Size(229, 198);
             this.groupBox7.TabIndex = 9;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Hình Ảnh Sản Phẩm";
@@ -199,11 +200,11 @@
             // pb_anh
             // 
             this.pb_anh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pb_anh.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pb_anh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_anh.Location = new System.Drawing.Point(3, 18);
             this.pb_anh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pb_anh.Name = "pb_anh";
-            this.pb_anh.Size = new System.Drawing.Size(220, 178);
+            this.pb_anh.Size = new System.Drawing.Size(223, 178);
             this.pb_anh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_anh.TabIndex = 0;
             this.pb_anh.TabStop = false;
@@ -287,7 +288,7 @@
             this.btn_thanhtoan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_thanhtoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btn_thanhtoan.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_thanhtoan.Location = new System.Drawing.Point(93, 411);
+            this.btn_thanhtoan.Location = new System.Drawing.Point(95, 411);
             this.btn_thanhtoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_thanhtoan.Name = "btn_thanhtoan";
             this.btn_thanhtoan.Size = new System.Drawing.Size(153, 54);
@@ -615,14 +616,15 @@
             // 
             this.groupBox5.Controls.Add(this.dgrid_gh);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox5.Location = new System.Drawing.Point(300, 270);
+            this.groupBox5.Location = new System.Drawing.Point(300, 153);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Size = new System.Drawing.Size(600, 230);
+            this.groupBox5.Size = new System.Drawing.Size(600, 347);
             this.groupBox5.TabIndex = 11;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Danh Sách GH";
+            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
             // dgrid_gh
             // 
@@ -636,19 +638,19 @@
             this.dgrid_gh.RowHeadersWidth = 51;
             this.dgrid_gh.RowTemplate.Height = 29;
             this.dgrid_gh.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_gh.Size = new System.Drawing.Size(594, 210);
+            this.dgrid_gh.Size = new System.Drawing.Size(594, 327);
             this.dgrid_gh.TabIndex = 0;
             this.dgrid_gh.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_gh_CellValueChanged);
             // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.dgrid_hd);
-            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox6.Location = new System.Drawing.Point(300, 49);
+            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox6.Location = new System.Drawing.Point(300, 0);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox6.Size = new System.Drawing.Size(600, 221);
+            this.groupBox6.Size = new System.Drawing.Size(600, 353);
             this.groupBox6.TabIndex = 10;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Danh Sách HD";
@@ -671,11 +673,25 @@
             this.ppdhd.Name = "ppdhd";
             this.ppdhd.Visible = false;
             // 
+            // btn_xoasanpham
+            // 
+            this.btn_xoasanpham.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_xoasanpham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btn_xoasanpham.ForeColor = System.Drawing.Color.Black;
+            this.btn_xoasanpham.Location = new System.Drawing.Point(749, 222);
+            this.btn_xoasanpham.Name = "btn_xoasanpham";
+            this.btn_xoasanpham.Size = new System.Drawing.Size(127, 64);
+            this.btn_xoasanpham.TabIndex = 13;
+            this.btn_xoasanpham.Text = "Xóa sản phẩm";
+            this.btn_xoasanpham.UseVisualStyleBackColor = false;
+            this.btn_xoasanpham.Click += new System.EventHandler(this.btn_xoasanpham_Click);
+            // 
             // FrmBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 718);
+            this.Controls.Add(this.btn_xoasanpham);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -685,6 +701,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmBanHang";
             this.Text = "FrmBanHang";
+            this.Load += new System.EventHandler(this.FrmBanHang_Load);
             this.Leave += new System.EventHandler(this.FrmBanHang_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_sp)).EndInit();
@@ -761,5 +778,6 @@
         private System.Drawing.Printing.PrintDocument pdhd;
         private System.Windows.Forms.PrintPreviewDialog ppdhd;
         private System.Windows.Forms.TextBox txt_tennv;
+        private System.Windows.Forms.Button btn_xoasanpham;
     }
 }

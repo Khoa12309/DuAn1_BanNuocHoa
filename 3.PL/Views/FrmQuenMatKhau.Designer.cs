@@ -35,6 +35,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btn_thoat = new System.Windows.Forms.Button();
             this.btn_xacdinh = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -111,6 +112,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.btn_thoat);
             this.groupBox2.Controls.Add(this.btn_xacdinh);
             this.groupBox2.Controls.Add(this.label3);
@@ -123,6 +125,18 @@
             this.groupBox2.Size = new System.Drawing.Size(780, 434);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(753, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(27, 27);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "X";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // btn_thoat
             // 
@@ -220,5 +234,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_sdt;
         private System.Windows.Forms.TextBox txt_gmail;
+        private System.Windows.Forms.Label label5;
     }
 }

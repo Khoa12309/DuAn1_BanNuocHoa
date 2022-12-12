@@ -80,7 +80,8 @@ namespace _3.PL.Views
             dgird_TaiKhoan.Rows.Clear();
             foreach (var x in _InhanVienSer.NvGetAll())
             {
-                dgird_TaiKhoan.Rows.Add(stt++, x.Id, x.TenNV, x.MaNV, x.tk,x.mk, x.DiaChi, x.STD, x.TrangThai, x.GioiTinh, x.ChucVu,x.Email);
+                var temp=_ItaiKhoanr.GetAll().FirstOrDefault(c=>c.Id==x.Id);
+                dgird_TaiKhoan.Rows.Add(stt++, x.Id, x.TenNV, x.MaNV, temp.TaiKhoan,temp.MatKhau, x.DiaChi, x.STD, x.TrangThai == 1 ? "Đang đi làm" : "Đã nghỉ", x.GioiTinh, x.ChucVu,x.Email);
             }
         }
       

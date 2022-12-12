@@ -93,5 +93,13 @@ namespace _3.PL.Views
         {
             this.Hide();
         }
+        void colser()
+        {
+            label5.Click += label5_Click;
+        }
+        private void label5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

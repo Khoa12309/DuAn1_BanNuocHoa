@@ -42,6 +42,7 @@ namespace _3.PL.Views
         private IKhuyenMaiSer _Ikmser;
         public Guid _idnv;
         Guid _id;
+        Guid _idsp;
         float tt;
         bool check = false;
         public FrmBanHang(Guid id)
@@ -96,7 +97,7 @@ namespace _3.PL.Views
             var nv = _invser.NvGetAll().FirstOrDefault(c => c.Id == _idnv);
             txt_tennv.Text = nv.TenNV;
 
-            foreach (var x in _Ikmser.KmGetAll().Where(c=>c.NgayKT.Date>=DateTime.Now))
+            foreach (var x in _Ikmser.KmGetAll().Where(c=>c.NgayKT.Date>=DateTime.Now&&c.NgayBD<=DateTime.Now))
             {
                 cmb_km.Items.Add(x.MaKM);
 
@@ -485,8 +486,8 @@ namespace _3.PL.Views
         private void dgrid_gh_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             var row = e.RowIndex;
-            var id = Guid.Parse(dgrid_gh.Rows[row].Cells[6].Value.ToString());
-            var z = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == id);
+             _idsp = Guid.Parse(dgrid_gh.Rows[row].Cells[6].Value.ToString());
+            var z = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == _idsp);
             if (int.Parse(dgrid_gh.Rows[row].Cells[3].Value.ToString()) > z.Solong)
             {
                 MessageBox.Show("Số Lượng Không Đủ");
@@ -529,6 +530,21 @@ namespace _3.PL.Views
             
         }
 
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
 
+        }
+
+        private void btn_xoasanpham_Click(object sender, EventArgs e)
+        {
+            var sp = _lstghct.FirstOrDefault(c => c.IdSP == _idsp);
+            _lstghct.Remove(sp);
+            loadfrmgh();
+        }
+
+        private void FrmBanHang_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace _3.PL.Views
             dgird_KhuyenMai.ColumnCount = 6;
             dgird_KhuyenMai.Columns[0].Name = "Stt";
             dgird_KhuyenMai.Columns[1].Name = "ID";
-            dgird_KhuyenMai.Columns[0].Visible = false;
+            dgird_KhuyenMai.Columns[1].Visible = false;
             dgird_KhuyenMai.Columns[2].Name = "Gia tri KM";
             dgird_KhuyenMai.Columns[3].Name = "Ma khuyen mai";
             dgird_KhuyenMai.Columns[4].Name = "Ngay bat dau ";
