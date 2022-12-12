@@ -117,6 +117,7 @@ namespace _3.PL.Views
             foreach (char kiTu in chuoiCanKiemTra)
             {
                 bool dung = false;
+            
 
                 foreach (char kitu2 in chuoisdt)
                 {
@@ -124,13 +125,13 @@ namespace _3.PL.Views
                 }
                 if (dung == false) return false;
             }
-
-            if (!chechdt.IsMatch(chuoiCanKiemTra))
+            if (chuoiCanKiemTra == "") { return true; }
+          else  if (!chechdt.IsMatch(chuoiCanKiemTra))
             {
                 return false;
             }
             /*else*/
-            if (chuoiCanKiemTra.Length != 10)
+           else if (chuoiCanKiemTra.Length != 10)
             {
                 return false;
             }
@@ -160,7 +161,7 @@ namespace _3.PL.Views
                     MessageBox.Show("Bạn đang để trống tên khách hàng hoặc tên khách hàng có kí tự đặc biệt");
                     return;
                 }
-                else if (tbx_SoDienThoai.Text.Trim() == "" || kiemtrasdt(tbx_SoDienThoai.Text.Trim()) == false)
+                else if (kiemtrasdt(tbx_SoDienThoai.Text.Trim()) == false)
                 {
 
                     MessageBox.Show("Bạn đang để trống SDT khách hàng hoặc SDT khách hàng sai định dạng");

@@ -21,7 +21,7 @@ namespace _3.PL
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FrmMain());
             //Application.Run(new FrmDangNhap());
-            Application.Run(new FrmMatKhauMoi());
+            Application.Run(new FrmDangNhap());
            // Application.Run(new FrmSanPham());
 
         }
