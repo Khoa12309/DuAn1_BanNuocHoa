@@ -460,7 +460,7 @@ namespace _3.PL.Views
             dgird_TaiKhoan.Columns[10].Name = "Chức vụ";
             dgird_TaiKhoan.Columns[11].Name = "Email";
             dgird_TaiKhoan.Rows.Clear();
-            foreach (var x in _InhanVienSer.NvGetAll().Where(c => c.TenNV == tbx_TenNhanVien.Text || c.MaNV == tbx_MaNhanVien.Text))
+            foreach (var x in _InhanVienSer.NvGetAll().Where(c => c.TenNV.Contains(txt_TimKiem.Text) || c.MaNV.Contains(txt_TimKiem.Text)))
             {
                 dgird_TaiKhoan.Rows.Add(stt++, x.Id, x.TenNV, x.MaNV, x.tk, x.mk, x.DiaChi, x.STD, x.TrangThai, x.GioiTinh, x.ChucVu, x.Email);
             }

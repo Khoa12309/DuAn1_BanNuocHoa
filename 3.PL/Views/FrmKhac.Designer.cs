@@ -49,8 +49,9 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1054, 125);
+            this.panel1.Size = new System.Drawing.Size(1506, 208);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -63,18 +64,20 @@
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 125);
+            this.panel2.Location = new System.Drawing.Point(0, 208);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1054, 282);
+            this.panel2.Size = new System.Drawing.Size(1506, 470);
             this.panel2.TabIndex = 1;
             // 
             // btn_hsx
             // 
             this.btn_hsx.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_hsx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btn_hsx.Location = new System.Drawing.Point(851, 167);
+            this.btn_hsx.Location = new System.Drawing.Point(1216, 278);
+            this.btn_hsx.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_hsx.Name = "btn_hsx";
-            this.btn_hsx.Size = new System.Drawing.Size(105, 35);
+            this.btn_hsx.Size = new System.Drawing.Size(150, 58);
             this.btn_hsx.TabIndex = 3;
             this.btn_hsx.Text = "Hãng Sản Xuất";
             this.btn_hsx.UseVisualStyleBackColor = false;
@@ -84,9 +87,10 @@
             // 
             this.btn_kh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_kh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btn_kh.Location = new System.Drawing.Point(509, 167);
+            this.btn_kh.Location = new System.Drawing.Point(727, 278);
+            this.btn_kh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_kh.Name = "btn_kh";
-            this.btn_kh.Size = new System.Drawing.Size(105, 35);
+            this.btn_kh.Size = new System.Drawing.Size(150, 58);
             this.btn_kh.TabIndex = 3;
             this.btn_kh.Text = "Khách Hàng";
             this.btn_kh.UseVisualStyleBackColor = false;
@@ -96,9 +100,10 @@
             // 
             this.btn_loaisp.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_loaisp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btn_loaisp.Location = new System.Drawing.Point(147, 167);
+            this.btn_loaisp.Location = new System.Drawing.Point(210, 278);
+            this.btn_loaisp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_loaisp.Name = "btn_loaisp";
-            this.btn_loaisp.Size = new System.Drawing.Size(105, 35);
+            this.btn_loaisp.Size = new System.Drawing.Size(150, 58);
             this.btn_loaisp.TabIndex = 3;
             this.btn_loaisp.Text = "Loại Sản Phẩm";
             this.btn_loaisp.UseVisualStyleBackColor = false;
@@ -108,9 +113,10 @@
             // 
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(741, 15);
+            this.pictureBox3.Location = new System.Drawing.Point(1059, 25);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(313, 146);
+            this.pictureBox3.Size = new System.Drawing.Size(447, 243);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
@@ -119,9 +125,10 @@
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(395, 15);
+            this.pictureBox2.Location = new System.Drawing.Point(564, 25);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(340, 146);
+            this.pictureBox2.Size = new System.Drawing.Size(486, 243);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -130,9 +137,10 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 25);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(389, 146);
+            this.pictureBox1.Size = new System.Drawing.Size(556, 243);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -141,19 +149,21 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 307);
+            this.panel3.Location = new System.Drawing.Point(0, 554);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1054, 100);
+            this.panel3.Size = new System.Drawing.Size(1506, 124);
             this.panel3.TabIndex = 2;
             // 
             // FrmKhac
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1054, 407);
+            this.ClientSize = new System.Drawing.Size(1506, 678);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmKhac";
             this.Text = "FrmKhac";
             this.panel2.ResumeLayout(false);
