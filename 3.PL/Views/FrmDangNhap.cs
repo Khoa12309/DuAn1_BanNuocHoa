@@ -21,15 +21,14 @@ namespace _3.PL.Views
         public FrmDangNhap()
         {
             InitializeComponent();
-            _Iser=new AccountSer();
-           
+            _Iser = new AccountSer();
         }
         private AccountView getfrm()
         {
             AccountView view = new AccountView();
             view = new AccountView() {
              MatKhau = txt_Mk.Text,
-            TaiKhoan=txt_Tk.Text
+             TaiKhoan=txt_Tk.Text
             };
             return view;
         }
@@ -55,10 +54,12 @@ namespace _3.PL.Views
             else
                 MessageBox.Show("Tài Khoản hoạc mật khẩu không đúng ");
         }
+       
         public Guid getid()
         {
             return _id;
         }
+
         private void txt_Tk_TextChanged(object sender, EventArgs e)
         {
 

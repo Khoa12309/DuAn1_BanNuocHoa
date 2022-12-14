@@ -22,6 +22,8 @@ namespace _3.PL.Views
         string chuoidung = "1234567890QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopas dfghjklzxcvbnm";
         string chuoisdt = "1234567890";
         string ma;
+        string chuoiten = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopas dfghjklzxcvbnm ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơ" +
+                          "ƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ 1234567890";
 
         public FrmHangSp()
         {
@@ -69,7 +71,7 @@ namespace _3.PL.Views
             {
                 bool dung = false;
 
-                foreach (char kitu2 in chuoidung)
+                foreach (char kitu2 in chuoiten)
                 {
                     if (kiTu == kitu2) dung = true;
                 }
@@ -149,11 +151,6 @@ namespace _3.PL.Views
                 {
 
                     MessageBox.Show("Bạn đang để trống mã hãng sản phẩm hoặc mã hãng sản phẩm có kí tự đặc biệt");
-                    return;
-                }
-                else if (checktrung(tbx_MaSp.Text.Trim()) && (tbx_MaSp.Text.Trim() != ma == true))
-                {
-                    MessageBox.Show("Trùng mã hãng sản phẩm");
                     return;
                 }
                 else if (tbx_Tensp.Text.Trim() == "" || kiemtrakitu(tbx_Tensp.Text.Trim()) == false)

@@ -21,8 +21,8 @@ namespace _3.PL.Views
         Guid _Id;
         string chuoidung = "1234567890QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopas dfghjklzxcvbnm";
         string chuoisdt = "1234567890";
-        string chuoiten = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopas dfghjklzxcvbnm ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơ" +
-                          "ƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ";
+        string chuoiten = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơ"+
+                          "ƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ 1234567890";
         string ma;
         public FrmKhachHang()
         {
@@ -70,7 +70,7 @@ namespace _3.PL.Views
             {
                 bool dung = false;
 
-                foreach (char kitu2 in chuoidung)
+                foreach (char kitu2 in chuoiten)
                 {
                     if (kiTu == kitu2) dung = true;
                 }
@@ -113,7 +113,10 @@ namespace _3.PL.Views
         private bool kiemtrasdt(string chuoiCanKiemTra)
         {
             Regex chechdt = new Regex(@"^0");
-
+            if (tbx_SoDienThoai.Text == "")
+            {
+                return true;
+            }
             foreach (char kiTu in chuoiCanKiemTra)
             {
                 bool dung = false;
@@ -150,20 +153,15 @@ namespace _3.PL.Views
                     MessageBox.Show("Bạn đang để trống mã khách hàng hoặc mã khách hàng có kí tự đặc biệt");
                     return;
                 }
-                else if (checktrung(tbx_MaKhachHang.Text.Trim()) == true)
+                else if (kiemtraten(tbx_TenKhachHang.Text.Trim()) == false)
                 {
-                    MessageBox.Show("Trùng mã khách hàng");
+                    MessageBox.Show(" tên khách hàng có kí tự đặc biệt");
                     return;
                 }
-                else if (tbx_TenKhachHang.Text.Trim() == "" || kiemtraten(tbx_TenKhachHang.Text.Trim()) == false)
-                {
-                    MessageBox.Show("Bạn đang để trống tên khách hàng hoặc tên khách hàng có kí tự đặc biệt");
-                    return;
-                }
-                else if (tbx_SoDienThoai.Text.Trim() == "" || kiemtrasdt(tbx_SoDienThoai.Text.Trim()) == false)
+                else if ( kiemtrasdt(tbx_SoDienThoai.Text.Trim()) == false)
                 {
 
-                    MessageBox.Show("Bạn đang để trống SDT khách hàng hoặc SDT khách hàng sai định dạng");
+                    MessageBox.Show(" SDT khách hàng sai định dạng");
                     return;
                 }
 
@@ -192,27 +190,22 @@ namespace _3.PL.Views
             if (dialog == DialogResult.Yes)
             {
                 _KhachHang_view = new KhachHangView();
-
+                _KhachHang_view.Id = Guid.NewGuid();
                 if (tbx_MaKhachHang.Text.Trim() == "" || kiemtrakitu(tbx_MaKhachHang.Text.Trim()) == false)
                 {
 
                     MessageBox.Show("Bạn đang để trống mã khách hàng hoặc mã khách hàng có kí tự đặc biệt");
                     return;
                 }
-                else if (checkma(tbx_MaKhachHang.Text.Trim()) == false)
+                else if (kiemtraten(tbx_TenKhachHang.Text.Trim()) == false)
                 {
-                    MessageBox.Show("Trùng mã khách hàng");
+                    MessageBox.Show(" tên khách hàng có kí tự đặc biệt");
                     return;
                 }
-                else if (tbx_TenKhachHang.Text.Trim() == "" || kiemtraten(tbx_TenKhachHang.Text.Trim()) == false)
-                {
-                    MessageBox.Show("Bạn đang để trống tên khách hàng hoặc tên khách hàng có kí tự đặc biệt");
-                    return;
-                }
-                else if (tbx_SoDienThoai.Text.Trim() == "" || kiemtrasdt(tbx_SoDienThoai.Text.Trim()) == false)
+                else if (kiemtrasdt(tbx_SoDienThoai.Text.Trim()) == false)
                 {
 
-                    MessageBox.Show("Bạn đang để trống SDT khách hàng hoặc SDT khách hàng sai định dạng");
+                    MessageBox.Show(" SDT khách hàng sai định dạng");
                     return;
                 }
 
@@ -226,6 +219,7 @@ namespace _3.PL.Views
                     _KhachHang_view.GioiTinh = rbtn_Nam.Checked == true ? "Nam" : "Nu";
                     MessageBox.Show(_IkhachHangr.Update(_KhachHang_view));
                     LoadData();
+                    
                 }
 
             }

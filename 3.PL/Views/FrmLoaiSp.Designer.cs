@@ -32,11 +32,11 @@
             this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_Update = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_ma = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_ten = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgird_LoaiSp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +82,7 @@
             // btn_Update
             // 
             this.btn_Update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btn_Update.Location = new System.Drawing.Point(508, 122);
+            this.btn_Update.Location = new System.Drawing.Point(508, 126);
             this.btn_Update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Update.Name = "btn_Update";
             this.btn_Update.Size = new System.Drawing.Size(99, 35);
@@ -91,16 +91,16 @@
             this.btn_Update.UseVisualStyleBackColor = false;
             this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             // 
-            // textBox2
+            // txt_ma
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(164, 136);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PlaceholderText = "Mã loại sản phẩm";
-            this.textBox2.Size = new System.Drawing.Size(192, 16);
-            this.textBox2.TabIndex = 7;
+            this.txt_ma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txt_ma.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_ma.Location = new System.Drawing.Point(164, 136);
+            this.txt_ma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_ma.Name = "txt_ma";
+            this.txt_ma.PlaceholderText = "Mã loại sản phẩm";
+            this.txt_ma.Size = new System.Drawing.Size(192, 16);
+            this.txt_ma.TabIndex = 7;
             // 
             // label3
             // 
@@ -130,16 +130,17 @@
             this.label4.Size = new System.Drawing.Size(192, 3);
             this.label4.TabIndex = 0;
             // 
-            // textBox1
+            // txt_ten
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(164, 62);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Tên loại sản phẩm";
-            this.textBox1.Size = new System.Drawing.Size(192, 16);
-            this.textBox1.TabIndex = 1;
+            this.txt_ten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txt_ten.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_ten.Location = new System.Drawing.Point(164, 62);
+            this.txt_ten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_ten.Name = "txt_ten";
+            this.txt_ten.PlaceholderText = "Tên loại sản phẩm";
+            this.txt_ten.Size = new System.Drawing.Size(192, 16);
+            this.txt_ten.TabIndex = 1;
+            this.txt_ten.TextChanged += new System.EventHandler(this.txt_ten_TextChanged);
             // 
             // FrmLoaiSp
             // 
@@ -148,12 +149,12 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(835, 443);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_ma);
             this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.btn_Delete);
             this.Controls.Add(this.btn_Them);
             this.Controls.Add(this.dgird_LoaiSp);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_ten);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -178,5 +179,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_ma;
+        private System.Windows.Forms.TextBox txt_ten;
     }
 }

@@ -138,11 +138,22 @@ namespace _2.BUS.Services
 
                 return "Không tìm thấy";
             }
-            if (_Irep.Update(sp))
+            if (obj.Solong == 0)
             {
-
-                return "Sửa  thành công";
+                sp.TrangThai = 0;
+                if (_Irep.Update(sp))
+                {
+                    return "Sửa  thành công";
+                }
             }
+            else
+            {
+                if (_Irep.Update(sp))
+                {
+                    return "Sửa  thành công";
+                }
+            }
+
             return "Sửa không Thành công";
         }
     }

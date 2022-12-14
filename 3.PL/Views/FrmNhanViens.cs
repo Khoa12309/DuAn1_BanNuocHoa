@@ -45,6 +45,20 @@ namespace _3.PL.Views
             loadcmb();
             rbtn_DangDiLam.Checked = true;
         }
+        private void clear(){
+            txt_email.Clear();
+            txt_TimKiem.Clear();
+            tbx_DiaChi.Clear();
+            tbx_MaNhanVien.Clear();
+            tbx_SoDienThoai.Clear();
+            tbx_TenNhanVien.Clear();
+            tbx_Ten_TK.Clear();
+            tbx_MK.Clear();
+            cmb_ChucVu.SelectedIndex = 0;
+            cmb_GioiTinh.SelectedIndex = 0;
+            rbtn_DangDiLam.Checked=true;
+            pb_ca.Image = null;
+        }
 
         private void loadcmb()
         {
@@ -283,6 +297,7 @@ namespace _3.PL.Views
                     acc.MatKhau = tbx_MK.Text;
                     MessageBox.Show(_ItaiKhoanr.Add(acc));
                     LoadData();
+                    clear();
                 }
 
             }
@@ -304,11 +319,6 @@ namespace _3.PL.Views
                 {
 
                     MessageBox.Show("Bạn đang để trống mã nhân viên hoặc mã nhân viên có có kí tự đặc biệt");
-                    return;
-                }
-                else if (checkma(tbx_MaNhanVien.Text.Trim()) == false)
-                {
-                    MessageBox.Show("Trùng mã nhân viên");
                     return;
                 }
                 else if (tbx_TenNhanVien.Text.Trim() == "" || kiemtraten(tbx_TenNhanVien.Text.Trim()) == false)
@@ -363,6 +373,8 @@ namespace _3.PL.Views
                     acc.MatKhau = tbx_MK.Text;
                     MessageBox.Show(_ItaiKhoanr.Update(acc));
                     LoadData();
+                    clear();
+
                 }
 
             }

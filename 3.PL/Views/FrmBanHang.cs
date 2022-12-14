@@ -45,6 +45,14 @@ namespace _3.PL.Views
         Guid _idsp;
         float tt;
         bool check = false;
+        private List<SanPhamView> _lstsp;
+        private IKhachHangSer _IkhachHangr;
+        private KhachHangView _KhachHang_view;
+        Guid _Id;
+        string chuoisdt = "1234567890";
+        string chuoiten = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơ" +
+                          "ƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ 1234567890";
+
         public FrmBanHang(Guid id)
         {
             InitializeComponent();
@@ -56,6 +64,7 @@ namespace _3.PL.Views
             _invser= new NhanVienSer();
             _ihdser=new HoaDonSer();
             _ihdctser = new HoaDonCtSer();
+            _lstsp=new List<SanPhamView>();
             _idnv=id;
             loadcam();
             // loadcmb();
@@ -69,7 +78,6 @@ namespace _3.PL.Views
             txt_tk.Enabled = false;
             txt_tt.Enabled = false;
         }
-
         private void loadhd()
         {
             dgrid_hd.ColumnCount = 5;
@@ -82,10 +90,29 @@ namespace _3.PL.Views
             this.dgrid_hd.Columns[4].Visible = false;
 
             dgrid_hd.Rows.Clear();
-            foreach (var x in _ihdser.HdGetAll().Where(c=>c.TrangThai==0))
+            var a = _invser.NvGetAll().FirstOrDefault(c => c.Id == _idnv);
+
+            if (a.ChucVu == "Nhân viên")
             {
-                dgrid_hd.Rows.Add(stt++, x.MaHD, x.NgayMua, x.TrangThai == 0 ? "Chưa thanh toán":"Đã thanh toán",x.Id);
+                foreach (var x in _ihdser.HdGetAll().Where(c => c.TrangThai == 0 && c.IdNV == _idnv).OrderBy(c => c.NgayMua))
+                {
+
+                    dgrid_hd.Rows.Add(stt++, x.MaHD, x.NgayMua, x.TrangThai == 0 ? "Chưa thanh toán" : "Đã thanh toán", x.Id);
+
+                }
+
             }
+            else
+            {
+                foreach (var x in _ihdser.HdGetAll().Where(c => c.TrangThai == 0).OrderBy(c => c.NgayMua))
+                {
+
+
+                    dgrid_hd.Rows.Add(stt++, x.MaHD, x.NgayMua, x.TrangThai == 0 ? "Chưa thanh toán" : "Đã thanh toán", x.Id);
+                }
+
+            }
+
         }
 
         private void Loadcmb()
@@ -116,18 +143,52 @@ namespace _3.PL.Views
             dgrid_sp.Columns[3].Name = "Tên SP";
             dgrid_sp.Columns[4].Name = "Mùi Hương";
             dgrid_sp.Columns[5].Name = "Dung Tích";
-            dgrid_sp.Columns[6].Name = "Số Lượng";           
+            dgrid_sp.Columns[6].Name = "Số Lượng";
             dgrid_sp.Columns[7].Name = "Loại";
-            dgrid_sp.Columns[8].Name = "Hãng";          
+            dgrid_sp.Columns[8].Name = "Hãng";
             dgrid_sp.Columns[9].Name = "Giá Bán";
             dgrid_sp.Rows.Clear();
             this.dgrid_sp.Columns["ID"].Visible = false;
-            foreach (var x in _Isersp.SpGetAll())
+            foreach (var x in _Isersp.SpGetAll().Where(c => c.Solong > 0))
             {
-                dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong,x.Tenloai, x.Tenhang,x.GiaBan);
-            }
-        }
+                if (_lstghct == null)
+                    dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong, x.Tenloai, x.Tenhang, x.GiaBan);
+                else
+                {
+                    var ac = _lstghct.FirstOrDefault(c => c.IdSP == x.ID);
+                    if (ac == null)
+                    {
+                        dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong, x.Tenloai, x.Tenhang, x.GiaBan);
 
+                    }
+                    else
+                    {
+                        var sl = x.Solong -= ac.SoLuong;
+                        if (sl > 0)
+                            dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, sl, x.Tenloai, x.Tenhang, x.GiaBan);
+                        else
+                        {
+                            var sp = _lstsp.FirstOrDefault(c => c.ID == x.ID);
+                            _lstsp.Remove(sp);
+                            foreach (var xc in _lstsp)
+                            {
+                                dgrid_sp.Rows.Add(stt++, xc.ID, xc.MaSp, xc.TenSp, x.MuiHuong, xc.DungTich, xc.Solong, xc.Tenloai, xc.Tenhang, xc.GiaBan);
+
+                            }
+
+                        }
+                    }
+
+                }
+            }
+
+        }
+        private List<SanPhamView> lstsp()
+        {
+            _lstsp = _Isersp.SpGetAll().ToList();
+            return _lstsp;
+
+        }
         private void loadfrmgh()
         {
             dgrid_gh.ColumnCount = 7;
@@ -145,11 +206,13 @@ namespace _3.PL.Views
             {
                 var gh = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == x.IdSP);
                 dgrid_gh.Rows.Add(stt++, gh.MaSp, gh.TenSp, x.SoLuong, gh.GiaBan, x.SoLuong * gh.GiaBan, x.IdSP);
-
+                
             }
+            
         }
         private void addGH(Guid id)
         {
+
             var sp = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == id);
             var dt = _lstghct.FirstOrDefault(c => c.IdSP == id);
             if (dt == null)
@@ -161,13 +224,20 @@ namespace _3.PL.Views
                     SoLuong = 1,
                     IdGH = Guid.NewGuid(),
                     IdSP = id
-
                 };
                 _lstghct.Add(ghct);
             }
             else
             {
-                dt.SoLuong++;
+                var sl = sp.Solong -= dt.SoLuong;
+                if (sl > 0)
+                {
+                    dt.SoLuong++;
+                }
+                else
+                {
+                    MessageBox.Show("Số Lượng Không đủ");
+                }
             }
             loadfrmgh();
         }
@@ -219,6 +289,7 @@ namespace _3.PL.Views
             var z = _Isersp.SpGetAll().FirstOrDefault(c => c.ID == id);
             addGH((Guid)z.ID);
             pb_anh.Image = img(z.HinhAnh);
+            loadfrmsp();
         }
 
         private void dgrid_hd_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -274,8 +345,6 @@ namespace _3.PL.Views
         }
         private void btn_thd_Click(object sender, EventArgs e)
         {
-
-
             _id = Guid.NewGuid();
             _ihdser.Add(hdw());
             foreach (var x in _lstghct)
@@ -427,27 +496,6 @@ namespace _3.PL.Views
             y += 20;
             e.Graphics.DrawString(String.Format("Tổng Tiền : {0}", hd.TongTien), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 200, y));
         }
-
-        private void btn_xoahd_Click(object sender, EventArgs e)
-        {
-            var kh = _ikhser.KhGetAll().FirstOrDefault(c => c.TenKH == txt_tk.Text);
-            var nv = _invser.NvGetAll().FirstOrDefault(c => c.TenNV == txt_tnv.Text);
-            var hd = _ihdser.HdGetAll().FirstOrDefault(c => c.Id == _id);
-            HoaDonView hdw = new HoaDonView()
-            {
-                Id = _id,
-                IdKH = kh.Id,
-                IdNV = nv.Id,
-                MaHD = hd.MaHD,
-                NgayMua = hd.NgayMua,
-                TrangThai = hd.TrangThai,
-                TongTien = hd.TongTien,
-                IdKM = hd.IdKM,
-            };
-            MessageBox.Show(_ihdser.Delete(hdw));
-            loadhd();
-        }
-
         private void FrmBanHang_Leave(object sender, EventArgs e)
         {
             if (cam != null)
@@ -495,6 +543,7 @@ namespace _3.PL.Views
             };
             _lstghct[row].SoLuong = int.Parse(dgrid_gh.Rows[row].Cells[3].Value.ToString());
             loadfrmgh();
+            loadfrmsp();
         }
 
         private void txt_mhd_Leave(object sender, EventArgs e)
@@ -540,11 +589,56 @@ namespace _3.PL.Views
             var sp = _lstghct.FirstOrDefault(c => c.IdSP == _idsp);
             _lstghct.Remove(sp);
             loadfrmgh();
+            loadfrmsp();
         }
 
         private void FrmBanHang_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgrid_gh_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = e.RowIndex;
+            _idsp = Guid.Parse(dgrid_gh.Rows[row].Cells[6].Value.ToString());
+            loadfrmsp();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FrmKhachHang frm=new FrmKhachHang();
+            frm.ShowDialog();
+            loadhd();
+        }
+
+        private void cmb_kh_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cmb_kh_Click(object sender, EventArgs e)
+        {
+            cmb_kh.Items.Clear();
+            foreach (var x in _ikhser.KhGetAll())
+            {
+
+                cmb_kh.Items.Add(x.TenKH);
+            }
         }
     }
 }

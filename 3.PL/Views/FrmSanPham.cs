@@ -33,7 +33,7 @@ namespace _3.PL.Views
         string ma;
         string taikh;
         string chuoiten = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopas dfghjklzxcvbnm ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơ" +
-                         "ƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ";
+                         "ƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ 1234567890";
         public FrmSanPham()
         {
             InitializeComponent();
@@ -68,7 +68,7 @@ namespace _3.PL.Views
             this.dgrid_sp.Columns["ID"].Visible = false;
             foreach (var x in _Iser.SpGetAll())
             {
-                dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong, x.TrangThai, x.Tenloai, x.Tenhang, x.GiaNhap, x.GiaBan);
+                dgrid_sp.Rows.Add(stt++, x.ID, x.MaSp, x.TenSp, x.MuiHuong, x.DungTich, x.Solong, x.TrangThai==1?"Còn Hàng":"Hết Hàng", x.Tenloai, x.Tenhang, x.GiaNhap, x.GiaBan);
             }
 
 
@@ -180,7 +180,7 @@ namespace _3.PL.Views
             {
                 bool dung = false;
 
-                foreach (char kitu2 in chuoidung)
+                foreach (char kitu2 in chuoiten)
                 {
                     if (kiTu == kitu2) dung = true;
                 }
@@ -306,11 +306,6 @@ namespace _3.PL.Views
                 {
 
                     MessageBox.Show("Bạn đang để trống mã sản phẩm hoặc mã sản phẩm có có kí tự đặc biệt");
-                    return;
-                }
-                else if (checkma(txt_masp.Text.Trim()) == false)
-                {
-                    MessageBox.Show("Trùng mã sản phẩm");
                     return;
                 }
                 else if (txt_tensp.Text.Trim() == "" || kiemtrakitu(txt_tensp.Text.Trim()) == false)

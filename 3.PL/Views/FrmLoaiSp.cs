@@ -20,7 +20,8 @@ namespace _3.PL.Views
         private LoaiView _LoaiView;
         Guid _id;
         string chuoidung = "1234567890QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopas dfghjklzxcvbnm";
-        string chuoisdt = "1234567890";
+        string chuoiten = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopas dfghjklzxcvbnm ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơ" +
+                          "ƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ 1234567890";
         string ma;
 
         public FrmLoaiSp()
@@ -37,12 +38,12 @@ namespace _3.PL.Views
             dgird_LoaiSp.Columns[0].Name = "Stt";
             dgird_LoaiSp.Columns[1].Name = "ID";
             dgird_LoaiSp.Columns[1].Visible = false;
-            dgird_LoaiSp.Columns[2].Name = "Ma Loai san pham";
-            dgird_LoaiSp.Columns[3].Name = "Ten loai san pham";
+            dgird_LoaiSp.Columns[2].Name = "Tên Loai san pham";
+            dgird_LoaiSp.Columns[3].Name = "Mã loai san pham";
             dgird_LoaiSp.Rows.Clear();
             foreach (var x in _IloaiSpr.LspGetAll())
             {
-                dgird_LoaiSp.Rows.Add(stt++, x.Id, x.MaloaiSp, x.TenloaiSp);
+                dgird_LoaiSp.Rows.Add(stt++, x.Id, x.TenloaiSp, x.MaloaiSp);
             }
         }
         public LoaiView GetDataFromUI()
@@ -50,19 +51,20 @@ namespace _3.PL.Views
             _LoaiView = new LoaiView()
             {
                 Id = Guid.NewGuid(),
-                MaloaiSp = textBox1.Text,
-                TenloaiSp = textBox2.Text,
+                MaloaiSp = txt_ma.Text,
+                TenloaiSp =txt_ten.Text,
+
             };
             return _LoaiView;
         }
 
         private bool kiemtrakitu(string chuoiCanKiemTra)
         {
-            foreach (char kiTu in chuoiCanKiemTra)
+            foreach (var kiTu in chuoiCanKiemTra)
             {
                 bool dung = false;
 
-                foreach (char kitu2 in chuoidung)
+                foreach (var kitu2 in chuoiten)
                 {
                     if (kiTu == kitu2) dung = true;
                 }
@@ -91,32 +93,33 @@ namespace _3.PL.Views
             DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thực hiện chức năng này không ? ", "Thông báo", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
-                _LoaiView = new LoaiView();
-                _LoaiView.Id = Guid.NewGuid();
-                if (textBox1.Text.Trim() == "" || kiemtrakitu(textBox1.Text.Trim()) == false)
+
+
+                if (txt_ma.Text.Trim() == "" ||kiemtrakitu(txt_ma.Text.Trim()) == false)
                 {
 
-                    MessageBox.Show("Bạn đang để trống mã hãng sản phẩm hoặc mã hãng sản phẩm có kí tự đặc biệt");
+                    MessageBox.Show("Bạn đang để trống mã loai sản phẩm hoặc mã loai sản phẩm có kí tự đặc biệt");
                     return;
                 }
-                else if (checktrung(textBox1.Text.Trim()) == true)
+                else if (checktrung(txt_ma.Text.Trim()) && (txt_ma.Text.Trim() != ma == true))
                 {
-                    MessageBox.Show("Trùng mã hãng sản phẩm");
+                    MessageBox.Show("Trùng mã loai sản phẩm");
                     return;
                 }
-                else if (textBox2.Text.Trim() == "" || kiemtrakitu(textBox2.Text.Trim()) == false)
+                else if (txt_ten.Text.Trim() == "" || kiemtrakitu(txt_ten.Text.Trim()) == false)
                 {
-                    MessageBox.Show("Bạn đang để trống tên hãng sản phẩm hoặc tên hãng sản phẩm có kí tự đặc biệt");
+                    MessageBox.Show("Bạn đang để trống tên loai sản phẩm hoặc tên loai sản phẩm có kí tự đặc biệt");
                     return;
                 }
                 else
                 {
                     _LoaiView.Id = Guid.NewGuid();
-                    _LoaiView.MaloaiSp = textBox1.Text;
-                    _LoaiView.TenloaiSp = textBox2.Text;
-                    MessageBox.Show(_IloaiSpr.Add(_LoaiView));
+                    _LoaiView.MaloaiSp = txt_ma.Text;
+                    _LoaiView.TenloaiSp = txt_ten.Text;
+                    MessageBox.Show(_IloaiSpr.Add(GetDataFromUI()));
                     LoadData();
                 }
+
 
             }
             else
@@ -133,18 +136,13 @@ namespace _3.PL.Views
             {
 
 
-                if (textBox1.Text.Trim() == "" || kiemtrakitu(textBox1.Text.Trim()) == false)
+                if (txt_ma.Text.Trim() == "" || kiemtrakitu(txt_ma.Text.Trim()) == false)
                 {
 
                     MessageBox.Show("Bạn đang để trống mã loai sản phẩm hoặc mã loai sản phẩm có kí tự đặc biệt");
                     return;
                 }
-                else if (checktrung(textBox1.Text.Trim()) && (textBox1.Text.Trim() != ma == true))
-                {
-                    MessageBox.Show("Trùng mã loai sản phẩm");
-                    return;
-                }
-                else if (textBox2.Text.Trim() == "" || kiemtrakitu(textBox2.Text.Trim()) == false)
+                else if (txt_ten.Text.Trim() == "" || kiemtrakitu(txt_ten.Text.Trim()) == false)
                 {
                     MessageBox.Show("Bạn đang để trống tên loai sản phẩm hoặc tên loai sản phẩm có kí tự đặc biệt");
                     return;
@@ -152,8 +150,8 @@ namespace _3.PL.Views
                 else
                 {
                     _LoaiView.Id = _id;
-                    _LoaiView.MaloaiSp = textBox1.Text;
-                    _LoaiView.TenloaiSp = textBox2.Text;
+                    _LoaiView.MaloaiSp = txt_ma.Text;
+                    _LoaiView.TenloaiSp = txt_ten.Text;
                     MessageBox.Show(_IloaiSpr.Update(_LoaiView));
                     LoadData();
                 }
@@ -189,8 +187,8 @@ namespace _3.PL.Views
 
         private void dgird_LoaiSp_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBox1.Text = dgird_LoaiSp.Rows[e.RowIndex].Cells[2].Value.ToString();
-            textBox2.Text = dgird_LoaiSp.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txt_ten.Text = dgird_LoaiSp.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txt_ma.Text = dgird_LoaiSp.Rows[e.RowIndex].Cells[3].Value.ToString();
             _id = Guid.Parse(dgird_LoaiSp.Rows[e.RowIndex].Cells[1].Value.ToString());
             _LoaiView = _IloaiSpr.LspGetAll().FirstOrDefault(c => c.Id == Guid.Parse(dgird_LoaiSp.Rows[e.RowIndex].Cells[1].Value.ToString()));
             ma = dgird_LoaiSp.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -204,5 +202,9 @@ namespace _3.PL.Views
             this.Close();
         }
 
+        private void txt_ten_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

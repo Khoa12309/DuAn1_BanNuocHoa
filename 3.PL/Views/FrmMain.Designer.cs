@@ -287,7 +287,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Lucida Handwriting", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label4.Location = new System.Drawing.Point(445, 12);
+            this.label4.Location = new System.Drawing.Point(438, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(218, 52);
             this.label4.TabIndex = 0;
