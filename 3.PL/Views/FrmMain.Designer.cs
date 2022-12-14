@@ -445,6 +445,7 @@
             this.label1.Size = new System.Drawing.Size(311, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = "THEANH PERFUME SHOP\r\n\r\n\r\n\r\n";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
