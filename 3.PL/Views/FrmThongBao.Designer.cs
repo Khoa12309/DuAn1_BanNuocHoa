@@ -106,7 +106,7 @@
             this.txt_mailnguoigui.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_mailnguoigui.Location = new System.Drawing.Point(242, 55);
             this.txt_mailnguoigui.Name = "txt_mailnguoigui";
-            this.txt_mailnguoigui.PlaceholderText = "Người Gửi";
+            this.txt_mailnguoigui.PlaceholderText = "Email Người Gửi";
             this.txt_mailnguoigui.Size = new System.Drawing.Size(196, 19);
             this.txt_mailnguoigui.TabIndex = 1;
             // 
@@ -128,7 +128,7 @@
             this.txt_mailnguoinhan.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_mailnguoinhan.Location = new System.Drawing.Point(242, 322);
             this.txt_mailnguoinhan.Name = "txt_mailnguoinhan";
-            this.txt_mailnguoinhan.PlaceholderText = "Người Nhận";
+            this.txt_mailnguoinhan.PlaceholderText = "Email Người Nhận";
             this.txt_mailnguoinhan.Size = new System.Drawing.Size(200, 19);
             this.txt_mailnguoinhan.TabIndex = 1;
             // 
